@@ -9,6 +9,8 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@fontsource-variable/playpen-sans-arabic": "^5.2.1",
+    "@fontsource/mochiy-pop-one": "^5.2.6",
     "astro": "^5.12.5",
     "sass": "^1.89.2"
   }

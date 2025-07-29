@@ -1,0 +1,57 @@
+---
+const menuItems = [
+  { href: "/", text: "Prestations" },
+  { href: "/", text: "Derrière le soin" },
+  { href: "/", text: "Tarifs" },
+  { href: "/", text: "Contact" },
+];
+---
+<header>
+  <nav>
+      <a href="/" id="logo">Soleana</a>
+      <div class="desktop-menu">
+        {menuItems.map(item => <a href={item.href}>{item.text}</a>)}
+      </div>
+      <div class="mobile-menu">
+        <button class="menu-button">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="menu">
+            {menuItems.map(item => <a href={item.href}>{item.text}</a>)}
+        </div>
+      </div>
+  </nav>
+  <div class="gradient"></div>
+</header>
+
+<script>
+  function listenMenu() {
+    const buttonMenu = document.querySelector('.menu-button')
+    const menuTitles = document.querySelector(".menu");
+    const body = document.querySelector("body");
+
+    const toggleMenu = () => {
+      menuTitles?.classList.toggle("show");
+      buttonMenu?.classList.toggle("active");
+      body?.classList.toggle("no-scroll");
+    };
+
+    menuTitles?.addEventListener("click", toggleMenu);
+    buttonMenu?.addEventListener("click", toggleMenu)
+  }
+
+  document.addEventListener("DOMContentLoaded", listenMenu);
+  document.addEventListener("astro:after-swap", listenMenu);
+</script>
+
+<style lang="scss">
+    #logo {
+        font-size: var(--h1);
+    }
+
+    .desktop-menu {
+        display: none;
+    }
+</style>

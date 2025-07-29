@@ -1,17 +1,40 @@
 ---
 const menuItems = [
-  { href: "/", text: "Prestations" },
+  {
+    text: "Prestations",
+    subItems: [
+      { href: "/soins-visage", text: "Soins du visage" },
+      { href: "/massages", text: "Massages" },
+      { href: "/epilations", text: "Épilations" },
+      { href: "/maquillage", text: "Maquillage" },
+    ],
+  },
   { href: "/", text: "Derrière le soin" },
   { href: "/", text: "Tarifs" },
   { href: "/", text: "Contact" },
 ];
 ---
 
-<header>
+<header id="main-header">
   <nav>
     <a href="/" id="logo">Soleana</a>
     <div class="desktop-menu">
-      {menuItems.map((item) => <a href={item.href}>{item.text}</a>)}
+      {
+        menuItems.map((item) =>
+          item.subItems ? (
+            <div class="has-submenu">
+              <button class="submenu-toggle">{item.text}</button>
+              <div class="submenu">
+                {item.subItems.map((subItem) => (
+                  <a href={subItem.href}>{subItem.text}</a>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <a href={item.href}>{item.text}</a>
+          )
+        )
+      }
     </div>
     <div class="mobile-menu">
       <button class="menu-button">
@@ -20,34 +43,46 @@ const menuItems = [
         <span></span>
       </button>
       <div class="menu">
-        {menuItems.map((item) => <a href={item.href}>{item.text}</a>)}
+        {
+          menuItems.map((item) =>
+            item.subItems ? (
+              <div class="has-submenu">
+                <button class="submenu-toggle">{item.text}</button>
+                <div class="submenu">
+                  {item.subItems.map((subItem) => (
+                    <a href={subItem.href}>{subItem.text}</a>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <a href={item.href}>{item.text}</a>
+            )
+          )
+        }
       </div>
     </div>
   </nav>
 </header>
 
 <script>
-  function listenMenu() {
-    const buttonMenu = document.querySelector(".menu-button");
-    const menuTitles = document.querySelector(".menu");
-    const body = document.querySelector("body");
+  import { setupMobileMenu } from "../scripts/Navbar/mobileMenu";
+  import { setupSubmenuToggle } from "../scripts/Navbar/submenuToggle";
 
-    const toggleMenu = () => {
-      menuTitles?.classList.toggle("show");
-      buttonMenu?.classList.toggle("active");
-      body?.classList.toggle("no-scroll");
-    };
+  document.addEventListener("DOMContentLoaded", () => {
+    const header = document.getElementById("main-header");
+    if (header) {
+      setupMobileMenu(header);
+      setupSubmenuToggle(header);
+    }
+  });
 
-    menuTitles?.addEventListener("click", toggleMenu);
-    buttonMenu?.addEventListener("click", toggleMenu);
-  }
-
-  document.addEventListener("DOMContentLoaded", listenMenu);
-  document.addEventListener("astro:after-swap", listenMenu);
+  document.addEventListener("DOMContentLoaded", setupMobileMenu);
+  document.addEventListener("astro:after-swap", setupMobileMenu);
 </script>
 
 <style lang="scss">
   header {
+    margin-top: 0.5rem;
     width: 100%;
     position: relative;
     background-color: transparent;
@@ -57,16 +92,19 @@ const menuItems = [
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0.5rem 0;
     width: 90%;
     margin: 0 auto;
   }
 
   #logo {
     font-size: var(--h1);
+    font-family: var(--font-title);
   }
 
   a {
     font-size: var(--h2);
+    font-family: var(--font-text);
   }
 
   .desktop-menu {
@@ -74,6 +112,7 @@ const menuItems = [
   }
 
   .menu-button {
+    margin-top: 0.75rem;
     height: 30px;
     width: 30px;
     position: relative;
@@ -136,6 +175,35 @@ const menuItems = [
     z-index: 10;
   }
 
+  .submenu-toggle {
+    color: var(--primary-color);
+    font-family: var(--font-text);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: var(--h2);
+    &:hover {
+      color: var(--secondary-color);
+      transition: all 0.4s ease-in-out;
+    }
+  }
+
+  .submenu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding-top: 1.5rem;
+    a {
+      font-size: var(--h5);
+      opacity: 0.8;
+    }
+  }
+
+  .has-submenu.open > .submenu {
+    display: flex;
+  }
+
   @media (width >= 768px) {
     .desktop-menu {
       display: flex;
@@ -144,12 +212,32 @@ const menuItems = [
       white-space: nowrap;
     }
 
-    .desktop-menu a {
-      font-size: 1.4rem;
-    }
-
     .mobile-menu {
       display: none;
+    }
+
+    .has-submenu {
+      position: relative;
+    }
+
+    .desktop-menu .has-submenu.open > .submenu {
+      display: flex;
+    }
+
+    a,
+    .submenu-toggle {
+      font-size: var(--h4);
+    }
+
+    .submenu {
+      position: absolute;
+      top: 115%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--tertiary-color);
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
   }
 </style>

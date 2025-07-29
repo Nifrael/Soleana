@@ -6,29 +6,29 @@ const menuItems = [
   { href: "/", text: "Contact" },
 ];
 ---
+
 <header>
   <nav>
-      <a href="/" id="logo">Soleana</a>
-      <div class="desktop-menu">
-        {menuItems.map(item => <a href={item.href}>{item.text}</a>)}
+    <a href="/" id="logo">Soleana</a>
+    <div class="desktop-menu">
+      {menuItems.map((item) => <a href={item.href}>{item.text}</a>)}
+    </div>
+    <div class="mobile-menu">
+      <button class="menu-button">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="menu">
+        {menuItems.map((item) => <a href={item.href}>{item.text}</a>)}
       </div>
-      <div class="mobile-menu">
-        <button class="menu-button">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        <div class="menu">
-            {menuItems.map(item => <a href={item.href}>{item.text}</a>)}
-        </div>
-      </div>
+    </div>
   </nav>
-  <div class="gradient"></div>
 </header>
 
 <script>
   function listenMenu() {
-    const buttonMenu = document.querySelector('.menu-button')
+    const buttonMenu = document.querySelector(".menu-button");
     const menuTitles = document.querySelector(".menu");
     const body = document.querySelector("body");
 
@@ -39,7 +39,7 @@ const menuItems = [
     };
 
     menuTitles?.addEventListener("click", toggleMenu);
-    buttonMenu?.addEventListener("click", toggleMenu)
+    buttonMenu?.addEventListener("click", toggleMenu);
   }
 
   document.addEventListener("DOMContentLoaded", listenMenu);
@@ -47,11 +47,109 @@ const menuItems = [
 </script>
 
 <style lang="scss">
-    #logo {
-        font-size: var(--h1);
+  header {
+    width: 100%;
+    position: relative;
+    background-color: transparent;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  #logo {
+    font-size: var(--h1);
+  }
+
+  a {
+    font-size: var(--h2);
+  }
+
+  .desktop-menu {
+    display: none;
+  }
+
+  .menu-button {
+    height: 30px;
+    width: 30px;
+    position: relative;
+    background-color: transparent;
+    border: none;
+    span {
+      height: 3px;
+      width: 100%;
+      background-color: var(--primary-color);
+      border-radius: 25px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: 0.2s ease;
+    }
+    span:first-child {
+      top: 25%;
+    }
+    span:last-child {
+      top: 75%;
+    }
+  }
+
+  .active {
+    span:first-child {
+      top: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+    span:nth-child(2) {
+      opacity: 0;
+    }
+    span:last-child {
+      top: 50%;
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+
+  .menu {
+    position: absolute;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    top: 100%;
+    left: 0;
+    background-color: var(--tertiary-color);
+    padding: 5rem 0;
+    z-index: -3;
+    transition: 0.5s ease;
+    opacity: 0;
+    overflow: auto;
+  }
+
+  .show {
+    opacity: 1;
+    transition: 0.5s ease;
+    z-index: 10;
+  }
+
+  @media (width >= 768px) {
+    .desktop-menu {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      white-space: nowrap;
     }
 
-    .desktop-menu {
-        display: none;
+    .desktop-menu a {
+      font-size: 1.4rem;
     }
+
+    .mobile-menu {
+      display: none;
+    }
+  }
 </style>

@@ -4,6 +4,7 @@ export function setupMobileMenu(headerElement) {
   const menuButton = headerElement.querySelector(".menu-button");
   const menuContainer = headerElement.querySelector(".mobile-menu .menu");
   const body = document.body;
+  const html = document.documentElement;
 
   if (!menuButton || !menuContainer) return;
 
@@ -11,6 +12,7 @@ export function setupMobileMenu(headerElement) {
     menuContainer.classList.toggle("show");
     menuButton.classList.toggle("active");
     body.classList.toggle("no-scroll");
+    html.classList.toggle("no-scroll");
   };
 
   menuButton.addEventListener("click", toggleMobileMenu);

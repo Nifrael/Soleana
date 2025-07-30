@@ -68,16 +68,16 @@ const menuItems = [
   import { setupMobileMenu } from "../scripts/Navbar/mobileMenu";
   import { setupSubmenuToggle } from "../scripts/Navbar/submenuToggle";
 
-  document.addEventListener("DOMContentLoaded", () => {
+  function initNavbarScripts() {
     const header = document.getElementById("main-header");
     if (header) {
       setupMobileMenu(header);
       setupSubmenuToggle(header);
     }
-  });
+  }
 
-  document.addEventListener("DOMContentLoaded", setupMobileMenu);
-  document.addEventListener("astro:after-swap", setupMobileMenu);
+  document.addEventListener("DOMContentLoaded", initNavbarScripts);
+  document.addEventListener("astro:after-swap", initNavbarScripts);
 </script>
 
 <style lang="scss">
@@ -95,11 +95,14 @@ const menuItems = [
     padding: 0.5rem 0;
     width: 90%;
     margin: 0 auto;
+    z-index: 5;
   }
 
   #logo {
     font-size: var(--h1);
     font-family: var(--font-title);
+    position: relative;
+    z-index: 20;
   }
 
   a {
@@ -117,6 +120,7 @@ const menuItems = [
     width: 30px;
     position: relative;
     background-color: transparent;
+    z-index: 20;
     border: none;
     span {
       height: 3px;
@@ -152,18 +156,18 @@ const menuItems = [
   }
 
   .menu {
-    position: absolute;
+    position: fixed;
     width: 100vw;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 3rem;
-    top: 100%;
+    top: 0;
     left: 0;
     background-color: var(--tertiary-color);
-    padding: 5rem 0;
-    z-index: -3;
+    padding: 10rem 0;
+    z-index: -10;
     transition: 0.5s ease;
     opacity: 0;
     overflow: auto;
@@ -171,7 +175,7 @@ const menuItems = [
 
   .show {
     opacity: 1;
-    transition: 0.5s ease;
+    transition: 0.3s ease-in-out;
     z-index: 10;
   }
 
@@ -202,6 +206,11 @@ const menuItems = [
 
   .has-submenu.open > .submenu {
     display: flex;
+  }
+
+  :global(body.no-scroll),
+  :global(html.no-scroll) {
+    overflow: hidden;
   }
 
   @media (width >= 768px) {

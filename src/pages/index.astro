@@ -2,27 +2,84 @@
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import Bienvenue from "../assets/Images/Bienvenue.jpg";
+import BienvenueMobile from "../assets/Images/Bienvenue-Mobile.jpg";
 ---
 
 <Layout>
-  <Image src={Bienvenue} alt="Photo d'accueil" fit="cover" id="head-photo" />
+  <div class="head-background">
+    <Image src={Bienvenue} alt="Photo d'accueil" id="head-photo-desktop" />
+    <Image src={BienvenueMobile} alt="Photo d'accueil" id="head-photo-mobile" />
+  </div>
+  <div class="head-text">
+    <h1>L'INSTANT SOLEANA</h1>
+    <h2>S'invite chez vous</h2>
+  </div>
 </Layout>
 
 <style lang="scss">
-  #head-photo {
+  .head-background {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
-    object-fit: cover;
-    object-position: left;
     z-index: -1;
+    background-color: var(--secondary-color);
+  }
+
+  .head-background::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: var(--secondary-color);
+    opacity: 0.35;
+  }
+
+  .head-text {
+    max-width: 100vw;
+    position: absolute;
+    top: 20%;
+    left: 7%;
+    h1 {
+      font-size: 2.5rem;
+      max-width: 70%;
+    }
+    h2 {
+      font-size: 1.8rem;
+    }
+  }
+
+  #head-photo-mobile {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    object-position: top;
+    object-fit: cover;
+  }
+
+  #head-photo-desktop {
+    display: none;
   }
 
   @media (width >= 768px) {
-    #head-photo {
+    #head-photo-desktop {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      z-index: -1;
       object-position: top;
+      object-fit: cover;
+    }
+
+    #head-photo-mobile {
+      display: none;
     }
   }
 </style>

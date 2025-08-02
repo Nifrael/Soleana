@@ -26,6 +26,7 @@ main {
   --font-text: "Playpen Sans Arabic";
   --base-size: 1rem;
   --scale: 1.25;
+  --p: calc(var(--base-size) * 1.05);
   --h5: calc(var(--base-size) * var(--scale));
   --h4: calc(var(--h5) * var(--scale));
   --h3: calc(var(--h4) * var(--scale));
@@ -53,6 +54,7 @@ $breakpoint-desktop-xxl: 1440px;
 
 p {
   margin: 0.5rem 0;
+  font-size: var(--p);
 }
 
 a {

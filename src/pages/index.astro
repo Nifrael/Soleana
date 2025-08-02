@@ -1,8 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
-import Bienvenue from "../assets/Images/Bienvenue.jpg";
-import BienvenueMobile from "../assets/Images/Bienvenue-Mobile.jpg";
+import Bienvenue from "../assets/images/Bienvenue.jpg";
+import BienvenueMobile from "../assets/images/Bienvenue-Mobile.jpg";
 import PrestationsCards from "../components/PrestationsCards.astro";
 ---
 
@@ -25,6 +25,8 @@ import PrestationsCards from "../components/PrestationsCards.astro";
 </Layout>
 
 <style lang="scss">
+  @use "../styles/global.scss";
+
   .page-content {
     margin-top: 95vh;
   }
@@ -44,7 +46,7 @@ import PrestationsCards from "../components/PrestationsCards.astro";
     position: absolute;
     inset: 0;
     background-color: var(--secondary-color);
-    opacity: 0.35;
+    opacity: 0.6;
   }
 
   .head-text {
@@ -76,13 +78,44 @@ import PrestationsCards from "../components/PrestationsCards.astro";
     display: none;
   }
 
-  @media (width >= 768px) {
+  @media (width >= global.$breakpoint-tablet) {
     .desktop {
       display: block;
     }
 
     .mobile {
       display: none;
+    }
+
+    .head-text {
+      h1 {
+        font-size: 4rem;
+      }
+      h2 {
+        font-size: 3rem;
+      }
+    }
+  }
+
+  @media (width >= global.$breakpoint-desktop) {
+    .head-text {
+      h1 {
+        font-size: 4.5rem;
+      }
+      h2 {
+        font-size: 3.5rem;
+      }
+    }
+  }
+
+  @media (width >= global.$breakpoint-desktop-xxl) {
+    .head-text {
+      h1 {
+        font-size: 6rem;
+      }
+      h2 {
+        font-size: 4rem;
+      }
     }
   }
 </style>

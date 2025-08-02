@@ -39,6 +39,11 @@ h1 {
   font-weight: 900;
 }
 
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-desktop-xl: 1280px;
+$breakpoint-desktop-xxl: 1440px;
+
 @each $i in (1, 2, 3, 4, 5) {
   h#{$i} {
     font-size: var(--h#{$i});

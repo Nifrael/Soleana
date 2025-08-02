@@ -1,5 +1,6 @@
 ---
-import Navbar from "../components/Navbar.astro";
+import Navbar from "../components/global/Navbar.astro";
+import Footer from "../components/global/Footer.astro";
 ---
 
 <!doctype html>
@@ -9,16 +10,20 @@ import Navbar from "../components/Navbar.astro";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <link rel="stylesheet" href="/src/styles/global.scss" />
-    <title>Astro Basics</title>
+    <title>Soleana</title>
   </head>
   <body>
     <Navbar />
-    <slot />
+    <main>
+      <slot />
+    </main>
+    <Footer />
   </body>
 </html>
 
-<style>
+<style is:global lang="scss">
+  @use "../styles/global.scss";
+
   html,
   body {
     margin: 0;

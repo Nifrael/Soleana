@@ -65,8 +65,8 @@ const menuItems = [
 </header>
 
 <script>
-  import { setupMobileMenu } from "../scripts/Navbar/mobileMenu";
-  import { setupSubmenuToggle } from "../scripts/Navbar/submenuToggle";
+  import { setupMobileMenu } from "../../scripts/Navbar/mobileMenu";
+  import { setupSubmenuToggle } from "../../scripts/Navbar/submenuToggle";
 
   function initNavbarScripts() {
     const header = document.getElementById("main-header");
@@ -81,6 +81,8 @@ const menuItems = [
 </script>
 
 <style lang="scss">
+  @use "../../styles/global.scss";
+
   header {
     margin-top: 0.5rem;
     width: 100%;
@@ -91,7 +93,7 @@ const menuItems = [
   nav {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
     padding: 0.5rem 0;
     width: 90%;
     margin: 0 auto;
@@ -213,7 +215,7 @@ const menuItems = [
     overflow: hidden;
   }
 
-  @media (width >= 768px) {
+  @media (width >= global.$breakpoint-desktop) {
     .desktop-menu {
       display: flex;
       align-items: center;
@@ -243,7 +245,7 @@ const menuItems = [
       top: 115%;
       left: 50%;
       transform: translateX(-50%);
-      background-color: var(--tertiary-color);
+      background-color: rgba(255, 255, 255, 0.832);
       padding: 1rem;
       border-radius: 8px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);

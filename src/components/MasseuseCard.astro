@@ -1,0 +1,80 @@
+---
+import PhotoProfil from "../assets/images/Soledad.jpg";
+import { Image } from "astro:assets";
+import Button from "./ui/Button.astro";
+---
+
+<div class="person-card-container">
+  <div class="person-card">
+    <Image src={PhotoProfil} alt="Photo de profil" id="profile-photo" />
+    <div class="person-card-text">
+      <h1>Soledad Barranco</h1>
+      <p>
+        "Passionnée par la beauté au naturel et le bien-être global, je choisis
+        d'aller au-delà du simple soin, pour créer de véritables rituels sur
+        mesure."
+      </p>
+      <h5>Je vous invite à en découvrir plus sur moi, si vous le souhaitez.</h5>
+      <Button text="Derrière le soin" href="/apropos" variant="secondary" />
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  @use "../styles/global.scss";
+
+  .person-card-container {
+    margin: 4rem auto;
+    width: 100%;
+    background-image: url(../assets/images/Zen.jpg);
+    background-color: rgba(0, 0, 0, 0.325);
+    background-blend-mode: overlay;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding: 4rem 1rem;
+  }
+
+  #profile-photo {
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+  }
+
+  .person-card {
+    display: grid;
+
+    margin: 0 auto;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    h1,
+    h5,
+    p {
+      color: var(--secondary-color);
+    }
+  }
+
+  .person-card-text {
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
+    backdrop-filter: blur(15px);
+    padding: 1rem;
+  }
+
+  @media (width >= global.$breakpoint-desktop-xxl) {
+    .person-card {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      width: 80%;
+    }
+
+    #profile-photo {
+      width: 450px;
+      height: 450px;
+    }
+  }
+</style>

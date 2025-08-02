@@ -81,6 +81,8 @@ const menuItems = [
 </script>
 
 <style lang="scss">
+  @use "../styles/global.scss";
+
   header {
     margin-top: 0.5rem;
     width: 100%;
@@ -91,7 +93,7 @@ const menuItems = [
   nav {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
     padding: 0.5rem 0;
     width: 90%;
     margin: 0 auto;
@@ -213,7 +215,7 @@ const menuItems = [
     overflow: hidden;
   }
 
-  @media (width >= 768px) {
+  @media (width >= global.$breakpoint-desktop) {
     .desktop-menu {
       display: flex;
       align-items: center;

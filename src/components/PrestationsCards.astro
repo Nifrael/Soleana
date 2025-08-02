@@ -55,14 +55,15 @@ import { Image } from "astro:assets";
     display: grid;
     grid-template-columns: 1fr;
     justify-content: center;
-    gap: 2.5rem;
+    gap: 2rem;
   }
 
   .prestation-card {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 25% 25% 25% 25%;
     align-items: center;
-    justify-content: center;
+    justify-items: center;
     height: 100%; /* S'assure que la carte remplit toute la hauteur de la cellule de la grille */
     margin: 0 auto;
 
@@ -73,16 +74,14 @@ import { Image } from "astro:assets";
     }
   }
 
-  /* Cible le conteneur du bouton pour le pousser vers le bas */
-  .prestation-card :global(.button-container) {
-    margin-top: auto;
-    padding-top: 1rem; /* Ajoute un peu d'espace au-dessus du bouton */
-  }
-
   @media (width >= global.$breakpoint-desktop) {
     .prestations-cards-container {
       width: 95%;
       grid-template-columns: repeat(2, 1fr);
+    }
+
+    .prestation-card {
+      width: 80%;
     }
   }
 </style>

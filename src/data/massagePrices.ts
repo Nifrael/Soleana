@@ -53,3 +53,4 @@ export const massagePrices = [
       "Plongez dans une bulle de douceur où chaque partie de votre corps est écoutée, détendue, harmonisée.",
   },
 ];
+

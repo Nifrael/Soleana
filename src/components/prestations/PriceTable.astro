@@ -1,0 +1,107 @@
+---
+interface PriceItem {
+  name: string;
+  duration: string;
+  price: string;
+  description: string;
+}
+
+interface Props {
+  title: string;
+  items: PriceItem[];
+}
+
+const { title, items } = Astro.props;
+---
+
+<section class="price-table">
+  <h3>{title}</h3>
+
+  <div class="price-table-grid">
+    {
+      items.map((item) => (
+        <div class="price-item">
+          <div class="price-item-header">
+            <h4 class="price-item-name">
+              {item.name} - {item.duration}
+            </h4>
+            <span class="price-item-duration">{item.duration}</span>
+          </div>
+          {item.description && (
+            <p class="price-item-description">{item.description}</p>
+          )}
+          <span class="price-item-price">{item.price}</span>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style lang="scss">
+  @use "../../styles/global.scss";
+
+  .price-table {
+    width: 95%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+  }
+
+  h3 {
+    text-align: center;
+    color: var(--primary-color);
+    position: relative;
+  }
+
+  .price-table-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .price-item {
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 0.5rem 1.5rem;
+  }
+
+  .price-item-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .price-item-name {
+    font-family: var(--font-text);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin: 0;
+  }
+
+  .price-item-description {
+    margin: 0;
+    color: #555;
+    font-style: italic;
+    font-size: 0.95rem;
+    grid-column: 1 / 2; /* S'étend sur la première colonne */
+  }
+
+  .price-item-price {
+    font-family: var(--font-title);
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--tertiary-color);
+    justify-self: end;
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
+  }
+
+  @media (width >= global.$breakpoint-desktop) {
+    .price-table-grid {
+      grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    }
+  }
+</style>

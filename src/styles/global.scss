@@ -20,7 +20,7 @@ main {
 
 :root {
   --primary-color: rgb(84, 102, 98);
-  --secondary-color: rgb(238, 223, 226);
+  --secondary-color: rgb(255, 237, 241);
   --tertiary-color: rgb(255, 255, 255);
   --font-title: "Mochiy Pop One";
   --font-text: "Playpen Sans Arabic";
@@ -59,10 +59,10 @@ p {
 
 a {
   text-decoration: none;
-  color: var(--primary-color);
+  color: var(--secondary-color);
   transition: all 0.4s ease-in-out;
   &:hover {
-    color: var(--secondary-color);
+    color: var(--tertiary-color);
     transition: all 0.4s ease-in-out;
   }
 }

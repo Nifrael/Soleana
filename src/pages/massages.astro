@@ -3,6 +3,22 @@ import PageHero from "../components/global/PageHero.astro";
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import Massage from "../assets/images/pages/Massages.jpg";
+import PriceTable from "../components/prestations/PriceTable.astro";
+
+const massagePrices = [
+  {
+    name: "Massage Suédois",
+    duration: "30 min",
+    price: "36€",
+    description: "Massage sportif",
+  },
+  {
+    name: "Massage Suédois",
+    duration: "30 min",
+    price: "36€",
+    description: "Massage sportif",
+  },
+];
 ---
 
 <Layout>
@@ -17,6 +33,7 @@ import Massage from "../assets/images/pages/Massages.jpg";
     <cite>
       Offrez-vous une parenthèse de bien-être en choisissant votre massage.
     </cite>
+    <PriceTable title="Tarif des massages" , items={massagePrices} />
   </div>
 </Layout>
 

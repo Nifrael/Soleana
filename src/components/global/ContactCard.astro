@@ -1,0 +1,27 @@
+---
+import Button from "../ui/Button.astro";
+---
+
+<div class="contact-card">
+  <Button text="Contactez-moi" href="/contact" variant="secondary" />
+</div>
+
+<style lang="scss">
+  .contact-card {
+    width: 100%;
+    height: 20vh;
+    background-image: url("/src/assets/images/Contact.jpg");
+    background-color: rgba(0, 0, 0, 0.4);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .button-container {
+    margin: auto;
+  }
+</style>

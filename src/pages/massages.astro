@@ -1,0 +1,28 @@
+---
+import PageHero from "../components/global/PageHero.astro";
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import Massage from "../assets/images/pages/Massages.jpg";
+---
+
+<Layout>
+  <PageHero
+    imageDesktop={Massage}
+    imageMobile={Massage}
+    altText="Photo d'accueil de la section massages"
+    title="Massages"
+    subtitle=""
+  />
+  <div class="page-content">
+    <cite>
+      Offrez-vous une parenthèse de bien-être en choisissant votre massage.
+    </cite>
+  </div>
+</Layout>
+
+<style lang="scss">
+  .page-content {
+    margin-top: 95vh;
+    padding-bottom: 2rem;
+  }
+</style>

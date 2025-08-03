@@ -1,0 +1,44 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PageHero from "../../components/global/PageHero.astro";
+import { Image } from "astro:assets";
+import PriceTable from "../../components/prestations/PriceTable.astro";
+import ContactCard from "../../components/global/ContactCard.astro";
+import MaquillageImage from "../../assets/images/pages/Maquillage.jpg";
+import MaquillageIcon from "../../assets/icons/makeupIcon.svg";
+import { maquillagePrices } from "../../data/maquillagePrices.ts";
+---
+
+<Layout>
+  <PageHero
+    imageDesktop={MaquillageImage}
+    imageMobile={MaquillageImage}
+    altText="Photo d'accueil de la section maquillage"
+    title="Maquillage"
+    subtitle=""
+  />
+  <div class="page-content">
+    <h1>"Soyez doux avec vous-même."</h1>
+    <span id="icon"><Image src={MaquillageIcon} alt="Icône de massage" /></span>
+    <PriceTable title="Maquillage" , items={maquillagePrices} />
+  </div>
+  <ContactCard />
+</Layout>
+
+<style lang="scss">
+  .page-content {
+    margin-top: 95vh;
+    padding-bottom: 2rem;
+    h1 {
+      text-align: center;
+      padding-top: 2rem;
+      font-style: italic;
+    }
+  }
+
+  #icon {
+    display: block;
+    text-align: center;
+    padding: 2rem 0;
+  }
+</style>

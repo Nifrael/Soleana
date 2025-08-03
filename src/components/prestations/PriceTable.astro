@@ -1,5 +1,5 @@
 ---
-interface PriceItem {
+export interface PriceItem {
   name: string;
   duration: string;
   price: string;
@@ -15,22 +15,21 @@ const { title, items } = Astro.props;
 ---
 
 <section class="price-table">
-  <h3>{title}</h3>
+  <h2>{title}</h2>
 
   <div class="price-table-grid">
     {
       items.map((item) => (
         <div class="price-item">
           <div class="price-item-header">
-            <h4 class="price-item-name">
-              {item.name} - {item.duration}
-            </h4>
-            <span class="price-item-duration">{item.duration}</span>
+            <h5 class="price-item-name">{item.name}</h5>
           </div>
           {item.description && (
-            <p class="price-item-description">{item.description}</p>
+            <p class="price-item-description">
+              {item.description} - <span id="duration">{item.duration}</span>
+            </p>
           )}
-          <span class="price-item-price">{item.price}</span>
+          <h5 class="price-item-price">{item.price}</h5>
         </div>
       ))
     }
@@ -44,10 +43,9 @@ const { title, items } = Astro.props;
     width: 95%;
     max-width: 1200px;
     margin: 2rem auto;
-    padding: 1rem;
   }
 
-  h3 {
+  h2 {
     text-align: center;
     color: var(--primary-color);
     position: relative;
@@ -56,15 +54,14 @@ const { title, items } = Astro.props;
   .price-table-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1rem;
   }
 
   .price-item {
     padding: 1rem;
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 85% 15%;
     align-items: center;
-    gap: 0.5rem 1.5rem;
+    gap: 0.25rem;
   }
 
   .price-item-header {
@@ -75,7 +72,6 @@ const { title, items } = Astro.props;
 
   .price-item-name {
     font-family: var(--font-text);
-    font-size: 1.25rem;
     font-weight: 600;
     color: var(--primary-color);
     margin: 0;
@@ -86,17 +82,19 @@ const { title, items } = Astro.props;
     color: #555;
     font-style: italic;
     font-size: 0.95rem;
-    grid-column: 1 / 2; /* S'étend sur la première colonne */
+    grid-column: 1 / 2;
   }
 
   .price-item-price {
-    font-family: var(--font-title);
-    font-size: 2rem;
-    font-weight: bold;
-    color: var(--tertiary-color);
-    justify-self: end;
+    justify-self: center;
     grid-column: 2 / 3;
     grid-row: 1 / 3;
+    margin: 0;
+  }
+
+  #duration {
+    color: var(--primary-color);
+    font-weight: bold;
   }
 
   @media (width >= global.$breakpoint-desktop) {

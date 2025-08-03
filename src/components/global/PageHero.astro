@@ -18,8 +18,8 @@ const { imageDesktop, imageMobile, altText, title, subtitle } = Astro.props;
   <Image src={imageMobile} alt={altText} class="head-photo mobile" />
 </div>
 <div class="head-text">
-  <h1>L'INSTANT SOLEANA</h1>
-  <h2>S'invite chez vous</h2>
+  <h1>{title}</h1>
+  <h2>{subtitle}</h2>
 </div>
 
 <style lang="scss">

@@ -1,0 +1,107 @@
+---
+export interface PriceItem {
+  name: string;
+  duration: string;
+  price: string;
+  description: string;
+}
+
+interface Props {
+  title: string;
+  items: PriceItem[];
+}
+
+const { title, items } = Astro.props;
+---
+
+<section class="price-table">
+  <h1>{title}</h1>
+
+  <div class="price-table-grid">
+    {
+      items.map((item) => (
+        <div class="price-item">
+          <div class="price-item-header">
+            <h5 class="price-item-name">{item.name}</h5>
+          </div>
+          {item.description && (
+            <p class="price-item-description">
+              {item.description} <span id="duration">{item.duration}</span>
+            </p>
+          )}
+          <h5 class="price-item-price">{item.price}</h5>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style lang="scss">
+  @use "../../styles/global.scss";
+
+  .price-table {
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto 2rem auto;
+  }
+
+  h1 {
+    text-align: center;
+    color: var(--primary-color);
+    position: relative;
+    padding-bottom: 1rem;
+    margin-top: 0;
+  }
+
+  .price-table-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .price-item {
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 85% 15%;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .price-item-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .price-item-name {
+    font-family: var(--font-text);
+    font-weight: 600;
+    color: var(--primary-color);
+    margin: 0;
+  }
+
+  .price-item-description {
+    margin: 0;
+    color: #555;
+    font-style: italic;
+    font-size: 0.95rem;
+    grid-column: 1 / 2;
+  }
+
+  .price-item-price {
+    justify-self: center;
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
+    margin: 0;
+  }
+
+  #duration {
+    color: var(--primary-color);
+    font-weight: bold;
+  }
+
+  @media (width >= global.$breakpoint-desktop) {
+    .price-table-grid {
+      grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    }
+  }
+</style>

@@ -26,7 +26,7 @@ const { title, items } = Astro.props;
           </div>
           {item.description && (
             <p class="price-item-description">
-              {item.description} - <span id="duration">{item.duration}</span>
+              {item.description} <span id="duration">{item.duration}</span>
             </p>
           )}
           <h5 class="price-item-price">{item.price}</h5>

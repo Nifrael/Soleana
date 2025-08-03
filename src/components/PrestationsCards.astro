@@ -25,14 +25,14 @@ import { Image } from "astro:assets";
       Découvrez une sélection de soins pour prendre soin de vous, de votre corps
       et plus spécifiquement de votre visage, de vos mains, de vos pieds.
     </p>
-    <Button text="Soins" href="/soins" variant="primary" />
+    <Button text="Soins" href="/prestations/soins" variant="primary" />
   </div>
 
   <div class="prestation-card">
     <Image src={HairIcon} alt="Icône d'épilation" />
     <h2>Epilation</h2>
     <p>Choisissez la zone et dîtes adieu aux poils.</p>
-    <Button text="Epilation" href="/prestations/epilation" variant="primary" />
+    <Button text="Epilation" href="/prestations/epilations" variant="primary" />
   </div>
 
   <div class="prestation-card">
@@ -42,7 +42,11 @@ import { Image } from "astro:assets";
       Un évènement ? Une occasion particulière ? Choisissez la formule adaptée à
       vos besoins.
     </p>
-    <Button text="Maquillage" href="/maquillage" variant="primary" />
+    <Button
+      text="Maquillage"
+      href="/prestations/maquillage"
+      variant="primary"
+    />
   </div>
 </div>
 

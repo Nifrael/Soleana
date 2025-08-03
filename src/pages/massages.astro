@@ -4,21 +4,8 @@ import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import Massage from "../assets/images/pages/Massages.jpg";
 import PriceTable from "../components/prestations/PriceTable.astro";
-
-const massagePrices = [
-  {
-    name: "Massage Suédois",
-    duration: "30 min",
-    price: "36€",
-    description: "Massage sportif",
-  },
-  {
-    name: "Massage Suédois",
-    duration: "30 min",
-    price: "36€",
-    description: "Massage sportif",
-  },
-];
+import { massagePrices } from "../data/massagePrices";
+import ContactCard from "../components/global/ContactCard.astro";
 ---
 
 <Layout>
@@ -30,16 +17,20 @@ const massagePrices = [
     subtitle=""
   />
   <div class="page-content">
-    <cite>
-      Offrez-vous une parenthèse de bien-être en choisissant votre massage.
-    </cite>
+    <h1>Offrez-vous une parenthèse de bien-être.</h1>
     <PriceTable title="Tarif des massages" , items={massagePrices} />
   </div>
+  <ContactCard />
 </Layout>
 
 <style lang="scss">
   .page-content {
-    margin-top: 95vh;
+    margin-top: 90vh;
     padding-bottom: 2rem;
+    :first-child {
+      text-align: center;
+      padding-top: 1.5rem;
+      font-style: italic;
+    }
   }
 </style>

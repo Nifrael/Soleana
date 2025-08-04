@@ -1,0 +1,31 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHero from "../components/global/PageHero.astro";
+import { Image } from "astro:assets";
+import Soledad from "../assets/images/Soledad.jpg";
+---
+
+<Layout>
+  <PageHero
+    imageDesktop={Soledad}
+    imageMobile={Soledad}
+    altText="Photo section derrière le soin"
+    title="Derrière le soin"
+    subtitle=""
+  />
+  <div class="page-content">
+    <h1>Pourquoi ?</h1>
+  </div>
+
+  <style lang="scss">
+    .page-content {
+      margin-top: 95vh;
+      padding-bottom: 2rem;
+      h1 {
+        text-align: center;
+        padding-top: 2rem;
+        font-style: italic;
+      }
+    }
+  </style>
+</Layout>

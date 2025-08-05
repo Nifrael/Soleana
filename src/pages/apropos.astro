@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import PageHero from "../components/global/PageHero.astro";
 import { Image } from "astro:assets";
 import Soledad from "../assets/images/Soledad.jpg";
+import AboutPhoto from "../assets/images/Apropos.jpg";
 ---
 
 <Layout>
@@ -14,17 +15,88 @@ import Soledad from "../assets/images/Soledad.jpg";
     subtitle=""
   />
   <div class="page-content">
-    <h1>Pourquoi ?</h1>
+    <h1>Pourquoi Soleana ?</h1>
+    <p>
+      Parce que je suis profondément convaincue que chacun mérite une parenthèse
+      enchantée, un moment privilégié pour soi. C'est de cette conviction qu'est
+      né L'Instant Soléana.
+    </p>
+    <p>
+      Mon ambition est d'aller au-delà du simple soin. Je souhaite vous offrir
+      une véritable expérience : un luxe authentique et profondément humain, une
+      invitation à ralentir, à vous reconnecter pleinement à votre corps, à
+      votre souffle, et à retrouver une paix intérieure durable.
+    </p>
+    <p>
+      Guidée par ma passion pour le toucher, ma vision de la beauté au naturel
+      et mon profond respect pour le rythme unique de chacun, je me déplace chez
+      vous pour créer ces instants suspendus. Des moments où tout s'apaise, où
+      le bien-être se révèle et où votre équilibre se réaligne.
+    </p>
+    <p>
+      Ce que je vous propose, ce n'est pas seulement un massage ou un soin.
+      C'est la création d'un espace intime et lumineux de recentrage et de
+      douceur, directement dans le confort et la sérénité de votre foyer.
+    </p>
+
+    <h1>L'expertise Soleana</h1>
+    <p>
+      Diplômée en esthétique, je m'engage à mettre à votre service une expertise
+      et une rigueur professionnelle affûtées par de nombreuses années de
+      formation et d'expérience. Chaque soin que je conçois est l'expression de
+      ce savoir-faire, alliant la précision des protocoles esthétiques à une
+      infinie douceur et à une attention de chaque instant.
+    </p>
+
+    <p>
+      Au-delà de la technique, c'est une passion profonde pour la beauté au
+      naturel et le bien-être global qui m'anime. Mon approche va bien au-delà
+      d'un simple soin : elle vise à créer des rituels sur mesure, conçus pour
+      sublimer votre éclat tout en vous offrant un moment de profonde détente.
+      Il s'agit d'une invitation à révéler votre beauté intérieure et
+      extérieure, en toute harmonie.
+    </p>
+  </div>
+  <div class="about-photo">
+    <Image src={AboutPhoto} alt="Photo de la section A-propos" />
   </div>
 
   <style lang="scss">
+    @use "../styles/global.scss";
+
     .page-content {
-      margin-top: 95vh;
+      margin: 95vh auto 0 auto;
       padding-bottom: 2rem;
       h1 {
         text-align: center;
         padding-top: 2rem;
         font-style: italic;
+      }
+      p {
+        text-align: justify;
+        line-height: 1.75rem;
+        padding: 1rem 2rem 0rem 2rem;
+        color: var(--primary-color);
+      }
+    }
+
+    .about-photo {
+      width: 90vw;
+      max-width: 1000px;
+      margin: 2rem auto 4rem;
+      img {
+        width: 100%;
+        height: auto;
+        border-top-left-radius: 30%;
+        border-top-right-radius: 50%;
+        border-bottom-left-radius: 50%;
+        border-bottom-right-radius: 30%;
+      }
+    }
+
+    @media (width >= global.$breakpoint-desktop) {
+      .page-content {
+        max-width: 1000px;
       }
     }
   </style>

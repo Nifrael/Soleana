@@ -1,0 +1,64 @@
+{
+  "title": "Massages",
+  "subtitle": "Découvrez nos prestations de massages",
+  "quote": "Offrez-vous une parenthèse de bien-être",
+  "image": {
+    "src": "../../assets/images/pages/Massages.jpg",
+    "alt": "Image de la section massages"
+  },
+  "icon": {
+    "src": "../../assets/icons/massageIcon.svg",
+    "alt": "Icône de la section massages"
+  },
+  "priceTableTitle": "Les Tarifs Soleana",
+  "prices": [
+    {
+      "name": "L’art du Lâché-Prise Crânien",
+      "duration": "30 min",
+      "price": "35€",
+      "description": "Un simple touché peut libérer l’esprit : découvrez le massage crânien."
+    },
+    {
+      "name": "Eclat et sérénité : Le Massage du visage",
+      "duration": "30 min",
+      "price": "35€",
+      "description": "Parce qu’un visage détendu reflète l’harmonie intérieure."
+    },
+    {
+      "name": "A Fleur de peau : Massage des mains",
+      "duration": "30 min",
+      "price": "30€",
+      "description": "Prenez le temps de détendre vos mains."
+    },
+    {
+      "name": "Le Pouvoir Apaisant du Massage Plantaire",
+      "duration": "30 min",
+      "price": "30€",
+      "description": "Un voyage intérieur commence par un simple massage plantaire."
+    },
+    {
+      "name": "Massage du dos ; Détente Ciblée",
+      "duration": "45 min",
+      "price": "49€",
+      "description": "Un massage profond pour libérer les tensions et un bien être immédiat."
+    },
+    {
+      "name": "Massage jambes légères, Esprit Léger",
+      "duration": "45 min",
+      "price": "49€",
+      "description": "Des gestes fluides pour alléger vos jambes."
+    },
+    {
+      "name": "Massage corps pour une évasion totale",
+      "duration": "60 min",
+      "price": "69€",
+      "description": "Un voyage sensoriel complet, où chaque geste invite à la détente et à l’harmonie."
+    },
+    {
+      "name": "L’Expérience Corps Entier",
+      "duration": "90 min",
+      "price": "95€",
+      "description": "Plongez dans une bulle de douceur où chaque partie de votre corps est écoutée, détendue, harmonisée."
+    }
+  ]
+}

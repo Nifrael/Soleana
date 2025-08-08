@@ -6,7 +6,7 @@ const menuItems = [
       { href: "/prestations/soins", text: "Soins bien-être" },
       { href: "/prestations/massages", text: "Massages" },
       { href: "/prestations/epilations", text: "Épilations" },
-      { href: "/prestations/maquillage", text: "Maquillage" },
+      { href: "/prestations/maquillages", text: "Maquillage" },
     ],
   },
   { href: "/apropos", text: "Derrière le soin" },
@@ -87,6 +87,7 @@ const menuItems = [
     width: 100%;
     position: relative;
     background-color: transparent;
+    z-index: 1000;
   }
 
   nav {
@@ -96,7 +97,6 @@ const menuItems = [
     padding: 0.5rem 0;
     width: 90%;
     margin: 0 auto;
-    z-index: 5;
   }
 
   #logo {

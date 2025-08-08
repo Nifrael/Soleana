@@ -1,6 +1,13 @@
 ---
 import Navbar from "../components/global/Navbar.astro";
 import Footer from "../components/global/Footer.astro";
+import { callSafely } from "astro:actions";
+
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
 ---
 
 <!doctype html>
@@ -10,7 +17,7 @@ import Footer from "../components/global/Footer.astro";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Soleana</title>
+    <title>{title}</title>
   </head>
   <body>
     <Navbar />

@@ -87,7 +87,6 @@ const menuItems = [
     width: 100%;
     position: relative;
     background-color: transparent;
-    z-index: 1000;
   }
 
   nav {
@@ -97,6 +96,7 @@ const menuItems = [
     padding: 0.5rem 0;
     width: 90%;
     margin: 0 auto;
+    z-index: 5;
   }
 
   #logo {
@@ -221,6 +221,10 @@ const menuItems = [
   }
 
   @media (width >= global.$breakpoint-desktop) {
+    .header {
+      z-index: 100;
+    }
+
     .desktop-menu {
       display: flex;
       align-items: center;

@@ -1,0 +1,79 @@
+---
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import type { PrestationData } from "../../types/prestation";
+
+import Layout from "../../layouts/Layout.astro";
+import PageHero from "../../components/global/PageHero.astro";
+import PriceTable from "../../components/prestations/PriceTable.astro";
+import ContactCard from "../../components/global/ContactCard.astro";
+
+export async function getStaticPaths() {
+  const prestations = await getCollection("prestations");
+  return prestations.map((prestation) => {
+    const slug = prestation.id.split(".")[0];
+    return {
+      params: { slug },
+      props: {
+        prestationData: prestation.data,
+      },
+    };
+  });
+}
+
+const { prestationData } = Astro.props;
+---
+
+<Layout>
+  <PageHero
+    imageDesktop={prestationData.image.src}
+    imageMobile={prestationData.image.src}
+    altText={`Photo d'accueil de la section ${prestationData.title}`}
+    title={prestationData.title}
+    subtitle={prestationData.subtitle}
+  />
+  <div class="page-content">
+    <h1>"{prestationData.quote}"</h1>
+    <span id="icon">
+      <Image
+        src={prestationData.icon.src}
+        alt={`Icône de ${prestationData.title}`}
+      />
+    </span>
+
+    <PriceTable
+      title={prestationData.priceTableTitle}
+      items={prestationData.prices}
+    />
+
+    {
+      prestationData.secondPrices && (
+        <PriceTable
+          title={prestationData.secondPriceTableTitle}
+          items={prestationData.secondPrices}
+        />
+      )
+    }
+  </div>
+  <ContactCard />
+</Layout>
+
+<style lang="scss">
+  @use "../../styles/global.scss";
+
+  .page-content {
+    margin-top: 95vh;
+    padding-bottom: 2rem;
+    h1 {
+      text-align: center;
+      padding-top: 2rem;
+      font-style: italic;
+    }
+  }
+
+  #icon {
+    display: block;
+    text-align: center;
+    padding: 2rem 0;
+  }
+</style>

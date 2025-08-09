@@ -7,6 +7,7 @@ import Layout from "../../layouts/Layout.astro";
 import PageHero from "../../components/global/PageHero.astro";
 import PriceTable from "../../components/prestations/PriceTable.astro";
 import ContactCard from "../../components/global/ContactCard.astro";
+import StructureCard from "../../components/global/StructuresCards.astro";
 
 export async function getStaticPaths() {
   const prestations = await getCollection("prestations");
@@ -22,6 +23,9 @@ export async function getStaticPaths() {
 }
 
 const { prestationData } = Astro.props;
+
+const partenaires = await getCollection("partenaires");
+const partenaire = partenaires.length > 0 ? partenaires[0].data : null;
 ---
 
 <Layout title={`Soleana | ${prestationData.title}`}>
@@ -34,12 +38,11 @@ const { prestationData } = Astro.props;
   />
   <div class="page-content">
     <h1>"{prestationData.quote}"</h1>
-    <span id="icon">
-      <Image
-        src={prestationData.icon.src}
-        alt={`Icône de ${prestationData.title}`}
-      />
-    </span>
+    <Image
+      id="icon"
+      src={prestationData.icon.src}
+      alt={`Icône de ${prestationData.title}`}
+    />
 
     <PriceTable
       title={prestationData.priceTableTitle}
@@ -47,10 +50,39 @@ const { prestationData } = Astro.props;
     />
 
     {
+      prestationData.pageLayout === "structures" && partenaire && (
+        <StructureCard
+          name={partenaire.name}
+          location={partenaire.location}
+          websiteUrl={partenaire.websiteUrl}
+          description={partenaire.description}
+        />
+      )
+    }
+
+    {
       prestationData.secondPrices && (
         <PriceTable
           title={prestationData.secondPriceTableTitle}
           items={prestationData.secondPrices}
+        />
+      )
+    }
+
+    {
+      prestationData.thirdPrices && (
+        <PriceTable
+          title={prestationData.thirdPriceTableTitle}
+          items={prestationData.thirdPrices}
+        />
+      )
+    }
+
+    {
+      prestationData.fourthPrices && (
+        <PriceTable
+          title={prestationData.fourthPriceTableTitle}
+          items={prestationData.fourthPrices}
         />
       )
     }
@@ -62,18 +94,23 @@ const { prestationData } = Astro.props;
   @use "../../styles/global.scss";
 
   .page-content {
-    margin-top: 95vh;
+    max-width: 90vw;
+    margin: 95vh auto 0 auto;
     padding-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
     h1 {
       text-align: center;
-      padding-top: 2rem;
+      padding-top: 1rem;
+      margin-bottom: 0;
       font-style: italic;
     }
-  }
-
-  #icon {
-    display: block;
-    text-align: center;
-    padding: 2rem 0;
+    img {
+      width: 30px;
+      justify-self: center;
+    }
   }
 </style>

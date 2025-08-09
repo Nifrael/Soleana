@@ -1,0 +1,59 @@
+{
+  "title": "En Structure",
+  "pageLayout": "structures",
+  "subtitle": "Faites-vous vraiment plaisir.",
+  "quote": "Un moment de détente inoubliable.",
+  "image": {
+    "src": "../../assets/images/pages/Hotels.jpg",
+    "alt": "Image montrant le spa d'un hôtel"
+  },
+  "icon": {
+    "src": "../../assets/icons/spaIcon.svg",
+    "alt": "Icône de spa"
+  },
+  "priceTableTitle": "Hôtel Mar I Cel - Canet-En-Roussillon",
+  "prices": [
+    {
+      "name": "Hammam & Massage (50mn)",
+      "duration": "Hammam 20mn + Massage 30mn",
+      "price": "65€",
+      "description": ""
+    },
+    {
+      "name": "Sauna & Massage (80mn)",
+      "duration": "Sauna 20mn + Massage 60mn",
+      "price": "95€",
+      "description": ""
+    },
+    {
+      "name": "Hammam & Gommage Corps (60mn)",
+      "duration": "Hammam 30mn + Gommage 30mn",
+      "price": "65€",
+      "description": ""
+    },
+    {
+      "name": "Sauna & Gommage Corps (60mn)",
+      "duration": "Sauna 30mn + Gommage 30mn",
+      "price": "65€",
+      "description": ""
+    },
+    {
+      "name": "Hammam & Soin Visage (80mn)",
+      "duration": "Hammam 20mn + Soin visage 60mn",
+      "price": "100€",
+      "description": ""
+    },
+    {
+      "name": "Sauna & Soin Visage (80mn)",
+      "duration": "Sauna 20mn + Soin visage 60mn",
+      "price": "100€",
+      "description": ""
+    },
+    {
+      "name": "Option Accès Piscine",
+      "duration": "La demi-journée",
+      "price": "25€",
+      "description": "Ajoutez un moment de détente supplémentaire à votre soin avec notre accès piscine."
+    }
+  ]
+}

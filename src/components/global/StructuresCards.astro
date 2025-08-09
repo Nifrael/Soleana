@@ -1,0 +1,78 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+interface Props {
+  name: string;
+  location: string;
+  websiteUrl: string;
+  description: string;
+}
+
+const { name, location, websiteUrl, description } = Astro.props;
+---
+
+<div class="hotel-card">
+  <a href={websiteUrl} target="_blank" rel="noopener noreferrer"> </a>
+
+  <div class="card-content">
+    <h3 class="hotel-name">{name}</h3>
+    <p class="hotel-location">{location}</p>
+    <p class="hotel-description">{description}</p>
+    <a
+      href={websiteUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="website-button"
+    >
+      Visiter le site
+    </a>
+  </div>
+</div>
+
+<style lang="scss">
+  .hotel-card {
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .hotel-name {
+    margin: 0 0 0.5rem 0;
+  }
+
+  .hotel-location {
+    color: #555;
+    margin: 0 0 1rem 0;
+  }
+
+  .hotel-description {
+    font-family: var(--font-text);
+    flex-grow: 1;
+    margin-bottom: 1.5rem;
+  }
+
+  .website-button {
+    text-align: center;
+    margin: 0 auto;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 0.5rem 0.5rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    &:hover {
+      color: var(--primary-color);
+      background-color: var(--secondary-color);
+    }
+  }
+</style>

@@ -1,5 +1,6 @@
 {
   "title": "Maquillage",
+  "pageLayout": "maquillages",
   "subtitle": "Mettez en lumière votre beauté naturelle.",
   "quote": "Le maquillage pour sublimer votre visage.",
   "image": {
@@ -13,7 +14,7 @@
   "priceTableTitle": "Les tarifs Soleana",
   "prices": [
     {
-      "name": "Maquillage jour",
+      "name": "Maquillage Jour",
       "duration": "",
       "price": "30€",
       "description": "Teint frais, lumineux et naturel, regard léger, idéal pour la journée ou un entretien."
@@ -43,7 +44,7 @@
       "description": "Mise en beauté pour les invitées d'un mariage."
     },
     {
-      "name": "Maquillage pour évènement",
+      "name": "Maquillage Pour Evènement",
       "duration": "",
       "price": "35€",
       "description": "Mise en beauté pour un évènement particulier (Modèle photo...)."

@@ -1,5 +1,6 @@
 {
   "title": "Épilations",
+  "pageLayout": "epilations",
   "subtitle": "Une peau douce et soyeuse, sans effort.",
   "quote": "Un instant de douceur, une peau parfaite.",
   "image": {
@@ -133,6 +134,72 @@
       "name": "Jambes complètes",
       "duration": "",
       "price": "28€",
+      "description": ""
+    }
+  ],
+  "thirdPriceTableTitle": "Formules épilation – Femmes",
+  "thirdPrices": [
+    {
+      "name": "Formule Visage",
+      "duration": "",
+      "price": "18€",
+      "description": "Sourcils + Lèvres + Menton"
+    },
+    {
+      "name": "Formule Visage complet",
+      "duration": "",
+      "price": "22€",
+      "description": "Sourcils + lèvre + menton + joues"
+    },
+    {
+      "name": "Formule Demi-Jambes",
+      "duration": "",
+      "price": "32€",
+      "description": "Demi-jambes + maillot normal + aisselles"
+    },
+    {
+      "name": "Formule Demi-Jambes",
+      "duration": "",
+      "price": "42€",
+      "description": "Demi-jambes + maillot intégral + aisselles"
+    },
+    {
+      "name": "Formule Jambes Complètes",
+      "duration": "",
+      "price": "45€",
+      "description": "Jambes complètes + maillot simple + aisselles"
+    },
+    {
+      "name": "Formule Jambes Complètes",
+      "duration": "",
+      "price": "55€",
+      "description": "Jambes complètes + maillot intégral + aisselles"
+    },
+    {
+      "name": "Formule Corps Complet",
+      "duration": "",
+      "price": "62€",
+      "description": "Jambes complètes + maillot intégral + aisselles + avant bras"
+    }
+  ],
+  "fourthPriceTableTitle": "Formules épilation – Hommes",
+  "fourthPrices": [
+    {
+      "name": "Formule Torse + Ventre",
+      "duration": "",
+      "price": "35€",
+      "description": ""
+    },
+    {
+      "name": "Formule Dos + Épaules",
+      "duration": "",
+      "price": "35€",
+      "description": ""
+    },
+    {
+      "name": "Formule Dos + Épaules + Torse",
+      "duration": "",
+      "price": "55€",
       "description": ""
     }
   ]

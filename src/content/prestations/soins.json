@@ -1,5 +1,6 @@
 {
   "title": "Soins Visage & Corps",
+  "pageLayout": "soins",
   "subtitle": "Révélez l'éclat de votre peau, une touche à la fois.",
   "quote": "Des soins sur mesure pour une peau rayonnante.",
   "image": {
@@ -10,25 +11,118 @@
     "src": "../../assets/icons/handsIcon.svg",
     "alt": "Icône de la section soins"
   },
-  "priceTableTitle": "Les tarifs Soleana",
+  "priceTableTitle": "Les Soins Corps",
   "prices": [
     {
       "name": "Soin Rituel Eclat",
-      "duration": "1h",
+      "duration": "",
       "price": "55€",
       "description": "Un soin tout en douceur pour révéler l’éclat et apaiser les peaux les plus sensibles. Imaginez… Une bulle de calme où chaque geste est une caresse, chaque texture un réconfort."
     },
     {
       "name": "Soin Profond",
-      "duration": "1h15",
+      "duration": "",
       "price": "85€",
       "description": "Un soin sur-mesure, puissant et hautement ciblé. Offrez à votre peau un traitement complet, pensé pour ses besoins spécifiques."
     },
     {
+      "name": "Eclat du Corps",
+      "duration": "",
+      "price": "40€",
+      "description": "Offrez à votre peau un souffle de douceur et de lumière avec notre gommage corps aux textures raffinées."
+    },
+    {
+      "name": "Cocon Naturel",
+      "duration": "",
+      "price": "45€",
+      "description": "Purifiez votre corps grâce à un enveloppement pour une peau ressourcée et lumineuse."
+    },
+    {
+      "name": "Eclat du corps & Cocon Naturel",
+      "duration": "",
+      "price": "80€",
+      "description": ""
+    },
+    {
+      "name": "Eclat du corps & Cocon Naturel & Modelage",
+      "duration": "",
+      "price": "110€",
+      "description": ""
+    }
+  ],
+  "secondPriceTableTitle": "Le Soin Visage",
+  "secondPrices": [
+    {
       "name": "Soin Visage Signature Équilibre & Revitalisation",
-      "duration": "1h",
+      "duration": "",
       "price": "75€",
       "description": "Un soin sur-mesure, puissant et hautement ciblé. Offrez à votre peau un traitement complet, pensé pour ses besoins spécifiques."
+    }
+  ],
+  "thirdPriceTableTitle": "Les Soins Mains",
+  "thirdPrices": [
+    {
+      "name": "Manucure Soignée",
+      "duration": "",
+      "price": "28€",
+      "description": "Nettoyage des mains - Limage et mise en forme des ongles - Soin des cuticules - Polissage de l'ongle."
+    },
+    {
+      "name": "Beauté des mains",
+      "duration": "",
+      "price": "60€",
+      "description": "Nettoyage des mains - Limage et mise en forme de l'ongle - Soins des cuticules - Gommage des mains - Massage des mains et poignets - Masque mains - Polissage"
+    },
+    {
+      "name": "OPTION - Vernis semi-permanent sur ongles nus",
+      "duration": "",
+      "price": "25€",
+      "description": ""
+    },
+    {
+      "name": "OPTION - Vernis semi-permanent avec dépose",
+      "duration": "",
+      "price": "37€",
+      "description": ""
+    },
+    {
+      "name": "OPTION - Vernis simple",
+      "duration": "",
+      "price": "15€",
+      "description": ""
+    }
+  ],
+  "fourthPriceTableTitle": "Les Soins Pieds",
+  "fourthPrices": [
+    {
+      "name": "Soin Pédicure",
+      "duration": "",
+      "price": "28€",
+      "description": "Nettoyage des pieds - Limage et mise en forme des ongles - Soin des cuticules - Polissage de l'ongle."
+    },
+    {
+      "name": "Beauté des pieds",
+      "duration": "",
+      "price": "60€",
+      "description": "Nettoyage des pieds - Coupe et limage des ongles - Soins des cuticules - Ponçage ou rape des zones rugueuses et callosités - Gommage exfoliant des pieds - Massage des pieds et chevilles"
+    },
+    {
+      "name": "OPTION - Vernis semi-permanent sur ongles nus",
+      "duration": "",
+      "price": "25€",
+      "description": ""
+    },
+    {
+      "name": "OPTION - Vernis semi-permanent avec dépose",
+      "duration": "",
+      "price": "37€",
+      "description": ""
+    },
+    {
+      "name": "OPTION - Vernis simple",
+      "duration": "",
+      "price": "15€",
+      "description": ""
     }
   ]
 }

@@ -4,6 +4,7 @@ import MassageIcon from "../assets/icons/massageIcon.svg";
 import HandsIcon from "../assets/icons/handsIcon.svg";
 import HairIcon from "../assets/icons/hairIcon.svg";
 import MakeUpIcon from "../assets/icons/makeupIcon.svg";
+import SpaIcon from "../assets/icons/spaIcon.svg";
 import { Image } from "astro:assets";
 ---
 
@@ -13,7 +14,7 @@ import { Image } from "astro:assets";
     <h2>Massages Bien-Être</h2>
     <p>
       Découvrez une sélection de massages vous plongeant dans un instant
-      prolongé de bien-être et de détente?.
+      prolongé de bien-être et de détente.
     </p>
     <Button text="Massages" href="/prestations/massages" variant="primary" />
   </div>
@@ -31,7 +32,10 @@ import { Image } from "astro:assets";
   <div class="prestation-card">
     <Image src={HairIcon} alt="Icône d'épilation" />
     <h2>Epilation</h2>
-    <p>Choisissez la zone et dîtes adieu aux poils.</p>
+    <p>
+      Une peau douce et soyeuse, sans effort, à l'aide d'une cire
+      professionnelle sélectionnée avec soin.
+    </p>
     <Button text="Epilation" href="/prestations/epilations" variant="primary" />
   </div>
 
@@ -40,13 +44,23 @@ import { Image } from "astro:assets";
     <h2>Maquillage</h2>
     <p>
       Un évènement ? Une occasion particulière ? Choisissez la formule adaptée à
-      vos besoins.
+      vos envies.
     </p>
     <Button
       text="Maquillage"
       href="/prestations/maquillages"
       variant="primary"
     />
+  </div>
+
+  <div class="prestation-card">
+    <Image src={SpaIcon} alt="Icône de spa" />
+    <h2>En structure</h2>
+    <p>
+      Rejoignez-moi en structure pour profiter de massages, de soins, associés à
+      une session de spa, de sauna, de hammam ou de piscine.
+    </p>
+    <Button text="Structure" href="/prestations/structures" variant="primary" />
   </div>
 </div>
 
@@ -76,12 +90,20 @@ import { Image } from "astro:assets";
       text-align: center;
       padding: 0 2rem;
     }
+
+    p {
+      font-style: italic;
+      color: var(--primary-color);
+    }
   }
 
   @media (width >= global.$breakpoint-desktop) {
     .prestations-cards-container {
       width: 95%;
       grid-template-columns: repeat(2, 1fr);
+      :last-child {
+        grid-column: span 2;
+      }
     }
 
     .prestation-card {

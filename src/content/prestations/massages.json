@@ -14,51 +14,63 @@
   "prices": [
     {
       "name": "L’art du Lâché-Prise Crânien",
-      "duration": "30 min",
-      "price": "35€",
+      "duration": "20 min",
+      "price": "25€",
       "description": "Un simple touché peut libérer l’esprit : découvrez le massage crânien."
     },
     {
-      "name": "Eclat et sérénité : Le Massage du visage",
-      "duration": "30 min",
-      "price": "35€",
+      "name": "Eclat et sérénité - Le Massage du visage",
+      "duration": "20 min",
+      "price": "25€",
       "description": "Parce qu’un visage détendu reflète l’harmonie intérieure."
     },
     {
-      "name": "A Fleur de peau : Massage des mains",
-      "duration": "30 min",
-      "price": "30€",
+      "name": "A Fleur de peau - Massage des mains",
+      "duration": "20 min",
+      "price": "25€",
       "description": "Prenez le temps de détendre vos mains."
     },
     {
       "name": "Le Pouvoir Apaisant du Massage Plantaire",
-      "duration": "30 min",
-      "price": "30€",
+      "duration": "20 min",
+      "price": "25€",
       "description": "Un voyage intérieur commence par un simple massage plantaire."
     },
     {
-      "name": "Massage du dos ; Détente Ciblée",
-      "duration": "45 min",
-      "price": "49€",
+      "name": "Massage du dos - Détente Ciblée",
+      "duration": "30 min",
+      "price": "40€",
       "description": "Un massage profond pour libérer les tensions et un bien être immédiat."
     },
     {
-      "name": "Massage jambes légères, Esprit Léger",
-      "duration": "45 min",
-      "price": "49€",
+      "name": "Massage jambes légères - Esprit Léger",
+      "duration": "30 min",
+      "price": "40€",
       "description": "Des gestes fluides pour alléger vos jambes."
     },
     {
       "name": "Massage corps pour une évasion totale",
       "duration": "60 min",
-      "price": "69€",
+      "price": "75€",
       "description": "Un voyage sensoriel complet, où chaque geste invite à la détente et à l’harmonie."
     },
     {
       "name": "L’Expérience Corps Entier",
       "duration": "90 min",
-      "price": "95€",
+      "price": "99€",
       "description": "Plongez dans une bulle de douceur où chaque partie de votre corps est écoutée, détendue, harmonisée."
+    },
+    {
+      "name": "Massage Californien ou Suédois",
+      "duration": "30 min",
+      "price": "40€",
+      "description": "Un massage connu de tous pour un moment détente."
+    },
+    {
+      "name": "Massage Californien ou Suédois",
+      "duration": "60 min",
+      "price": "70€",
+      "description": "Un massage connu de tous pour un moment détente."
     }
   ]
 }

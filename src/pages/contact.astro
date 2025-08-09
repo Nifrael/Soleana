@@ -1,0 +1,62 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHero from "../components/global/PageHero.astro";
+import ContactImage from "../assets/images/Contact.jpg";
+---
+
+<Layout title="Soleana | Contact">
+  <PageHero
+    imageDesktop={ContactImage}
+    imageMobile={ContactImage}
+    altText="Image de la section Contact"
+    title="Contact"
+  />
+
+  <main class="contact-content">
+    <section class="contact-info">
+      <h1>Par Téléphone</h1>
+      <p>
+        Le moyen le plus simple et le plus rapide pour obtenir une réponse ou
+        fixer un rendez-vous.
+      </p>
+      <a href="tel:+33601020304" class="phone-number">06 01 02 03 04</a>
+    </section>
+
+    <section class="form-placeholder">
+      <h1>Par Message</h1>
+      <p>
+        Un formulaire de contact sera bientôt disponible ici pour me laisser un
+        message écrit à tout moment.
+      </p>
+    </section>
+  </main>
+</Layout>
+
+<style lang="scss">
+  .contact-content {
+    max-width: 800px;
+    padding: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem; /* Espace entre les deux sections */
+    margin: 95vh auto 0 auto;
+    padding-bottom: 2rem;
+  }
+
+  .phone-number {
+    display: inline-block;
+    background-color: #8b5e34; /* Couleur primaire */
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+  }
+
+  .phone-number:hover {
+    transform: scale(1.05);
+  }
+</style>

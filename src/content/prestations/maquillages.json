@@ -14,33 +14,39 @@
   "prices": [
     {
       "name": "Maquillage jour",
-      "duration": "40 min",
+      "duration": "",
       "price": "30€",
       "description": "Teint frais, lumineux et naturel, regard léger, idéal pour la journée ou un entretien."
     },
     {
       "name": "Maquillage Soir",
-      "duration": "60 min",
+      "duration": "",
       "price": "45€",
       "description": "Teint travaillé, regard intensifié, plus de sophistication et de tenue."
     },
     {
       "name": "Maquillage Mariée",
-      "duration": "90 min",
+      "duration": "",
       "price": "90€",
       "description": "Préparation complète, teint longue tenue, harmonie avec la tenue."
     },
     {
       "name": "Essai Maquillage Mariée",
-      "duration": "60 min",
+      "duration": "",
       "price": "50€",
       "description": "Essai préalable avec ajustement personnalisé."
     },
     {
-      "name": "Maquillages Convives",
-      "duration": "40 min",
+      "name": "Maquillage Convives",
+      "duration": "",
       "price": "35€",
-      "description": "Mise en beauté pour les invitées du mariage ou évènements."
+      "description": "Mise en beauté pour les invitées d'un mariage."
+    },
+    {
+      "name": "Maquillage pour évènement",
+      "duration": "",
+      "price": "35€",
+      "description": "Mise en beauté pour un évènement particulier (Modèle photo...)."
     }
   ]
 }

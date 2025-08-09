@@ -24,7 +24,7 @@ export async function getStaticPaths() {
 const { prestationData } = Astro.props;
 ---
 
-<Layout>
+<Layout title={`Soleana | ${prestationData.title}`}>
   <PageHero
     imageDesktop={prestationData.image.src}
     imageMobile={prestationData.image.src}

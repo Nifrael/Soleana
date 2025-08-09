@@ -13,15 +13,21 @@
   "priceTableTitle": "Les tarifs Soleana",
   "prices": [
     {
-      "name": "SOIN RITUEL ÉCLAT",
-      "duration": "45 min",
-      "price": "49€",
+      "name": "Soin Rituel Eclat",
+      "duration": "1h",
+      "price": "55€",
       "description": "Un soin tout en douceur pour révéler l’éclat et apaiser les peaux les plus sensibles. Imaginez… Une bulle de calme où chaque geste est une caresse, chaque texture un réconfort."
     },
     {
-      "name": "SOIN PROFOND",
-      "duration": "1h30",
+      "name": "Soin Profond",
+      "duration": "1h15",
       "price": "85€",
+      "description": "Un soin sur-mesure, puissant et hautement ciblé. Offrez à votre peau un traitement complet, pensé pour ses besoins spécifiques."
+    },
+    {
+      "name": "Soin Visage Signature Équilibre & Revitalisation",
+      "duration": "1h",
+      "price": "75€",
       "description": "Un soin sur-mesure, puissant et hautement ciblé. Offrez à votre peau un traitement complet, pensé pour ses besoins spécifiques."
     }
   ]

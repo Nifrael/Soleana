@@ -15,7 +15,7 @@ const { title, items } = Astro.props;
 ---
 
 <section class="price-table">
-  <h1>{title}</h1>
+  <h2>{title}</h2>
 
   <div class="price-table-grid">
     {
@@ -42,15 +42,16 @@ const { title, items } = Astro.props;
   .price-table {
     width: 95%;
     max-width: 1200px;
-    margin: 0 auto 2rem auto;
+    margin: 0 auto 1rem auto;
   }
 
-  h1 {
+  h2 {
     text-align: center;
     color: var(--primary-color);
     position: relative;
     padding-bottom: 1rem;
     margin-top: 0;
+    text-decoration: underline;
   }
 
   .price-table-grid {
@@ -83,6 +84,7 @@ const { title, items } = Astro.props;
     margin: 0;
     color: #555;
     font-style: italic;
+    text-align: justify;
     font-size: 0.95rem;
     grid-column: 1 / 2;
   }

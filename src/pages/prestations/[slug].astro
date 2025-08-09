@@ -25,7 +25,7 @@ export async function getStaticPaths() {
 const { prestationData } = Astro.props;
 
 const partenaires = await getCollection("partenaires");
-const partenaire = partenaires[0].data;
+const partenaire = partenaires.length > 0 ? partenaires[0].data : null;
 ---
 
 <Layout title={`Soleana | ${prestationData.title}`}>

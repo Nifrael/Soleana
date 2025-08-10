@@ -8,14 +8,34 @@ import SpaIcon from "../assets/icons/spaIcon.svg";
 import { Image } from "astro:assets";
 ---
 
-<div class="text-content">
-  <h1>L'Instant Soleana s'invite chez vous.</h1>
-  <h3>Je vous propose plusieurs prestations selon vos envies.</h3>
-  <h5>
-    Il est également possible de se retrouver dans une des structures
-    partenaires pour profiter de leurs services.
-  </h5>
+<div class="text-background">
+  <div class="text-content">
+    <h1>L'Instant Soleana s'invite chez vous.</h1>
+    <p>
+      Plus besoin de courir ou de vous soucier du monde extérieur. Imaginez une
+      bulle de bien-être qui s'installe directement dans le confort de votre
+      foyer.
+    </p>
+    <p>
+      Je recrée pour vous un espace de sérénité, avec tout le matériel
+      professionnel nécessaire, pour que votre seule préoccupation soit de
+      lâcher prise et de savourer l'instant.
+    </p>
+    <h3>Des soins sur mesure, pour toutes vos envies.</h3>
+    <p>
+      Que vous ayez besoin d'une relaxation profonde, d'un soin visage pour un
+      coup d'éclat ou d'une mise en beauté, je vous accompagne avec une gamme de
+      prestations adaptées. Chaque soin est une invitation à prendre du temps
+      pour vous.
+    </p>
+    <p>
+      Et pour une flexibilité totale, il est également possible de nous
+      retrouver au sein d'établissements partenaires, sélectionnés pour leur
+      cadre et leur qualité.
+    </p>
+  </div>
 </div>
+<h1 class="prestations-title">Les Prestations Soleana</h1>
 <div class="prestations-cards-container">
   <div class="prestation-card">
     <Image src={MassageIcon} alt="Icône de massage" />
@@ -75,12 +95,19 @@ import { Image } from "astro:assets";
 <style lang="scss">
   @use "../styles/global.scss";
 
-  .text-content {
-    background-color: var(--secondary-color);
+  .text-background {
+    background: url("../assets/background.svg");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
     width: 100%;
-    height: 100vh;
     margin: 0rem auto 2rem;
-    padding: 2rem 1rem;
+    padding: 5% 1rem;
+  }
+
+  .text-content {
+    width: 90%;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -88,9 +115,18 @@ import { Image } from "astro:assets";
     gap: 1.5rem;
     h1,
     h3,
-    h5 {
-      text-align: justify;
+    h5,
+    p {
+      text-align: center;
     }
+    p {
+      color: var(--primary-color);
+    }
+  }
+
+  .prestations-title {
+    text-align: center;
+    margin: 5rem 0;
   }
 
   .prestations-cards-container {
@@ -125,6 +161,7 @@ import { Image } from "astro:assets";
 
   @media (width >= global.$breakpoint-desktop) {
     .text-content {
+      width: 60%;
       h1,
       h3,
       h5 {

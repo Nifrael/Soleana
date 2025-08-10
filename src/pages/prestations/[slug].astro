@@ -106,7 +106,7 @@ const partenaire = partenaires.length > 0 ? partenaires[0].data : null;
       ) : null
     }
 
-    <Villages />
+    {prestationData.pageLayout !== "structures" && <Villages />}
   </div>
   <ContactCard />
 </Layout>

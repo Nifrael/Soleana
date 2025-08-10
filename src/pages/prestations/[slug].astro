@@ -1,13 +1,13 @@
 ---
 import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
-import type { PrestationData } from "../../types/prestation";
 
 import Layout from "../../layouts/Layout.astro";
 import PageHero from "../../components/global/PageHero.astro";
 import PriceTable from "../../components/prestations/PriceTable.astro";
 import ContactCard from "../../components/global/ContactCard.astro";
 import StructureCard from "../../components/global/StructuresCards.astro";
+import Villages from "../../components/global/VillagesSansFrais.astro";
 
 export async function getStaticPaths() {
   const prestations = await getCollection("prestations");
@@ -86,6 +86,27 @@ const partenaire = partenaires.length > 0 ? partenaires[0].data : null;
         />
       )
     }
+
+    {
+      prestationData.pageLayout === "soins" ||
+      prestationData.pageLayout === "massages" ? (
+        <div class="prestations-content">
+          <p>
+            Tous les soins et massages sont effectués avec des produits de
+            qualité et respectueux de la santé, de la marque du Dr Belter.
+          </p>
+        </div>
+      ) : prestationData.pageLayout === "epilations" ? (
+        <div class="prestations-content">
+          <p>
+            Les épilations sont réalisées avec une cire douce adaptée à chaque
+            type de peau.
+          </p>
+        </div>
+      ) : null
+    }
+
+    {prestationData.pageLayout !== "structures" && <Villages />}
   </div>
   <ContactCard />
 </Layout>
@@ -95,7 +116,7 @@ const partenaire = partenaires.length > 0 ? partenaires[0].data : null;
 
   .page-content {
     max-width: 90vw;
-    margin: 95vh auto 0 auto;
+    margin: 0 auto;
     padding-bottom: 2rem;
     display: flex;
     flex-direction: column;
@@ -111,6 +132,14 @@ const partenaire = partenaires.length > 0 ? partenaires[0].data : null;
     img {
       width: 30px;
       justify-self: center;
+    }
+    .prestations-content {
+      p {
+        text-align: center;
+        font-style: italic;
+        color: var(--primary-color);
+        font-weight: bold;
+      }
     }
   }
 </style>

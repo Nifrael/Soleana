@@ -1,0 +1,86 @@
+---
+const villages = [
+  "Bages",
+  "Baho",
+  "Baixas",
+  "Bompas",
+  "Brouilla",
+  "Cabestany",
+  "Camelas",
+  "Canet en roussillon",
+  "Canohès",
+  "Claira",
+  "Corneilla la Rivière",
+  "Espira de l'Agly",
+  "Ille sur Têt",
+  "Le Soler",
+  "Millas",
+  "Montescot",
+  "Perpignan",
+  "Peyrestortes",
+  "Pézilla la Rivière",
+  "Pia",
+  "Pollestres",
+  "Ponteilla",
+  "Rivesaltes",
+  "St Cyprien",
+  "St Estève",
+  "St Féliu d’Amont",
+  "St Féliu d’Aval",
+  "Ste Marie la Mer",
+  "Thuir",
+  "Toulouges",
+  "Tresserre",
+  "Villeneuve de la Raho",
+  "Villeneuve la Rivière",
+];
+---
+
+<details class="villages-container">
+  <summary class="villages-summary">
+    Cliquez ici pour voir la liste des villages où les frais de déplacement sont
+    offerts. Pour les villages plus éloignés, nous en parlerons ensemble.
+  </summary>
+
+  <ul class="villages-list">
+    {villages.map((village) => <li>{village}</li>)}
+  </ul>
+</details>
+
+<style lang="scss">
+  @use "../../styles/global.scss";
+
+  .villages-container {
+    margin: 1rem;
+    border: 1px solid var(--secondary-color);
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    background-color: var(--tertiary-color);
+    .villages-summary {
+      cursor: pointer;
+      text-align: justify;
+      font-weight: 500;
+      line-height: 1.2rem;
+      font-style: var(--font-text);
+      color: var(--primary-color);
+      list-style: none;
+      align-self: center;
+    }
+  }
+
+  .villages-list {
+    line-height: 1.5rem;
+    column-count: 2;
+    column-gap: 2rem;
+    list-style-type: none;
+    padding-left: 0.5rem;
+    margin-top: 1rem;
+    color: var(--primary-color);
+  }
+
+  @media (width >= global.$breakpoint-desktop) {
+    .villages-list {
+      column-count: 4;
+    }
+  }
+</style>

@@ -10,14 +10,14 @@ import PageHero from "../components/global/PageHero.astro";
 ---
 
 <Layout title="Soleana | L'instant Soleana">
-  <PageHero
-    imageDesktop={Bienvenue}
-    imageMobile={BienvenueMobile}
-    altText="Photo d'accueil Soleana"
-    title="L'INSTANT SOLEANA"
-    subtitle="S'invite chez vous"
-  />
   <section class="page-content">
+    <PageHero
+      imageDesktop={Bienvenue}
+      imageMobile={BienvenueMobile}
+      altText="Photo d'accueil Soleana"
+      title="L'INSTANT SOLEANA"
+      subtitle="S'invite chez vous"
+    />
     <PrestationsCards />
     <MasseuseCard />
     <div class="contact-section">
@@ -45,7 +45,6 @@ import PageHero from "../components/global/PageHero.astro";
   @use "../styles/global.scss";
 
   .page-content {
-    margin-top: 95vh;
     padding-bottom: 2rem;
   }
 

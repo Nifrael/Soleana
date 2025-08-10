@@ -8,6 +8,14 @@ import SpaIcon from "../assets/icons/spaIcon.svg";
 import { Image } from "astro:assets";
 ---
 
+<div class="text-content">
+  <h1>L'Instant Soleana s'invite chez vous.</h1>
+  <h3>Je vous propose plusieurs prestations selon vos envies.</h3>
+  <h5>
+    Il est également possible de se retrouver dans une des structures
+    partenaires pour profiter de leurs services.
+  </h5>
+</div>
 <div class="prestations-cards-container">
   <div class="prestation-card">
     <Image src={MassageIcon} alt="Icône de massage" />
@@ -67,6 +75,24 @@ import { Image } from "astro:assets";
 <style lang="scss">
   @use "../styles/global.scss";
 
+  .text-content {
+    background-color: var(--secondary-color);
+    width: 100%;
+    height: 100vh;
+    margin: 0rem auto 2rem;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    h1,
+    h3,
+    h5 {
+      text-align: justify;
+    }
+  }
+
   .prestations-cards-container {
     width: 90%;
     margin: 0 auto;
@@ -98,6 +124,14 @@ import { Image } from "astro:assets";
   }
 
   @media (width >= global.$breakpoint-desktop) {
+    .text-content {
+      h1,
+      h3,
+      h5 {
+        text-align: center;
+      }
+    }
+
     .prestations-cards-container {
       width: 95%;
       grid-template-columns: repeat(2, 1fr);

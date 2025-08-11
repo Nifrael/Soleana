@@ -14,8 +14,8 @@ const { imageDesktop, imageMobile, altText, title, subtitle } = Astro.props;
 ---
 
 <div class="head-background">
-  <Image src={imageDesktop} alt={altText} class="head-photo desktop" />
-  <Image src={imageMobile} alt={altText} class="head-photo mobile" />
+  <Image src={imageDesktop} alt={altText} class="head-photo desktop priority" />
+  <Image src={imageMobile} alt={altText} class="head-photo mobile priority" />
 </div>
 <div class="head-text">
   <h1>{title}</h1>

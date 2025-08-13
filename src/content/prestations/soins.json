@@ -14,18 +14,6 @@
   "priceTableTitle": "Les Soins Corps",
   "prices": [
     {
-      "name": "Soin Rituel Eclat",
-      "duration": "",
-      "price": "55€",
-      "description": "Un soin tout en douceur pour révéler l’éclat et apaiser les peaux les plus sensibles. Imaginez… Une bulle de calme où chaque geste est une caresse, chaque texture un réconfort."
-    },
-    {
-      "name": "Soin Profond",
-      "duration": "",
-      "price": "85€",
-      "description": "Un soin sur-mesure, puissant et hautement ciblé. Offrez à votre peau un traitement complet, pensé pour ses besoins spécifiques."
-    },
-    {
       "name": "Eclat du Corps",
       "duration": "",
       "price": "40€",
@@ -53,6 +41,18 @@
   "secondPriceTableTitle": "Le Soin Visage",
   "secondPrices": [
     {
+      "name": "Soin Rituel Eclat",
+      "duration": "",
+      "price": "55€",
+      "description": "Un soin tout en douceur pour révéler l’éclat et apaiser les peaux les plus sensibles. Imaginez… Une bulle de calme où chaque geste est une caresse, chaque texture un réconfort."
+    },
+    {
+      "name": "Soin Profond",
+      "duration": "",
+      "price": "85€",
+      "description": "Un soin sur-mesure, puissant et hautement ciblé. Offrez à votre peau un traitement complet, pensé pour ses besoins spécifiques."
+    },
+    {
       "name": "Soin Visage Signature Équilibre & Revitalisation",
       "duration": "",
       "price": "75€",
@@ -74,21 +74,27 @@
       "description": "Nettoyage des mains - Limage et mise en forme de l'ongle - Soins des cuticules - Gommage des mains - Massage des mains et poignets - Masque mains - Polissage"
     },
     {
-      "name": "OPTION - Vernis semi-permanent sur ongles nus",
+      "name": "Vernis semi-permanent",
       "duration": "",
       "price": "25€",
-      "description": ""
+      "description": "En Option Avec Soins"
     },
     {
-      "name": "OPTION - Vernis semi-permanent avec dépose",
-      "duration": "",
-      "price": "37€",
-      "description": ""
-    },
-    {
-      "name": "OPTION - Vernis simple",
+      "name": "Vernis simple",
       "duration": "",
       "price": "15€",
+      "description": "En Option Avec Soins"
+    },
+    {
+      "name": "Pose de vernis semi-permanent sur ongles nus",
+      "duration": "",
+      "price": "35€",
+      "description": ""
+    },
+    {
+      "name": "Dépose",
+      "duration": "",
+      "price": "12€",
       "description": ""
     }
   ],
@@ -107,21 +113,27 @@
       "description": "Nettoyage des pieds - Coupe et limage des ongles - Soins des cuticules - Ponçage ou rape des zones rugueuses et callosités - Gommage exfoliant des pieds - Massage des pieds et chevilles"
     },
     {
-      "name": "OPTION - Vernis semi-permanent sur ongles nus",
+      "name": "Vernis semi-permanent",
       "duration": "",
       "price": "25€",
-      "description": ""
+      "description": "En Option Avec Soins"
     },
     {
-      "name": "OPTION - Vernis semi-permanent avec dépose",
-      "duration": "",
-      "price": "37€",
-      "description": ""
-    },
-    {
-      "name": "OPTION - Vernis simple",
+      "name": "Vernis simple",
       "duration": "",
       "price": "15€",
+      "description": "En Option Avec Soins"
+    },
+    {
+      "name": "Pose de vernis semi-permanent sur ongles nus",
+      "duration": "",
+      "price": "35€",
+      "description": ""
+    },
+    {
+      "name": "Dépose",
+      "duration": "",
+      "price": "12€",
       "description": ""
     }
   ]

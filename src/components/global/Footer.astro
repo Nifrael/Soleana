@@ -54,6 +54,7 @@
     .primary-content {
       display: flex;
       flex-direction: column;
+      margin-bottom: 2rem;
       h1 {
         margin: 0 0 1.5rem 0;
       }
@@ -64,8 +65,9 @@
 
     .secondary-content {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       justify-content: space-between;
+      gap: 1.5rem;
     }
 
     .footer-links {
@@ -89,6 +91,9 @@
       }
       .footer-content {
         grid-template-columns: 60% 40%;
+      }
+      .secondary-content {
+        flex-direction: row;
       }
     }
   </style>

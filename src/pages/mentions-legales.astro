@@ -1,0 +1,101 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHero from "../components/global/PageHero.astro";
+import Legal from "../assets/images/Legal.jpg";
+import LegalDesktop from "../assets/images/LegalDesktop.jpg";
+---
+
+<Layout title="Soleana | Mentions Légales">
+  <PageHero
+    imageDesktop={LegalDesktop}
+    imageMobile={Legal}
+    title="Mentions Légales"
+    altText="Image de la section Mentions Légales"
+  />
+  <main class="page-content">
+    <section>
+      <h2>Éditeur et responsable de la publication du site</h2>
+      <p>
+        Le site L'Instant Soleana est édité par Soledad Barranco,
+        auto-entrepreneuse dont l'entreprise est domiciliée au 28 Rue des
+        Arbousiers dans la commune de Le Soler, 66270.
+      </p>
+      <p>
+        L'adresse mail de contact de l'entreprise est
+        linstant.soleane@gmail.com, également joignable au 06.25.48.78.61
+      </p>
+      <p>Le SIRET de l'entreprise est le :</p>
+    </section>
+
+    <section>
+      <h2>Hébergement</h2>
+      <p>
+        Le site est hébergé par Vercel, Inc, située 340 S Lemon Ave #4133
+        Walnut, CA 91789, aux États-Unis.
+      </p>
+      <p>
+        Leur site est disponible à l'adresse suivante : <a
+          href="https://www.vercel.com"
+          target="_blank">www.vercel.com</a
+        >.
+      </p>
+    </section>
+
+    <section>
+      <h2>Propriété intellectuelle</h2>
+      <p>
+        Sauf mention contraire dans les crédits, tous les contenus de ce site
+        (textes, images, graphismes, logos...) sont la propriété exclusive de
+        Soledad Barranco ou de ses partenaires. Toute reproduction,
+        représentation, modification, publication, adaptation de tout ou partie
+        des éléments du site, quel que soit le moyen ou le procédé utilisé, est
+        interdite, sauf autorisation écrite préalable de l'éditeur.
+      </p>
+    </section>
+
+    <section>
+      <h2>Crédits</h2>
+      <p>Conception et réalisation du site : Julien Marchand.</p>
+      <p>
+        Crédits photos : Toutes les images de sections, sauf les photos
+        représentant Soledad Barranco elle-même sont issues de la banque
+        d'images libres de droits nommée Unsplash, accessible à l'adresse <a
+          href="https://www.unsplash.com"
+          target="_blank">www.unsplash.com</a
+        >.
+      </p>
+    </section>
+  </main>
+</Layout>
+
+<style lang="scss">
+  @use "../styles/global.scss";
+
+  .page-content {
+    margin: 0 auto;
+    padding-bottom: 2rem;
+    h2 {
+      text-align: center;
+      padding-top: 2rem;
+      font-style: italic;
+    }
+    p {
+      text-align: justify;
+      line-height: 1.75rem;
+      padding: 1rem 2rem 0rem 2rem;
+      color: var(--primary-color);
+    }
+  }
+  .page-content a {
+    color: var(--color-primary);
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  @media (width >= global.$breakpoint-desktop) {
+    .page-content {
+      max-width: 1000px;
+    }
+  }
+</style>

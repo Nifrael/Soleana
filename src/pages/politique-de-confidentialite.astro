@@ -1,0 +1,140 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHero from "../components/global/PageHero.astro";
+import Data from "../assets/images/Data.jpg";
+---
+
+<Layout title="Soleana | Mentions Légales">
+  <PageHero
+    imageDesktop={Data}
+    imageMobile={Data}
+    title="Politique de Confidentialité"
+    altText="Image de la section Politique de Confidentialité"
+  />
+  <main class="page-content">
+    <section>
+      <h2>Traitement des données personnelles</h2>
+      <p>
+        La présente politique de confidentialité a pour objectif de vous
+        informer sur la manière dont nous collectons, utilisons et protégeons
+        vos données personnelles lorsque vous utilisez notre site internet.
+      </p>
+    </section>
+
+    <section>
+      <h2>Données collectées</h2>
+      <p>
+        Actuellement, aucune donnée personnelle n'est collectée sur ce site
+        internet. Lorsque cela sera amené à changer, par exemple via la création
+        du formulaire de contact, la politique de confidentialité sera mise à
+        jour en conséquence.
+      </p>
+    </section>
+
+    <!-- <section>
+      <h2>Finalité de la collecte</h2>
+      <p>
+        Les données collectées via le formulaire de contact sont utilisées
+        uniquement pour répondre à votre demande. Votre nom, prénom, adresse
+        e-mail et numéro de téléphone nous permettent de vous recontacter afin
+        de vous fournir les informations demandées.
+      </p>
+      <p>
+        Nous ne traitons pas vos données à d'autres fins (marketing, publicité,
+        etc.).
+      </p>
+    </section> -->
+
+    <!-- <section>
+      <h2>Destinataires des données</h2>
+      <p>
+        Les données collectées sont envoyées par e-mail à l'unique destinataire
+        suivant : [Adresse e-mail de la propriétaire du site].
+      </p>
+      <p>
+        Les données transitent par un service tiers d'envoi d'e-mail, mais ne
+        sont pas stockées sur une base de données du site. Nous vous invitons à
+        consulter la politique de confidentialité de ce service tiers : [Lien
+        vers la politique de confidentialité du service tiers].
+      </p>
+    </section>
+
+    <section>
+      <h2>Durée de conservation des données</h2>
+      <p>
+        Vos données sont conservées le temps nécessaire au traitement de votre
+        demande, puis sont supprimées de la boîte de réception.
+      </p>
+    </section>
+
+    <section>
+      <h2>Sécurité</h2>
+      <p>
+        Nous mettons en œuvre toutes les mesures techniques et
+        organisationnelles appropriées pour garantir la sécurité de vos données
+        personnelles et les protéger contre toute destruction, perte,
+        altération, divulgation ou accès non autorisé.
+      </p>
+    </section>
+
+    <section>
+      <h2>Vos droits</h2>
+      <p>
+        Conformément au RGPD, vous disposez d'un droit d'accès, de
+        rectification, d'opposition, de portabilité et de suppression des
+        données qui vous concernent. Pour exercer ces droits, vous pouvez nous
+        contacter par e-mail à l'adresse suivante : [Adresse e-mail de la
+        propriétaire du site].
+      </p>
+    </section> -->
+
+    <section>
+      <h2>Cookies</h2>
+      <p>
+        Notre site n'utilise aucun cookie intrusif pour suivre votre navigation.
+        Nous n'avons donc pas besoin de recueillir votre consentement pour les
+        cookies. Les seuls cookies potentiellement utilisés le sont pour des
+        raisons techniques de bon fonctionnement du site et ne collectent aucune
+        donnée personnelle.
+      </p>
+      <p>
+        Si un service tiers utilisant des cookies était ajouté au site (par
+        exemple, un outil d'analyse d'audience), cette politique de
+        confidentialité serait mise à jour et une bannière de consentement
+        serait mise en place.
+      </p>
+    </section>
+  </main>
+</Layout>
+
+<style lang="scss">
+  @use "../styles/global.scss";
+
+  .page-content {
+    margin: 0 auto;
+    padding-bottom: 2rem;
+    h2 {
+      text-align: center;
+      padding-top: 2rem;
+      font-style: italic;
+    }
+    p {
+      text-align: justify;
+      line-height: 1.75rem;
+      padding: 1rem 2rem 0rem 2rem;
+      color: var(--primary-color);
+    }
+  }
+  .page-content a {
+    color: var(--color-primary);
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  @media (width >= global.$breakpoint-desktop) {
+    .page-content {
+      max-width: 1000px;
+    }
+  }
+</style>

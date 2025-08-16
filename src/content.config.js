@@ -19,6 +19,7 @@ const prestationsCollection = defineCollection({
 
     return z.object({
       title: z.string(),
+      description: z.string().optional(),
       pageLayout: z.string().optional(),
       subtitle: z.string().optional(),
       quote: z.string(),

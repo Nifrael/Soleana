@@ -28,7 +28,10 @@ const partenaires = await getCollection("partenaires");
 const partenaire = partenaires.length > 0 ? partenaires[0].data : null;
 ---
 
-<Layout title={`Soleana | ${prestationData.title}`}>
+<Layout
+  title={`Soleana | ${prestationData.title}`}
+  description={prestationData.description}
+>
   <PageHero
     imageDesktop={prestationData.image.src}
     imageMobile={prestationData.image.src}

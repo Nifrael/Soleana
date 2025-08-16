@@ -16,10 +16,10 @@ const { imageDesktop, imageMobile, altText, title, subtitle } = Astro.props;
 <div class="head-background">
   <Image src={imageDesktop} alt={altText} class="head-photo desktop priority" />
   <Image src={imageMobile} alt={altText} class="head-photo mobile priority" />
-</div>
-<div class="head-text">
-  <h1>{title}</h1>
-  <h2>{subtitle}</h2>
+  <div class="head-text">
+    <h1>{title}</h1>
+    <h2>{subtitle}</h2>
+  </div>
 </div>
 
 <style lang="scss">
@@ -28,8 +28,8 @@ const { imageDesktop, imageMobile, altText, title, subtitle } = Astro.props;
   .head-background {
     position: relative;
     width: 100%;
-    height: 100vh;
-    z-index: -1;
+    min-height: 100vh;
+    z-index: -2;
   }
 
   .head-background::after {
@@ -38,6 +38,7 @@ const { imageDesktop, imageMobile, altText, title, subtitle } = Astro.props;
     inset: 0;
     background-color: black;
     opacity: 0.3;
+    z-index: -1;
   }
 
   .head-text {
@@ -45,6 +46,7 @@ const { imageDesktop, imageMobile, altText, title, subtitle } = Astro.props;
     position: absolute;
     top: 25%;
     left: 7%;
+    z-index: 1;
     h1 {
       font-size: 2.5rem;
       max-width: 70%;
@@ -63,7 +65,7 @@ const { imageDesktop, imageMobile, altText, title, subtitle } = Astro.props;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     z-index: -1;
     object-position: top;
     object-fit: cover;
@@ -71,6 +73,18 @@ const { imageDesktop, imageMobile, altText, title, subtitle } = Astro.props;
 
   .desktop {
     display: none;
+  }
+
+  @media (orientation: landscape) and (width < global.$breakpoint-tablet) {
+    .head-background {
+      min-height: auto;
+      padding-bottom: 10vh;
+    }
+
+    .head-text {
+      position: static;
+      padding: 10% 7%;
+    }
   }
 
   @media (width >= global.$breakpoint-tablet) {

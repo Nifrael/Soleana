@@ -23,6 +23,11 @@ function trimSlashes(path) {
 function isString(path) {
   return typeof path === "string" || path instanceof String;
 }
+const INTERNAL_PREFIXES = /* @__PURE__ */ new Set(["/_", "/@", "/.", "//"]);
+const JUST_SLASHES = /^\/{2,}$/;
+function isInternalPath(path) {
+  return INTERNAL_PREFIXES.has(path.slice(0, 2)) && !JUST_SLASHES.test(path);
+}
 function joinPaths(...paths) {
   return paths.filter(isString).map((path, i) => {
     if (i === 0) {
@@ -34,8 +39,9 @@ function joinPaths(...paths) {
     }
   }).join("/");
 }
+const URL_PROTOCOL_REGEX = /^(?:(?:http|ftp|https|ws):?\/\/|\/\/)/;
 function isRemotePath(src) {
-  return /^(?:http|ftp|https|ws):?\/\//.test(src) || src.startsWith("data:");
+  return URL_PROTOCOL_REGEX.test(src) || src.startsWith("data:");
 }
 function slash(path) {
   return path.replace(/\\/g, "/");
@@ -55,4 +61,4 @@ function hasFileExtension(path) {
   return WITH_FILE_EXT.test(path);
 }
 
-export { removeTrailingForwardSlash as a, appendForwardSlash as b, collapseDuplicateTrailingSlashes as c, fileExtension as f, hasFileExtension as h, isRemotePath as i, joinPaths as j, prependForwardSlash as p, removeBase as r, slash as s, trimSlashes as t };
+export { removeTrailingForwardSlash as a, appendForwardSlash as b, isInternalPath as c, collapseDuplicateTrailingSlashes as d, fileExtension as f, hasFileExtension as h, isRemotePath as i, joinPaths as j, prependForwardSlash as p, removeBase as r, slash as s, trimSlashes as t };

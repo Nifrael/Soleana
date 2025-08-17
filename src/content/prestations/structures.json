@@ -15,44 +15,32 @@
   "priceTableTitle": "Hôtel Mar I Cel - Canet-En-Roussillon",
   "prices": [
     {
-      "name": "Hammam & Massage (50mn)",
-      "duration": "Hammam 20mn + Massage 30mn",
+      "name": "Hammam ou Sauna & Massage",
+      "duration": "50 min.",
       "price": "65€",
-      "description": ""
+      "description": "20 min de Hammam ou Sauna et 30 min de massage."
     },
     {
-      "name": "Sauna & Massage (80mn)",
-      "duration": "Sauna 20mn + Massage 60mn",
+      "name": "Hammam ou Sauna & Massage",
+      "duration": "80 min.",
       "price": "95€",
-      "description": ""
+      "description": "20 min de Hammam ou Sauna et 60 min de massage."
     },
     {
-      "name": "Hammam & Gommage Corps (60mn)",
-      "duration": "Hammam 30mn + Gommage 30mn",
-      "price": "65€",
-      "description": ""
+      "name": "Hammam ou Sauna & Gommage Corps",
+      "duration": "50 min.",
+      "price": "55€",
+      "description": "20 min de Hammam ou Sauna et 30 min de gommage."
     },
     {
-      "name": "Sauna & Gommage Corps (60mn)",
-      "duration": "Sauna 30mn + Gommage 30mn",
-      "price": "65€",
-      "description": ""
-    },
-    {
-      "name": "Hammam & Soin Visage (80mn)",
-      "duration": "Hammam 20mn + Soin visage 60mn",
+      "name": "Hammam ou Sauna & Soin Visage",
+      "duration": "80 min.",
       "price": "100€",
-      "description": ""
-    },
-    {
-      "name": "Sauna & Soin Visage (80mn)",
-      "duration": "Sauna 20mn + Soin visage 60mn",
-      "price": "100€",
-      "description": ""
+      "description": "20 min de Hammam ou Sauna et 60 min de soin."
     },
     {
       "name": "Option Accès Piscine",
-      "duration": "La demi-journée",
+      "duration": "La demi-journée.",
       "price": "25€",
       "description": "Ajoutez un moment de détente supplémentaire à votre soin avec notre accès piscine."
     }

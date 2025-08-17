@@ -1,5 +1,6 @@
 @use "@fontsource-variable/playpen-sans-arabic";
 @use "@fontsource/mochiy-pop-one";
+@use "@fontsource-variable/playpen-sans";
 
 *,
 *::before,
@@ -23,7 +24,7 @@ main {
   --primary-color: rgb(84, 102, 98);
   --secondary-color: rgb(255, 237, 241);
   --tertiary-color: rgb(255, 255, 255);
-  --font-title: "Mochiy Pop One";
+  --font-title: "Playpen Sans Variable";
   --font-text: "Playpen Sans Arabic";
   --base-size: 1rem;
   --scale: 1.25;

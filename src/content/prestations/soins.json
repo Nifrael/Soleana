@@ -1,5 +1,6 @@
 {
   "title": "Soins Visage & Corps",
+  "description": "Découvrez nos soins du visage et du corps près de Perpignan. Offrez-vous un moment de bien-être et de détente.",
   "pageLayout": "soins",
   "subtitle": "Révélez l'éclat de votre peau, une touche à la fois.",
   "quote": "Des soins sur mesure pour une peau rayonnante.",
@@ -47,15 +48,15 @@
       "description": "Un soin tout en douceur pour révéler l’éclat et apaiser les peaux les plus sensibles. Imaginez… Une bulle de calme où chaque geste est une caresse, chaque texture un réconfort."
     },
     {
-      "name": "Soin Profond",
-      "duration": "",
-      "price": "85€",
-      "description": "Un soin sur-mesure, puissant et hautement ciblé. Offrez à votre peau un traitement complet, pensé pour ses besoins spécifiques."
-    },
-    {
       "name": "Soin Visage Signature Équilibre & Revitalisation",
       "duration": "",
       "price": "75€",
+      "description": "Un soin sur-mesure, puissant et hautement ciblé. Offrez à votre peau un traitement complet, pensé pour ses besoins spécifiques."
+    },
+    {
+      "name": "Soin Profond",
+      "duration": "",
+      "price": "85€",
       "description": "Un soin sur-mesure, puissant et hautement ciblé. Offrez à votre peau un traitement complet, pensé pour ses besoins spécifiques."
     }
   ],

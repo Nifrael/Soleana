@@ -12,4 +12,9 @@ export const businessInfo = {
     "name": "Perpignan"
   },
   "priceRange": "€€",
+    "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "42.6988",
+    "longitude": "2.8952"
+  }
 };

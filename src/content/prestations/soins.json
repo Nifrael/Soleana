@@ -58,6 +58,12 @@
       "duration": "",
       "price": "85€",
       "description": "Un soin sur-mesure, puissant et hautement ciblé. Offrez à votre peau un traitement complet, pensé pour relancer les fonctions vitales, lisser les traits et préserver l’ovale du visage."
+    },
+    {
+      "name": "Soins du visage Douceur & Eclat, Contexte Oncologique",
+      "duration": "",
+      "price": "100€",
+      "description": "Chaque peau méritant une attention particulière, le soin est réalisé avec des produits en unidoses hautement spécifiques : hygiène parfaite, sécurité renforcée et respect absolue de votre peau sensible. Ce soin permet d'accompagner les personnes traversant ou ayant traversé un traitement à visée curative contre le cancer."
     }
   ],
   "thirdPriceTableTitle": "Les Soins Mains",

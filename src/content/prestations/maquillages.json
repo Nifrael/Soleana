@@ -49,6 +49,12 @@
       "duration": "",
       "price": "35€",
       "description": "Mise en beauté pour un évènement particulier (Modèle photo...)."
+    },
+    {
+      "name": "Atelier Beauté - Maquillage & Conseils Personnalisés",
+      "duration": "",
+      "price": "90€",
+      "description": "Un instant privilégié pensé avec douceur. Découvrez une leçon de maquillage adaptée à vos besoins, des conseils personnalisés pour sublimer votre beauté naturelle et des astuces simples à reproduire chaque jour. Les produits utilisés, du Dr Belter, deviennent vos alliés de beauté et de confiance, et sont parfaitement adaptées pour tous les types de peau, y compris les peaux fragilisées par des traitements oncologiques."
     }
   ]
 }

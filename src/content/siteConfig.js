@@ -6,8 +6,8 @@ export const businessInfo = {
 };
 
 const siteConfig = {
-  title: "L'Instant Soleana - Près de Perpignan",
-  description: "Découvrez L'Instant Soleana, offrez-vous une parenthèse de bien-être pour des massages relaxants, des soins du visage et du corps, des épilations et maquillages professionnels.",
+  title: "L'Instant Soleana | Près de Perpignan",
+  description: "Découvrez les prestations de bien-être à domicile de l'Instant Soleana, pour un moment de détente et de sérénité qui s'invite chez vous, près de Perpignan.",
 };
 
 export default siteConfig;

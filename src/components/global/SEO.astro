@@ -24,10 +24,12 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width" />
+<!-- Favicons: explicit links to help crawlers (Google prefers a clear favicon, ideally 48x48+) -->
+<link rel="icon" href="/favicon.ico" />
+<link rel="shortcut icon" href="/favicon.ico" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="icon" type="image/x-icon" sizes="any" href="/favicon.ico" />
-<link rel="icon" type="image/png" href="/favicon.png" />
-<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <meta name="generator" content={Astro.generator} />
 
 <!-- Primary Meta Tags -->

@@ -1,0 +1,50 @@
+---
+import { getImage } from "astro:assets";
+import defaultImage from "../../assets/images/Bienvenue.jpg";
+import siteConfig from "../../content/siteConfig.js";
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = siteConfig.title, description = siteConfig.description } =
+  Astro.props;
+
+const optimizedDefault = await getImage({
+  src: defaultImage,
+  width: 1200,
+  height: 630,
+  format: "jpg",
+});
+const ogImageUrl = new URL(optimizedDefault.src, Astro.site).toString();
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<meta name="generator" content={Astro.generator} />
+
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="language" content="fr" />
+
+<!-- Canonical URL -->
+<link rel="canonical" href={canonicalUrl} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="L'Instant Soleana" />
+<meta property="og:locale" content="fr_FR" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:image" content={ogImageUrl} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content={title} />

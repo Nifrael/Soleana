@@ -81,7 +81,7 @@ import { Image } from "astro:assets";
     />
   </div>
 
-  <div class="prestation-card">
+  <!-- <div class="prestation-card">
     <Image src={SpaIcon} alt="Icône de spa" />
     <h2>En structure</h2>
     <p>
@@ -89,7 +89,7 @@ import { Image } from "astro:assets";
       une session de spa, de sauna, de hammam ou de piscine.
     </p>
     <Button text="Structure" href="/prestations/structures" variant="primary" />
-  </div>
+  </div> -->
 </div>
 
 <style lang="scss">
@@ -177,9 +177,9 @@ import { Image } from "astro:assets";
     .prestations-cards-container {
       width: 95%;
       grid-template-columns: repeat(2, 1fr);
-      :last-child {
-        grid-column: span 2;
-      }
+      // :last-child {
+      //   grid-column: span 2;
+      // }
     }
 
     .prestation-card {

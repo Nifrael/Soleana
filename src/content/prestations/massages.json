@@ -57,16 +57,16 @@
       "description": "Un voyage sensoriel complet, où chaque geste invite à la détente et à l’harmonie."
     },
     {
-      "name": "Massage corps pour une évasion totale",
-      "duration": "75 min",
-      "price": "90€",
-      "description": "Un voyage sensoriel complet, où chaque geste invite à la détente et à l’harmonie."
-    },
-    {
       "name": "L’Expérience Corps Entier",
       "duration": "90 min",
       "price": "99€",
       "description": "Plongez dans une bulle de douceur où chaque partie de votre corps est écoutée, détendue, harmonisée."
+    },
+    {
+      "name": "Massage corps pour une évasion totale",
+      "duration": "75 min",
+      "price": "90€",
+      "description": "Un voyage sensoriel complet, où chaque geste invite à la détente et à l’harmonie."
     },
     {
       "name": "Massage Californien ou Suédois",
@@ -84,7 +84,7 @@
       "name": "Massage Sportif",
       "duration": "",
       "price": "75€",
-      "description": ""
+      "description": "Un massage tonique et profond qui prépare le corps à l'effort ou aide à une récupération rapide."
     }
   ],
   "secondPriceTableTitle": "La Formule Duo Soleana",
@@ -93,7 +93,7 @@
       "name": "Massage Duo",
       "duration": "60 min",
       "price": "150€",
-      "description": "Partagez un moment de détente à deux avec notre massage duo."
+      "description": "Profitez ensemble d'un instant de sérénité idéal entre couple ou entre amis."
     }
   ]
 }

@@ -18,7 +18,7 @@
       "name": "L’art du Lâché-Prise Crânien",
       "duration": "20 min",
       "price": "25€",
-      "description": "Un simple touché peut libérer l’esprit : découvrez le massage crânien."
+      "description": "Un simple toucher peut libérer l’esprit : découvrez le massage crânien."
     },
     {
       "name": "Eclat et sérénité - Le Massage du visage",
@@ -63,6 +63,12 @@
       "description": "Plongez dans une bulle de douceur où chaque partie de votre corps est écoutée, détendue, harmonisée."
     },
     {
+      "name": "Massage corps pour une évasion totale",
+      "duration": "75 min",
+      "price": "90€",
+      "description": "Un voyage sensoriel complet, où chaque geste invite à la détente et à l’harmonie."
+    },
+    {
       "name": "Massage Californien ou Suédois",
       "duration": "30 min",
       "price": "40€",
@@ -71,8 +77,23 @@
     {
       "name": "Massage Californien ou Suédois",
       "duration": "60 min",
-      "price": "70€",
+      "price": "75€",
       "description": "Un massage connu de tous pour un moment détente."
+    },
+    {
+      "name": "Massage Sportif",
+      "duration": "",
+      "price": "75€",
+      "description": "Un massage tonique et profond qui prépare le corps à l'effort ou aide à une récupération rapide."
+    }
+  ],
+  "secondPriceTableTitle": "La Formule Duo Soleana",
+  "secondPrices": [
+    {
+      "name": "Massage Duo",
+      "duration": "60 min",
+      "price": "150€",
+      "description": "Profitez ensemble d'un instant de sérénité idéal entre couple ou entre amis."
     }
   ]
 }

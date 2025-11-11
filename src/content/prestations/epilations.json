@@ -153,6 +153,18 @@
       "description": "Sourcils + lèvre + menton + joues"
     },
     {
+      "name": "Formule Visage + Maillot simple",
+      "duration": "",
+      "price": "31€",
+      "description": "Sourcils + Lèvres + Menton + Maillot simple"
+    },
+    {
+      "name": "Formule Visage + Maillot intégral",
+      "duration": "",
+      "price": "42€",
+      "description": "Sourcils + Lèvres + Menton + Maillot intégral"
+    },
+    {
       "name": "Formule Demi-Jambes",
       "duration": "",
       "price": "32€",

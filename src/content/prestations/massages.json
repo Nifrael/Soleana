@@ -2,6 +2,7 @@
   "title": "Massages",
   "description": "Découvrez nos prestations de massages à domicile près de Perpignan. Offrez-vous une expérience unique avec nos massages adaptés à vos besoins.",
   "pageLayout": "massages",
+  "professionalDisclaimer": "Les massages réalisés sont uniquement des massages professionnels. Les propositions d'actes sexuels ou de naturisme ne seront en aucun cas acceptées.",
   "subtitle": "Découvrez nos prestations de massages",
   "quote": "Offrez-vous une parenthèse de bien-être",
   "image": {
@@ -27,6 +28,18 @@
       "description": "Parce qu’un visage détendu reflète l’harmonie intérieure."
     },
     {
+      "name": "Massage tête, visage et nuque",
+      "duration": "30 min",
+      "price": "40€",
+      "description": "Soin relaxant qui libère les tensions, apaise les traits et apporte une agréable sensation de légèreté. Des gestes précis et doux offrent un moment de bien-être intense, de confort et de véritable douceur."
+    },
+    {
+      "name": "Massage tête, visage et nuque - 40 minutes",
+      "duration": "40 min",
+      "price": "50€",
+      "description": "Soin relaxant qui libère les tensions, apaise les traits et apporte une agréable sensation de légèreté. Des gestes précis et doux offrent un moment de bien-être intense, de confort et de véritable douceur."
+    },
+    {
       "name": "A Fleur de peau - Massage des mains",
       "duration": "20 min",
       "price": "25€",
@@ -39,9 +52,21 @@
       "description": "Un voyage intérieur commence par un simple massage plantaire."
     },
     {
+      "name": "Le Pouvoir Apaisant du Massage Plantaire - 40 minutes",
+      "duration": "40 min",
+      "price": "50€",
+      "description": "Un voyage intérieur commence par un simple massage plantaire."
+    },
+    {
       "name": "Massage du dos - Détente Ciblée",
       "duration": "30 min",
       "price": "40€",
+      "description": "Un massage profond pour libérer les tensions et un bien être immédiat."
+    },
+    {
+      "name": "Massage du dos - Détente Ciblée - 45 minutes",
+      "duration": "45 min",
+      "price": "60€",
       "description": "Un massage profond pour libérer les tensions et un bien être immédiat."
     },
     {
@@ -51,22 +76,34 @@
       "description": "Des gestes fluides pour alléger vos jambes."
     },
     {
-      "name": "Massage corps pour une évasion totale",
+      "name": "Massage jambes légères - Esprit Léger - 45 minutes",
+      "duration": "45 min",
+      "price": "55€",
+      "description": "Des gestes fluides pour alléger vos jambes."
+    },
+    {
+      "name": "Massage jambes légères - Esprit Léger - 50 minutes",
+      "duration": "50 min",
+      "price": "65€",
+      "description": "Des gestes fluides pour alléger vos jambes."
+    },
+    {
+      "name": "Massage du corps",
       "duration": "60 min",
       "price": "75€",
-      "description": "Un voyage sensoriel complet, où chaque geste invite à la détente et à l’harmonie."
+      "description": "Soin de relaxation qui cible différentes zones musculaires afin d'apaiser les tensions, favoriser la circulation et procurer un bien-être global. Les techniques utilisées sont adaptées aux besoin de chaque client."
     },
     {
-      "name": "L’Expérience Corps Entier - 75 minutes",
+      "name": "Massage du corps - 75 minutes",
       "duration": "75 min",
       "price": "90€",
-      "description": "Plongez dans une bulle de douceur où chaque partie de votre corps est écoutée, détendue, harmonisée."
+      "description": "Soin de relaxation qui cible différentes zones musculaires afin d'apaiser les tensions, favoriser la circulation et procurer un bien-être global. Les techniques utilisées sont adaptées aux besoin de chaque client."
     },
     {
-      "name": "L’Expérience Corps Entier - 90 minutes",
+      "name": "Massage corps - 90 minutes",
       "duration": "90 min",
-      "price": "99€",
-      "description": "Plongez dans une bulle de douceur où chaque partie de votre corps est écoutée, détendue, harmonisée."
+      "price": "100€",
+      "description": "Soin longue durée pensé comme une parenthèse hors du temps. Pendant 90 minutes, des gestes doux et harmonieux invitent le corps à se délester de ses tensions et l'esprit à s'apaiser. Le massage crée une véritable bulle de douceur où chaque mouvement apporte chaleur, réconfort et légereté. Une expérience enveloppante, inspirée du bien-être et du lâcher-prise."
     },
     {
       "name": "Massage Californien ou Suédois",
@@ -82,7 +119,7 @@
     },
     {
       "name": "Massage Sportif",
-      "duration": "",
+      "duration": "60 min",
       "price": "75€",
       "description": "Un massage tonique et profond qui prépare le corps à l'effort ou aide à une récupération rapide."
     }

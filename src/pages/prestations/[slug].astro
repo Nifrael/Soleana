@@ -47,6 +47,14 @@ const partenaire = partenaires.length > 0 ? partenaires[0].data : null;
       alt={`Icône de ${prestationData.title}`}
     />
 
+    {
+      prestationData.professionalDisclaimer && (
+        <div class="warning">
+          <p>{prestationData.professionalDisclaimer}</p>
+        </div>
+      )
+    }
+
     <PriceTable
       title={prestationData.priceTableTitle}
       items={prestationData.prices}
@@ -143,6 +151,25 @@ const partenaire = partenaires.length > 0 ? partenaires[0].data : null;
         color: var(--primary-color);
         font-weight: bold;
       }
+    }
+  }
+
+  .warning {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 1rem auto;
+    max-width: 800px;
+    width: 100%;
+
+    p {
+      margin: 0;
+      font-size: 1.1rem;
+      color: white;
     }
   }
 </style>

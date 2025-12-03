@@ -1,0 +1,152 @@
+---
+import { getCollection } from "astro:content";
+import Button from "./ui/Button.astro";
+
+const allNews = await getCollection("news");
+const news = allNews.sort((a, b) => {
+  return new Date(b.data.date).getTime() - new Date(a.data.date).getTime();
+});
+
+const latestNews = news.slice(0, 3);
+---
+
+{
+  latestNews.length > 0 && (
+    <section class="news-section">
+      <div class="news-container">
+        <h1 class="section-title">Actualités</h1>
+        <div class="news-grid">
+          {latestNews.map((item) => (
+            <div class="news-card">
+              {item.data.isNew && <span class="new-badge">Nouveau</span>}
+              <div class="news-content">
+                <h3>{item.data.title}</h3>
+                <p class="date">
+                  {new Date(item.data.date).toLocaleDateString("fr-FR", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
+                </p>
+                <p class="description">{item.data.description}</p>
+                {item.data.link && (
+                  <div class="button-wrapper">
+                    <Button
+                      text={item.data.linkText || "En savoir plus"}
+                      href={item.data.link}
+                      variant="primary"
+                    />
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+<style lang="scss">
+  @use "../styles/global.scss";
+
+  .news-section {
+    width: 100%;
+    padding: 2rem 0 4rem 0;
+    background-color: var(--secondary-color);
+  }
+
+  .news-container {
+    width: 90%;
+    margin: 0 auto;
+    h1 {
+      text-align: center;
+    }
+  }
+
+  .news-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .news-card {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(84, 102, 98, 0.1);
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+
+  .new-badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: var(--primary-color);
+    color: var(--tertiary-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    animation: pulse 2s infinite;
+  }
+
+  .news-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    h3 {
+      margin: 0;
+      color: var(--primary-color);
+      font-size: 1.25rem;
+    }
+
+    .date {
+      font-size: 0.9rem;
+      color: #666;
+      font-style: italic;
+      margin: 0;
+    }
+
+    .description {
+      margin: 0.5rem 0 1rem 0;
+      text-align: center;
+    }
+
+    .button-wrapper {
+      align-self: flex-start;
+    }
+  }
+
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(84, 102, 98, 0.7);
+    }
+
+    70% {
+      box-shadow: 0 0 0 10px rgba(84, 102, 98, 0);
+    }
+
+    100% {
+      box-shadow: 0 0 0 0 rgba(84, 102, 98, 0);
+    }
+  }
+
+  @media (width >= global.$breakpoint-desktop) {
+    .news-container {
+      width: 60%;
+      margin: 0 auto;
+      h1 {
+        text-align: center;
+      }
+    }
+  }
+</style>

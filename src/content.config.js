@@ -48,28 +48,7 @@ const partenairesCollection = defineCollection({
   })
 });
 
-const newsCollection = defineCollection({
-  type: 'data',
-  schema: ({ image }) => {
-    const imageSchema = z.object({
-      src: image(),
-      alt: z.string(),
-    });
-
-    return z.object({
-      title: z.string(),
-      date: z.string(),
-      description: z.string(),
-      image: imageSchema,
-      link: z.string().optional(),
-      linkText: z.string().optional(),
-      isNew: z.boolean().default(false),
-    })
-  }
-});
-
 export const collections = {
   'prestations': prestationsCollection,
-  'partenaires': partenairesCollection,
-  'news': newsCollection
+  'partenaires': partenairesCollection
 };

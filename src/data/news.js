@@ -8,7 +8,7 @@ export const newsData = [
     image: jeannelleImage,
     imageAlt: "Jeannelle",
     isNew: true,
-    link: "https://www.jeannelle.me",
+    link: "/jeannelle",
     linkText: "En savoir plus"
   }
 ];

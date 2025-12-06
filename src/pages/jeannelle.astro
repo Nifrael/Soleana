@@ -1,0 +1,271 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHero from "../components/global/PageHero.astro";
+import imageJeannelle from "../assets/images/Jeannelle.jpg";
+import { Image } from "astro:assets";
+import Button from "../components/ui/Button.astro";
+---
+
+<Layout
+  title="L'Instant Soleana chez Jeannelle | Partenariat Bien-être"
+  description="Retrouvez L'Instant Soleana chez Jeannelle pour des moments de détente exclusifs. Découvrez nos journées portes ouvertes et ce nouveau partenariat."
+>
+  <PageHero
+    imageDesktop={imageJeannelle}
+    imageMobile={imageJeannelle}
+    altText="L'Instant Soleana chez Jeannelle"
+    title="CHEZ JEANNELLE"
+    subtitle="Un nouveau lieu de bien-être"
+  />
+
+  <section class="content-section">
+    <div class="event-block">
+      <h2>PORTES OUVERTES</h2>
+      <p class="subtitle">L’Instant Soleana vous invite chez Jeannelle</p>
+
+      <div class="info-banner">
+        <p class="date">Samedi 13 Décembre • 14h – 19h</p>
+        <p class="location">📍 18 rue Lieutenant Basseras, 66170 Millas</p>
+      </div>
+
+      <div class="event-details">
+        <p class="intro">
+          À l'occasion de son installation chez Jeannelle, L’Instant Soleana
+          vous ouvre ses portes pour un après-midi placé sous le signe du
+          bien-être, de la douceur… et de la convivialité ! Et vous propose de
+          découvrir son nouvel espace 💛
+        </p>
+
+        <div class="program-section">
+          <h3>Au programme :</h3>
+          <ul>
+            <li>🍀 Accueil chaleureux pour parcourir les lieux</li>
+            <li>
+              💆‍♀️ <strong>Massages découverte :</strong>
+              <ul>
+                <li>Massage visage à reproduire à la maison</li>
+                <li>Massage mains</li>
+                <li>Massage tête</li>
+              </ul>
+            </li>
+            <li>
+              ✨️ <strong
+                >Conseils beauté pensés pour vous au quotidien :</strong
+              >
+              <br />
+              <em
+                >« Je vous guiderai pas à pas pour mettre en place votre routine
+                beauté et appliquer vos soins avec les bons gestes »</em
+              >
+            </li>
+            <li>
+              ☕ <strong>Goûter gourmand :</strong> boissons chaudes (café, thé,
+              infusion) & délicieuses petites douceurs à partager dans une ambiance
+              chaleureuse.
+            </li>
+          </ul>
+        </div>
+
+        <div class="offers-section">
+          <h3>🎁 Offres exclusives du jour :</h3>
+          <ul>
+            <li>💠 Coffrets cadeaux Dr Belter</li>
+            <li>
+              – 20% sur toutes prestations massages & soins esthétiques prises
+              pendant l’événement
+            </li>
+            <li>🎅 Bons cadeaux</li>
+          </ul>
+        </div>
+
+        <div class="contest-section">
+          <h3>🎉 Un massage d'1h (valeur 75 € ) à gagner !!!</h3>
+          <p>➜ Conditions de participation directement sur place.</p>
+        </div>
+
+        <p class="outro">
+          Venez passer un moment cocooning, intime et bienveillant… parfait pour
+          prendre soin de vous ou préparer de jolis cadeaux bien-être.
+          <br /><br />
+          <strong>
+            ✨️ Je serai ravie de vous accueillir et de partager ces moments
+            uniques avec vous ✨️
+          </strong>
+        </p>
+      </div>
+    </div>
+    <div class="text-block">
+      <h2>Un Partenariat Naturel</h2>
+      <p>
+        C'est avec une immense joie que je vous annonce l'installation de
+        L'Instant Soleana au sein de l'espace <strong>Jeannelle</strong>. Ce
+        lieu, empreint de douceur et d'élégance, correspond parfaitement à
+        l'esprit de sérénité que je souhaite vous offrir.
+      </p>
+      <p>
+        Ensemble, nous partageons une vision commune du bien-être, où chaque
+        détail compte pour vous proposer une expérience unique et ressourçante.
+      </p>
+      <div class="button-wrapper">
+        <Button
+          text="Découvrir Jeannelle"
+          href="https://www.jeannelle.me"
+          variant="secondary"
+          target="_blank"
+        />
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style lang="scss">
+  @use "../styles/global.scss";
+
+  .content-section {
+    width: 90%;
+    margin: 4rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    color: var(--primary-color);
+  }
+
+  .text-block,
+  .event-block {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+
+    h2 {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      text-align: justify;
+    }
+  }
+
+  .event-block {
+    background-color: white;
+
+    .subtitle {
+      text-align: center;
+      font-size: 1.2rem;
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+
+    .info-banner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      background-color: var(--secondary-color);
+      padding: 1rem;
+      border-radius: 10px;
+
+      .date {
+        font-size: 1.3rem;
+        font-weight: bold;
+        color: var(--primary-color);
+        margin: 0;
+      }
+
+      .location {
+        font-size: 1.1rem;
+        margin: 0;
+      }
+    }
+
+    .event-details {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      h3 {
+        font-size: 1.4rem;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        border-bottom: 1px solid var(--primary-color);
+        padding-bottom: 0.5rem;
+        display: inline-block;
+      }
+
+      ul {
+        list-style: none;
+        padding-left: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        li {
+          padding-left: 1rem;
+          position: relative;
+        }
+
+        ul {
+          margin-top: 0.5rem;
+          padding-left: 1.5rem;
+          gap: 0.5rem;
+
+          li {
+            &::before {
+              content: "•";
+              color: var(--primary-color);
+              position: absolute;
+              left: 0;
+            }
+          }
+        }
+      }
+
+      .contest-section {
+        background-color: rgba(255, 255, 255, 0.8);
+        border: 2px dashed var(--primary-color);
+        padding: 1.5rem;
+        border-radius: 10px;
+        text-align: center;
+
+        h3 {
+          border: none;
+          margin-bottom: 0.5rem;
+        }
+      }
+
+      .outro {
+        text-align: center;
+        margin-top: 1rem;
+        font-style: italic;
+      }
+    }
+  }
+
+  .button-wrapper {
+    align-self: center;
+    margin-top: 1rem;
+  }
+
+  @media (width >= global.$breakpoint-desktop) {
+    .content-section {
+      width: 70%;
+    }
+
+    .text-block,
+    .event-block {
+      padding: 3rem;
+
+      h2 {
+        font-size: 2.5rem;
+      }
+    }
+  }
+</style>

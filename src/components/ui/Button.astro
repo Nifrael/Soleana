@@ -1,16 +1,18 @@
 ---
-interface Props {
+interface Props
+  extends astroHTML.JSX.AnchorHTMLAttributes,
+    astroHTML.JSX.ButtonHTMLAttributes {
   text: string;
   href?: string;
   variant?: "primary" | "secondary";
 }
 
-const { text, href, variant = "primary" } = Astro.props;
+const { text, href, variant = "primary", ...rest } = Astro.props;
 const Tag = href ? "a" : "button";
 ---
 
 <div class="button-container">
-  <Tag href={href} class:list={["button", variant]}>{text}</Tag>
+  <Tag href={href} class:list={["button", variant]} {...rest}>{text}</Tag>
 </div>
 
 <style lang="scss">

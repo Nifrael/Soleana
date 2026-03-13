@@ -28,16 +28,22 @@
       "description": "Parce qu’un visage détendu reflète l’harmonie intérieure."
     },
     {
-      "name": "Massage tête, visage et nuque",
+      "name": "Massage tête, visage et nuque (Kobido) - Effet Lifting Naturel - 30 minutes",
       "duration": "30 min",
       "price": "40€",
-      "description": "Soin relaxant qui libère les tensions, apaise les traits et apporte une agréable sensation de légèreté. Des gestes précis et doux offrent un moment de bien-être intense, de confort et de véritable douceur."
+      "description": "Soin relaxant qui libère les tensions, apaise, lisse les traits et apporte une agréable sensation de légèreté. Des gestes précis et doux offrent un moment de bien être intense, de confort et de véritable douceur pour repulper votre peau."
     },
     {
-      "name": "Massage tête, visage et nuque - 40 minutes",
+      "name": "Massage tête, visage et nuque (Kobido) - Effet Lifting Naturel - 40 minutes",
       "duration": "40 min",
       "price": "50€",
-      "description": "Soin relaxant qui libère les tensions, apaise les traits et apporte une agréable sensation de légèreté. Des gestes précis et doux offrent un moment de bien-être intense, de confort et de véritable douceur."
+      "description": "Soin relaxant qui libère les tensions, apaise, lisse les traits et apporte une agréable sensation de légèreté. Des gestes précis et doux offrent un moment de bien être intense, de confort et de véritable douceur pour repulper votre peau."
+    },
+    {
+      "name": "Massage tête, visage et nuque (Kobido) - Effet Lifting Naturel - 60 minutes",
+      "duration": "60 min",
+      "price": "85€",
+      "description": "Soin relaxant qui libère les tensions, apaise, lisse les traits et apporte une agréable sensation de légèreté. Des gestes précis et doux offrent un moment de bien être intense, de confort et de véritable douceur pour repulper votre peau."
     },
     {
       "name": "A Fleur de peau - Massage des mains",
@@ -82,25 +88,13 @@
       "description": "Des gestes fluides pour alléger vos jambes."
     },
     {
-      "name": "Massage jambes légères - Esprit Léger - 50 minutes",
-      "duration": "50 min",
-      "price": "65€",
-      "description": "Des gestes fluides pour alléger vos jambes."
-    },
-    {
-      "name": "Massage du corps",
+      "name": "Massage Corps pour une évasion totale",
       "duration": "60 min",
       "price": "75€",
       "description": "Soin de relaxation qui cible différentes zones musculaires afin d'apaiser les tensions, favoriser la circulation et procurer un bien-être global. Les techniques utilisées sont adaptées aux besoin de chaque client."
     },
     {
-      "name": "Massage du corps - 75 minutes",
-      "duration": "75 min",
-      "price": "90€",
-      "description": "Soin de relaxation qui cible différentes zones musculaires afin d'apaiser les tensions, favoriser la circulation et procurer un bien-être global. Les techniques utilisées sont adaptées aux besoin de chaque client."
-    },
-    {
-      "name": "Massage corps - 90 minutes",
+      "name": "L'Expérience Corps Entier",
       "duration": "90 min",
       "price": "100€",
       "description": "Soin longue durée pensé comme une parenthèse hors du temps. Pendant 90 minutes, des gestes doux et harmonieux invitent le corps à se délester de ses tensions et l'esprit à s'apaiser. Le massage crée une véritable bulle de douceur où chaque mouvement apporte chaleur, réconfort et légereté. Une expérience enveloppante, inspirée du bien-être et du lâcher-prise."

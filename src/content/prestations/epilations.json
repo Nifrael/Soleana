@@ -17,49 +17,55 @@
     {
       "name": "Sourcils",
       "duration": "",
-      "price": "8€",
+      "price": "9€",
       "description": ""
     },
     {
       "name": "Lèvre Supérieure",
       "duration": "",
-      "price": "8€",
+      "price": "9€",
       "description": ""
     },
     {
       "name": "Menton",
       "duration": "",
-      "price": "8€",
+      "price": "9€",
       "description": ""
     },
     {
       "name": "Aisselles",
       "duration": "",
-      "price": "12€",
+      "price": "16€",
       "description": ""
     },
     {
       "name": "Demi – bras",
       "duration": "",
-      "price": "12€",
+      "price": "18€",
       "description": ""
     },
     {
       "name": "Maillot simple",
       "duration": "",
-      "price": "13€",
+      "price": "16€",
+      "description": ""
+    },
+    {
+      "name": "Maillot échancré",
+      "duration": "",
+      "price": "19€",
       "description": ""
     },
     {
       "name": "Maillot Intégral",
       "duration": "",
-      "price": "28€",
+      "price": "32€",
       "description": ""
     },
     {
       "name": "Demi – jambes",
       "duration": "",
-      "price": "17€",
+      "price": "18€",
       "description": ""
     },
     {
@@ -92,49 +98,49 @@
     {
       "name": "Aisselles",
       "duration": "",
-      "price": "19€",
+      "price": "18€",
       "description": ""
     },
     {
       "name": "Bras complets",
       "duration": "",
-      "price": "18€",
+      "price": "24€",
       "description": ""
     },
     {
       "name": "Demi – Bras",
       "duration": "",
-      "price": "15€",
+      "price": "20€",
       "description": ""
     },
     {
       "name": "Torse",
       "duration": "",
-      "price": "21€",
+      "price": "24€",
       "description": ""
     },
     {
       "name": "Ventre",
       "duration": "",
-      "price": "18€",
+      "price": "20€",
       "description": ""
     },
     {
       "name": "Dos",
       "duration": "",
-      "price": "21€",
+      "price": "25€",
       "description": ""
     },
     {
       "name": "Demi – jambes",
       "duration": "",
-      "price": "20€",
+      "price": "25€",
       "description": ""
     },
     {
       "name": "Jambes complètes",
       "duration": "",
-      "price": "28€",
+      "price": "35€",
       "description": ""
     }
   ],
@@ -143,13 +149,13 @@
     {
       "name": "Formule Visage",
       "duration": "",
-      "price": "18€",
+      "price": "20€",
       "description": "Sourcils + Lèvres + Menton"
     },
     {
       "name": "Formule Visage complet",
       "duration": "",
-      "price": "22€",
+      "price": "25€",
       "description": "Sourcils + lèvre + menton + joues"
     },
     {
@@ -167,31 +173,31 @@
     {
       "name": "Formule Demi-Jambes",
       "duration": "",
-      "price": "32€",
+      "price": "45€",
       "description": "Demi-jambes + maillot normal + aisselles"
     },
     {
       "name": "Formule Demi-Jambes",
       "duration": "",
-      "price": "42€",
+      "price": "59€",
       "description": "Demi-jambes + maillot intégral + aisselles"
     },
     {
       "name": "Formule Jambes Complètes",
       "duration": "",
-      "price": "45€",
+      "price": "50€",
       "description": "Jambes complètes + maillot simple + aisselles"
     },
     {
       "name": "Formule Jambes Complètes",
       "duration": "",
-      "price": "55€",
+      "price": "65€",
       "description": "Jambes complètes + maillot intégral + aisselles"
     },
     {
       "name": "Formule Corps Complet",
       "duration": "",
-      "price": "62€",
+      "price": "75€",
       "description": "Jambes complètes + maillot intégral + aisselles + avant bras"
     }
   ],
@@ -200,13 +206,13 @@
     {
       "name": "Formule Torse + Ventre",
       "duration": "",
-      "price": "35€",
+      "price": "45€",
       "description": ""
     },
     {
       "name": "Formule Dos + Épaules",
       "duration": "",
-      "price": "35€",
+      "price": "45€",
       "description": ""
     },
     {

@@ -88,9 +88,21 @@
       "description": "Des gestes fluides pour alléger vos jambes."
     },
     {
+      "name": "Massage jambes légères - Esprit Léger - 50 minutes",
+      "duration": "50 min",
+      "price": "65€",
+      "description": "Des gestes fluides pour alléger vos jambes."
+    },
+    {
       "name": "Massage Corps pour une évasion totale",
       "duration": "60 min",
       "price": "75€",
+      "description": "Soin de relaxation qui cible différentes zones musculaires afin d'apaiser les tensions, favoriser la circulation et procurer un bien-être global. Les techniques utilisées sont adaptées aux besoin de chaque client."
+    },
+    {
+      "name": "Massage Corps pour une évasion totale - 75 minutes",
+      "duration": "75 min",
+      "price": "90€",
       "description": "Soin de relaxation qui cible différentes zones musculaires afin d'apaiser les tensions, favoriser la circulation et procurer un bien-être global. Les techniques utilisées sont adaptées aux besoin de chaque client."
     },
     {

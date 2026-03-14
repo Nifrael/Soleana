@@ -1,17 +1,15 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection, z } from "astro:content";
 
 const priceItemSchema = z.object({
   name: z.string(),
   duration: z.string(),
   price: z.string(),
-  description: z.string()
+  description: z.string(),
 });
 
-
 const prestationsCollection = defineCollection({
-  type: 'data',
+  type: "data",
   schema: ({ image }) => {
-
     const imageSchema = z.object({
       src: image(),
       alt: z.string(),
@@ -33,22 +31,22 @@ const prestationsCollection = defineCollection({
       thirdPriceTableTitle: z.string().optional(),
       thirdPrices: z.array(priceItemSchema).optional(),
       fourthPriceTableTitle: z.string().optional(),
-      fourthPrices: z.array(priceItemSchema).optional()
+      fourthPrices: z.array(priceItemSchema).optional(),
     });
-  }
+  },
 });
 
 const partenairesCollection = defineCollection({
-  type: 'data',
+  type: "data",
   schema: z.object({
     name: z.string(),
     location: z.string(),
     websiteUrl: z.string().url(),
     description: z.string(),
-  })
+  }),
 });
 
 export const collections = {
-  'prestations': prestationsCollection,
-  'partenaires': partenairesCollection
+  prestations: prestationsCollection,
+  partenaires: partenairesCollection,
 };

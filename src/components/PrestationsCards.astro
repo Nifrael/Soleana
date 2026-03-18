@@ -4,6 +4,7 @@ import MassageIcon from "../assets/icons/massageIcon.svg";
 import HandsIcon from "../assets/icons/handsIcon.svg";
 import HairIcon from "../assets/icons/hairIcon.svg";
 import MakeUpIcon from "../assets/icons/makeupIcon.svg";
+import SoinIcon from "../assets/icons/soinsIcon.svg";
 import SpaIcon from "../assets/icons/spaIcon.svg";
 import { Image } from "astro:assets";
 ---
@@ -77,6 +78,17 @@ import { Image } from "astro:assets";
     <Button
       text="Maquillage"
       href="/prestations/maquillages"
+      variant="primary"
+    />
+  </div>
+
+  <div class="prestation-card">
+    <Image src={SoinIcon} alt="Icône de soins énergétiques" />
+    <h2>Soins énergétiques</h2>
+    <p>Découvrez mon soin énergétique pour retrouver une santé optimale.</p>
+    <Button
+      text="Soins énergétiques"
+      href="/prestations/soins_energetiques"
       variant="primary"
     />
   </div>
@@ -177,9 +189,10 @@ import { Image } from "astro:assets";
     .prestations-cards-container {
       width: 95%;
       grid-template-columns: repeat(2, 1fr);
-      // :last-child {
-      //   grid-column: span 2;
-      // }
+
+      .prestation-card:last-of-type {
+        grid-column: span 2;
+      }
     }
 
     .prestation-card {

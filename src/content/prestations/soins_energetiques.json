@@ -1,0 +1,23 @@
+{
+  "title": "Soins Énergétiques",
+  "description": "Laissez-vous guider par nos soins énergétiques pour retrouver une santé optimale.",
+  "pageLayout": "soins_energetiques",
+  "image": {
+    "src": "../../assets/images/pages/SoinsEnergetiques.jpg",
+    "alt": "Image de la section soins énergétiques"
+  },
+  "quote": "Retrouvez votre bonne santé intérieure.",
+  "icon": {
+    "src": "../../assets/icons/soinsIcon.svg",
+    "alt": "Icône de soins énergétiques"
+  },
+  "priceTableTitle": "Les tarifs Soleana",
+  "prices": [
+    {
+      "name": "Soin énergétique & Vitalité",
+      "duration": "",
+      "price": "60€",
+      "description": "Accompagnement avec des soins énergétiques ciblés, une approche naturelle pour soulager vos douleurs diverses, apaiser les problèmes de peau, retrouver votre vitalité et vous soutenir dans l’arrêt du tabac."
+    }
+  ]
+}

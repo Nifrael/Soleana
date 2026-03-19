@@ -8,8 +8,8 @@
   },
   "quote": "Retrouvez votre bonne santé intérieure.",
   "icon": {
-    "src": "../../assets/icons/massageIcon.svg",
-    "alt": "Icône à remplacer"
+    "src": "../../assets/icons/soinsIcon.svg",
+    "alt": "Icône de soins énergétiques"
   },
   "priceTableTitle": "Les tarifs Soleana",
   "prices": [

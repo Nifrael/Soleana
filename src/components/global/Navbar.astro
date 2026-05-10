@@ -1,4 +1,6 @@
 ---
+import Button from "../ui/Button.astro";
+
 const menuItems = [
   {
     text: "Prestations",
@@ -12,6 +14,11 @@ const menuItems = [
   },
   { href: "/apropos", text: "Derrière le soin" },
   { href: "/contact", text: "Contact" },
+  {
+    href: "https://www.sumupbookings.com/linstant-soleana",
+    text: "Réservez",
+    isButton: true,
+  },
 ];
 ---
 
@@ -30,6 +37,8 @@ const menuItems = [
                 ))}
               </div>
             </div>
+          ) : item.isButton ? (
+            <Button href={item.href} text={item.text} variant="secondary" />
           ) : (
             <a href={item.href}>{item.text}</a>
           ),
@@ -54,6 +63,8 @@ const menuItems = [
                   ))}
                 </div>
               </div>
+            ) : item.isButton ? (
+              <Button href={item.href} text={item.text} variant="secondary" />
             ) : (
               <a href={item.href}>{item.text}</a>
             ),
@@ -167,7 +178,7 @@ const menuItems = [
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 3rem;
+    gap: 2rem;
     top: 0;
     left: 0;
     background-color: var(--primary-color);
@@ -176,6 +187,10 @@ const menuItems = [
     transition: 0.5s ease;
     opacity: 0;
     overflow: auto;
+
+    :global(.button-container) {
+      margin: 0;
+    }
   }
 
   .show {
@@ -234,8 +249,12 @@ const menuItems = [
     .desktop-menu {
       display: flex;
       align-items: center;
-      gap: 3rem;
+      gap: 1.5rem;
       white-space: nowrap;
+
+      :global(.button-container) {
+        margin: 0;
+      }
     }
 
     .mobile-menu {
@@ -252,7 +271,7 @@ const menuItems = [
 
     a,
     .submenu-toggle {
-      font-size: var(--h4);
+      font-size: var(--h5);
     }
 
     .submenu {

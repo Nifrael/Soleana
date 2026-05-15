@@ -1,14 +1,15 @@
-import jeannelleImage from '../assets/images/Jeannelle.jpg';
+import jeannelleImage from "../assets/images/Jeannelle.jpg";
 
 export const newsData = [
   {
     title: "Retrouvez L'Instant Soleana chez Jeannelle",
     date: "",
-    description: "L'Instant Soleana vous propose ses prestations chez Jeannelle, à Millas.",
+    description:
+      "L'Instant Soleana vous propose ses prestations chez Jeannelle, à Millas.",
     image: jeannelleImage,
     imageAlt: "Jeannelle",
-    isNew: true,
+    isNew: false,
     link: "/jeannelle",
-    linkText: "En savoir plus"
-  }
+    linkText: "En savoir plus",
+  },
 ];

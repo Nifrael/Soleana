@@ -11,8 +11,10 @@
   "dependencies": {
     "@astrojs/sitemap": "^3.6.0",
     "@astrojs/vercel": "^9.0.2",
+    "@fontsource-variable/maven-pro": "^5.2.10",
     "@fontsource-variable/playpen-sans": "^5.2.7",
     "@fontsource-variable/playpen-sans-arabic": "^5.2.1",
+    "@fontsource/inria-serif": "^5.2.8",
     "@fontsource/mochiy-pop-one": "^5.2.6",
     "astro": "^5.16.6",
     "sass": "^1.89.2"

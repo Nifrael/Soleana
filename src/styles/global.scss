@@ -1,6 +1,8 @@
 @use "@fontsource-variable/playpen-sans-arabic";
 @use "@fontsource/mochiy-pop-one";
 @use "@fontsource-variable/playpen-sans";
+@use "@fontsource-variable/maven-pro/wght.css";
+@use "@fontsource/inria-serif";
 
 *,
 *::before,
@@ -21,11 +23,12 @@ main {
 
 :root {
   color-scheme: light;
-  --primary-color: rgb(84, 102, 98);
-  --secondary-color: rgb(255, 237, 241);
+  --primary-color: rgb(0, 54, 66);
+  --secondary-color: rgb(251, 236, 209);
   --tertiary-color: rgb(255, 255, 255);
   --font-title: "Playpen Sans Variable";
-  --font-text: "Playpen Sans Arabic";
+  --font-text: "Maven Pro Variable", sans-serif;
+  --font-little-text: "Inria Serif", serif;
   --base-size: 1rem;
   --scale: 1.25;
   --p: calc(var(--base-size) * 1.05);
@@ -52,6 +55,14 @@ $breakpoint-desktop-xxl: 1440px;
     font-size: var(--h#{$i});
     color: var(--primary-color);
   }
+}
+
+h2,
+h3,
+h4,
+h5,
+p {
+  font-family: var(--font-text);
 }
 
 p {

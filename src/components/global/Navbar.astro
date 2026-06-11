@@ -1,4 +1,8 @@
 ---
+import { Image } from "astro:assets";
+import Button from "../ui/Button.astro";
+import LogoMin from "../../assets/logo-min.svg";
+
 const menuItems = [
   {
     text: "Prestations",
@@ -12,12 +16,19 @@ const menuItems = [
   },
   { href: "/apropos", text: "Derrière le soin" },
   { href: "/contact", text: "Contact" },
+  {
+    href: "https://www.sumupbookings.com/linstant-soleana",
+    text: "Réservez",
+    isButton: true,
+  },
 ];
 ---
 
 <header id="main-header">
   <nav>
-    <a href="/" id="logo">Soleana</a>
+    <a href="/" id="logo">
+      <Image src={LogoMin} alt="L'Instant Soleana" width={60} height={60} />
+    </a>
     <div class="desktop-menu">
       {
         menuItems.map((item) =>
@@ -30,6 +41,8 @@ const menuItems = [
                 ))}
               </div>
             </div>
+          ) : item.isButton ? (
+            <Button href={item.href} text={item.text} variant="secondary" />
           ) : (
             <a href={item.href}>{item.text}</a>
           ),
@@ -54,6 +67,8 @@ const menuItems = [
                   ))}
                 </div>
               </div>
+            ) : item.isButton ? (
+              <Button href={item.href} text={item.text} variant="secondary" />
             ) : (
               <a href={item.href}>{item.text}</a>
             ),
@@ -67,12 +82,20 @@ const menuItems = [
 <script>
   import { setupMobileMenu } from "../../scripts/Navbar/mobileMenu";
   import { setupSubmenuToggle } from "../../scripts/Navbar/submenuToggle";
+  import { setupNavbarScroll } from "../../scripts/Navbar/navbarScroll";
+
+  let cleanupScroll = () => {};
 
   function initNavbarScripts() {
     const header = document.getElementById("main-header");
     if (header) {
       setupMobileMenu(header);
       setupSubmenuToggle(header);
+
+      if (cleanupScroll) {
+        cleanupScroll();
+      }
+      cleanupScroll = setupNavbarScroll(header);
     }
   }
 
@@ -84,29 +107,46 @@ const menuItems = [
   @use "../../styles/global.scss";
 
   header {
-    margin-top: 0.5rem;
     width: 100%;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     background-color: transparent;
+    z-index: 100;
+    transition:
+      background-color 0.2s ease,
+      backdrop-filter 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  header.scrolled {
+    background-color: rgba(0, 54, 66, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+
+    nav {
+      padding: 0.5rem 0;
+    }
   }
 
   nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem 0;
+    padding: 1rem 0;
     width: 90%;
     margin: 0 auto;
     z-index: 5;
+    transition: padding 0.3s ease;
   }
 
   #logo {
-    font-size: var(--h1);
-    font-family: var(--font-title);
+    display: flex;
+    align-items: center;
     position: relative;
     z-index: 20;
+    line-height: 0;
   }
 
   a {
@@ -160,14 +200,13 @@ const menuItems = [
   }
 
   .menu {
-    display: none;
     position: fixed;
     width: 100vw;
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 3rem;
+    gap: 2rem;
     top: 0;
     left: 0;
     background-color: var(--primary-color);
@@ -175,12 +214,23 @@ const menuItems = [
     z-index: -10;
     transition: 0.5s ease;
     opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
     overflow: auto;
+
+    :global(.button-container) {
+      margin: 0;
+    }
+
+    :global(.button) {
+      font-size: var(--h2);
+    }
   }
 
   .show {
-    display: flex;
     opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
     transition: 0.3s ease-in-out;
     z-index: 10;
     overflow-y: auto;
@@ -231,11 +281,29 @@ const menuItems = [
       z-index: 100;
     }
 
+    nav {
+      position: relative;
+    }
+
     .desktop-menu {
+      position: absolute;
+      left: 0;
+      right: 0;
       display: flex;
       align-items: center;
-      gap: 3rem;
+      justify-content: center;
+      gap: 1.5rem;
       white-space: nowrap;
+
+      :global(.button-container) {
+        position: absolute;
+        right: 0;
+        margin: 0;
+      }
+
+      :global(.button) {
+        font-size: var(--h5);
+      }
     }
 
     .mobile-menu {
@@ -252,7 +320,7 @@ const menuItems = [
 
     a,
     .submenu-toggle {
-      font-size: var(--h4);
+      font-size: var(--h5);
     }
 
     .submenu {

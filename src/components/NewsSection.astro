@@ -26,19 +26,24 @@ const latestNews = newsData.slice(0, 3);
                     })}
                   </p>
                 )}
-                {item.image && (
-                  <Image src={item.image} alt={item.imageAlt || ""} />
-                )}
-                <p class="description">{item.description}</p>
-                {item.link && (
-                  <div class="button-wrapper">
-                    <Button
-                      text={item.linkText || "En savoir plus"}
-                      href={item.link}
-                      variant="primary"
-                    />
+                <div class="news-wrapper">
+                  {item.image && (
+                    <Image src={item.image} alt={item.imageAlt || ""} />
+                  )}
+                  <div class="news-info">
+                    <p class="description">{item.description}</p>
+
+                    {item.link && (
+                      <div class="button-wrapper">
+                        <Button
+                          text={item.linkText || "En savoir plus"}
+                          href={item.link}
+                          variant="primary"
+                        />
+                      </div>
+                    )}
                   </div>
-                )}
+                </div>
               </div>
             </div>
           ))}
@@ -54,7 +59,6 @@ const latestNews = newsData.slice(0, 3);
   .news-section {
     width: 100%;
     padding: 2rem 0 4rem 0;
-    background-color: var(--secondary-color);
   }
 
   .news-container {
@@ -68,11 +72,13 @@ const latestNews = newsData.slice(0, 3);
   .news-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 3rem;
   }
 
   .news-card {
-    background: white;
+    background: var(--secondary-color);
+    width: 90%;
+    margin: 0 auto;
     border-radius: 15px;
     padding: 1.5rem;
     position: relative;
@@ -81,7 +87,7 @@ const latestNews = newsData.slice(0, 3);
     border: 1px solid rgba(84, 102, 98, 0.1);
 
     img {
-      width: 70%;
+      width: 100%;
       height: auto;
       object-fit: cover;
       align-self: center;
@@ -148,18 +154,38 @@ const latestNews = newsData.slice(0, 3);
 
   @media (width >= global.$breakpoint-desktop) {
     .news-container {
-      width: 60%;
+      width: 65%;
       margin: 0 auto;
       h1 {
         text-align: center;
+      }
+
+      .news-card {
+        width: 60%;
+      }
+      .news-wrapper {
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
+      }
+
+      .news-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.75rem;
+      }
+
+      img {
+        width: 50%;
       }
     }
 
     .new-badge {
       right: -50px;
-      padding: 0.5rem 1rem;
+      padding: 0.5rem 0.75rem;
       border-radius: 30px;
-      font-size: 1.25rem;
+      font-size: 1rem;
     }
   }
 </style>

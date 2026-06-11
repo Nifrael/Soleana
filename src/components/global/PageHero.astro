@@ -17,8 +17,10 @@ const { imageDesktop, imageMobile, altText, title, subtitle } = Astro.props;
   <Image src={imageDesktop} alt={altText} class="head-photo desktop priority" />
   <Image src={imageMobile} alt={altText} class="head-photo mobile priority" />
   <div class="head-text">
-    <h1>{title}</h1>
-    <h2>{subtitle}</h2>
+    <slot>
+      <h1>{title}</h1>
+      <h2>{subtitle}</h2>
+    </slot>
   </div>
 </div>
 
@@ -57,7 +59,7 @@ const { imageDesktop, imageMobile, altText, title, subtitle } = Astro.props;
       margin: 0;
     }
     h2 {
-      font-size: 1.8rem;
+      font-size: 1.4rem;
       font-style: italic;
       font-weight: 400;
       margin: 0.5rem 0 0 0;
@@ -111,7 +113,7 @@ const { imageDesktop, imageMobile, altText, title, subtitle } = Astro.props;
         font-size: 4rem;
       }
       h2 {
-        font-size: 3rem;
+        font-size: 1.7rem;
       }
     }
   }
@@ -122,7 +124,7 @@ const { imageDesktop, imageMobile, altText, title, subtitle } = Astro.props;
         font-size: 6rem;
       }
       h2 {
-        font-size: 4rem;
+        font-size: 2rem;
       }
     }
   }

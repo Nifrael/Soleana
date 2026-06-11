@@ -8,6 +8,7 @@ import MasseuseCard from "../components/MasseuseCard.astro";
 import Button from "../components/ui/Button.astro";
 import PageHero from "../components/global/PageHero.astro";
 import NewsSection from "../components/NewsSection.astro";
+import Logo from "../assets/logo.svg";
 ---
 
 <Layout
@@ -19,9 +20,11 @@ import NewsSection from "../components/NewsSection.astro";
       imageDesktop={Bienvenue}
       imageMobile={BienvenueMobile}
       altText="Photo d'accueil Soleana"
-      title="L'INSTANT SOLEANA"
+      title="L'Instant Soleana"
       subtitle="Vous invite"
-    />
+    >
+      <Image src={Logo} alt="Logo Soleana" id="logo-soleana" />
+    </PageHero>
     <NewsSection />
     <PrestationsCards />
     <MasseuseCard />
@@ -48,6 +51,26 @@ import NewsSection from "../components/NewsSection.astro";
 
 <style lang="scss">
   @use "../styles/global.scss";
+
+  :global(#logo-soleana) {
+    width: 90%;
+    max-width: 600px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  @media (width >= global.$breakpoint-tablet) {
+    :global(#logo-soleana) {
+      max-width: 650px;
+    }
+  }
+
+  @media (width >= global.$breakpoint-desktop-xxl) {
+    :global(#logo-soleana) {
+      max-width: 750px;
+    }
+  }
 
   .page-content {
     padding-bottom: 2rem;

@@ -1,5 +1,7 @@
 ---
+import { Image } from "astro:assets";
 import Button from "../ui/Button.astro";
+import LogoMin from "../../assets/logo-min.svg";
 
 const menuItems = [
   {
@@ -24,7 +26,9 @@ const menuItems = [
 
 <header id="main-header">
   <nav>
-    <a href="/" id="logo">Soleana</a>
+    <a href="/" id="logo">
+      <Image src={LogoMin} alt="L'Instant Soleana" width={60} height={60} />
+    </a>
     <div class="desktop-menu">
       {
         menuItems.map((item) =>
@@ -138,10 +142,11 @@ const menuItems = [
   }
 
   #logo {
-    font-size: var(--h1);
-    font-family: var(--font-title);
+    display: flex;
+    align-items: center;
     position: relative;
     z-index: 20;
+    line-height: 0;
   }
 
   a {

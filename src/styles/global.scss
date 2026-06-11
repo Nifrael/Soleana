@@ -3,6 +3,7 @@
 @use "@fontsource-variable/playpen-sans";
 @use "@fontsource-variable/maven-pro/wght.css";
 @use "@fontsource/inria-serif";
+@use "@fontsource-variable/playfair-display";
 
 *,
 *::before,
@@ -26,7 +27,7 @@ main {
   --primary-color: rgb(0, 54, 66);
   --secondary-color: rgb(251, 236, 209);
   --tertiary-color: rgb(255, 255, 255);
-  --font-title: "Playpen Sans Variable";
+  --font-title: "Playfair Display Variable", serif;
   --font-text: "Maven Pro Variable", sans-serif;
   --font-little-text: "Inria Serif", serif;
   --base-size: 1rem;

@@ -20,6 +20,7 @@ const prestationsCollection = defineCollection({
       description: z.string().optional(),
       pageLayout: z.string().optional(),
       professionalDisclaimer: z.string().optional(),
+      familyInfo: z.string().optional(),
       subtitle: z.string().optional(),
       quote: z.string(),
       image: imageSchema,

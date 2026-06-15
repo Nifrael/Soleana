@@ -2,6 +2,7 @@
   "title": "Soins Énergétiques",
   "description": "Laissez-vous guider par nos soins énergétiques pour retrouver une santé optimale.",
   "pageLayout": "soins_energetiques",
+  "familyInfo": "Les enfants sont les bienvenus. Les soins sont adaptés à leur âge et à leurs besoins spécifiques.",
   "image": {
     "src": "../../assets/images/pages/SoinsEnergetiques.jpg",
     "alt": "Image de la section soins énergétiques"

@@ -5,12 +5,13 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "deploy": "astro build && npx wrangler pages deploy",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^12.6.13",
     "@astrojs/sitemap": "^3.6.0",
-    "@astrojs/vercel": "^9.0.2",
     "@fontsource-variable/maven-pro": "^5.2.10",
     "@fontsource-variable/playfair-display": "^5.2.8",
     "@fontsource-variable/playpen-sans": "^5.2.7",

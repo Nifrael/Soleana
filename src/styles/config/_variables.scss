@@ -1,0 +1,8 @@
+// Breakpoints pour les media queries.
+// Ce fichier ne produit aucun CSS : les composants peuvent l'importer
+// sans dupliquer de règles dans leur feuille de style.
+
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-desktop-xl: 1280px;
+$breakpoint-desktop-xxl: 1440px;

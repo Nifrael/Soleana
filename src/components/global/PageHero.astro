@@ -25,7 +25,7 @@ const { imageDesktop, imageMobile, altText, title, subtitle } = Astro.props;
 </div>
 
 <style lang="scss">
-  @use "../../styles/global.scss";
+  @use "@styles/config/variables" as *;
 
   .head-background {
     position: relative;
@@ -85,7 +85,7 @@ const { imageDesktop, imageMobile, altText, title, subtitle } = Astro.props;
     display: none;
   }
 
-  @media (orientation: landscape) and (width < global.$breakpoint-tablet) {
+  @media (orientation: landscape) and (width < $breakpoint-tablet) {
     .head-background {
       min-height: auto;
       padding-bottom: 10vh;
@@ -99,7 +99,7 @@ const { imageDesktop, imageMobile, altText, title, subtitle } = Astro.props;
     }
   }
 
-  @media (width >= global.$breakpoint-tablet) {
+  @media (width >= $breakpoint-tablet) {
     .desktop {
       display: block;
     }
@@ -118,7 +118,7 @@ const { imageDesktop, imageMobile, altText, title, subtitle } = Astro.props;
     }
   }
 
-  @media (width >= global.$breakpoint-desktop-xxl) {
+  @media (width >= $breakpoint-desktop-xxl) {
     .head-text {
       h1 {
         font-size: 6rem;

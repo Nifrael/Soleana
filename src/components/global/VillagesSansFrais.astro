@@ -48,7 +48,7 @@ const villages = [
 </details>
 
 <style lang="scss">
-  @use "../../styles/global.scss";
+  @use "@styles/config/variables" as *;
 
   .villages-container {
     margin: 1rem;
@@ -78,7 +78,7 @@ const villages = [
     color: var(--primary-color);
   }
 
-  @media (width >= global.$breakpoint-desktop) {
+  @media (width >= $breakpoint-desktop) {
     .villages-list {
       column-count: 4;
     }

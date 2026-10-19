@@ -66,7 +66,7 @@ import AboutPhoto from "../assets/images/Apropos.jpg";
   </div>
 
   <style lang="scss">
-    @use "../styles/global.scss";
+    @use "@styles/config/variables" as *;
 
     .page-content {
       margin: 0 auto;
@@ -95,7 +95,7 @@ import AboutPhoto from "../assets/images/Apropos.jpg";
       }
     }
 
-    @media (width >= global.$breakpoint-desktop) {
+    @media (width >= $breakpoint-desktop) {
       .page-content {
         max-width: 1000px;
       }

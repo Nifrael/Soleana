@@ -50,7 +50,7 @@ import Logo from "../assets/logo.svg";
 </Layout>
 
 <style lang="scss">
-  @use "../styles/global.scss";
+  @use "@styles/config/variables" as *;
 
   :global(#logo-soleana) {
     width: 90%;
@@ -60,13 +60,13 @@ import Logo from "../assets/logo.svg";
     margin: 0 auto;
   }
 
-  @media (width >= global.$breakpoint-tablet) {
+  @media (width >= $breakpoint-tablet) {
     :global(#logo-soleana) {
       max-width: 650px;
     }
   }
 
-  @media (width >= global.$breakpoint-desktop-xxl) {
+  @media (width >= $breakpoint-desktop-xxl) {
     :global(#logo-soleana) {
       max-width: 750px;
     }
@@ -99,7 +99,7 @@ import Logo from "../assets/logo.svg";
     }
   }
 
-  @media (width >= global.$breakpoint-desktop) {
+  @media (width >= $breakpoint-desktop) {
     .head-text {
       h1 {
         font-size: 4.5rem;

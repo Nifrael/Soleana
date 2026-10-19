@@ -104,7 +104,7 @@ const menuItems = [
 </script>
 
 <style lang="scss">
-  @use "../../styles/global.scss";
+  @use "@styles/config/variables" as *;
 
   header {
     width: 100%;
@@ -276,7 +276,7 @@ const menuItems = [
     overflow: hidden;
   }
 
-  @media (width >= global.$breakpoint-desktop) {
+  @media (width >= $breakpoint-desktop) {
     header {
       z-index: 100;
     }

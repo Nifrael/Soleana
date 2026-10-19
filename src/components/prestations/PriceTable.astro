@@ -37,7 +37,7 @@ const { title, items } = Astro.props;
 </section>
 
 <style lang="scss">
-  @use "../../styles/global.scss";
+  @use "@styles/config/variables" as *;
 
   .price-table {
     width: 95%;
@@ -102,7 +102,7 @@ const { title, items } = Astro.props;
     font-weight: bold;
   }
 
-  @media (width >= global.$breakpoint-desktop) {
+  @media (width >= $breakpoint-desktop) {
     .price-table-grid {
       grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
     }

@@ -54,7 +54,7 @@ const latestNews = newsData.slice(0, 3);
 }
 
 <style lang="scss">
-  @use "../styles/global.scss";
+  @use "@styles/config/variables" as *;
 
   .news-section {
     width: 100%;
@@ -152,7 +152,7 @@ const latestNews = newsData.slice(0, 3);
     }
   }
 
-  @media (width >= global.$breakpoint-desktop) {
+  @media (width >= $breakpoint-desktop) {
     .news-container {
       width: 65%;
       margin: 0 auto;

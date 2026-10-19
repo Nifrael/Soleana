@@ -1,4 +1,6 @@
 ---
+import "@styles/global.scss";
+import { Font } from "astro:assets";
 import Navbar from "../components/global/Navbar.astro";
 import Footer from "../components/global/Footer.astro";
 import { ClientRouter } from "astro:transitions";
@@ -12,6 +14,9 @@ export interface Props extends SEOProps {}
 <html lang="fr">
   <head>
     <SEO {...Astro.props} />
+    <Font cssVariable="--font-title" preload />
+    <Font cssVariable="--font-text" preload />
+    <Font cssVariable="--font-little-text" />
 
     <script
       type="application/ld+json"
@@ -28,14 +33,3 @@ export interface Props extends SEOProps {}
     <Footer />
   </body>
 </html>
-
-<style is:global lang="scss">
-  @use "../styles/global.scss";
-
-  html,
-  body {
-    margin: 0;
-    width: 100%;
-    min-height: 100vh;
-  }
-</style>

@@ -7,7 +7,7 @@ import Button from "../ui/Button.astro";
 </div>
 
 <style lang="scss">
-  @use "../../styles/global.scss";
+  @use "@styles/config/variables" as *;
 
   .contact-card {
     width: 100%;
@@ -26,13 +26,13 @@ import Button from "../ui/Button.astro";
     margin: auto;
   }
 
-  @media (width >= global.$breakpoint-tablet) {
+  @media (width >= $breakpoint-tablet) {
     .contact-card {
       background-attachment: fixed;
     }
   }
 
-  @media (width >= global.$breakpoint-desktop-xxl) {
+  @media (width >= $breakpoint-desktop-xxl) {
     .contact-card {
       height: 40vh;
     }

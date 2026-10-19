@@ -21,7 +21,7 @@ import Button from "./ui/Button.astro";
 </div>
 
 <style lang="scss">
-  @use "../styles/global.scss";
+  @use "@styles/config/variables" as *;
 
   .person-card-container {
     margin: 4rem auto;
@@ -66,13 +66,13 @@ import Button from "./ui/Button.astro";
     padding: 1rem;
   }
 
-  @media (width >= global.$breakpoint-tablet) {
+  @media (width >= $breakpoint-tablet) {
     .person-card-container {
       background-attachment: fixed;
     }
   }
 
-  @media (width >= global.$breakpoint-desktop-xxl) {
+  @media (width >= $breakpoint-desktop-xxl) {
     .person-card {
       grid-template-columns: repeat(2, 1fr);
       gap: 1rem;

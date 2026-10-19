@@ -108,7 +108,7 @@ import Data from "../assets/images/Data.jpg";
 </Layout>
 
 <style lang="scss">
-  @use "../styles/global.scss";
+  @use "@styles/config/variables" as *;
 
   .page-content {
     margin: 0 auto;
@@ -132,7 +132,7 @@ import Data from "../assets/images/Data.jpg";
     }
   }
 
-  @media (width >= global.$breakpoint-desktop) {
+  @media (width >= $breakpoint-desktop) {
     .page-content {
       max-width: 1000px;
     }

@@ -105,7 +105,7 @@ import { Image } from "astro:assets";
 </div>
 
 <style lang="scss">
-  @use "../styles/global.scss";
+  @use "@styles/config/variables" as *;
 
   .text-background {
     background: url("../assets/background.svg");
@@ -170,13 +170,13 @@ import { Image } from "astro:assets";
     }
   }
 
-  @media (width >= global.$breakpoint-tablet) {
+  @media (width >= $breakpoint-tablet) {
     .text-background {
       background-attachment: fixed;
     }
   }
 
-  @media (width >= global.$breakpoint-desktop) {
+  @media (width >= $breakpoint-desktop) {
     .text-content {
       width: 60%;
       h1,

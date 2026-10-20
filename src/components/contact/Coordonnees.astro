@@ -77,6 +77,7 @@ const coordonnees: {
       href={reservation.href}
       texte="Réserver sur SumUp"
       icone="calendrier"
+      clair
     />
   </section>
 </aside>
@@ -216,11 +217,8 @@ const coordonnees: {
       color: var(--secondary-color);
     }
 
-    // Sur fond sombre, le bouton passe en clair.
     :global(.bouton) {
       margin-top: 0.5rem;
-      background-color: var(--tertiary-color);
-      color: var(--primary-color);
     }
   }
 </style>

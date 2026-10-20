@@ -57,6 +57,9 @@ const externe = href?.startsWith("http");
     text-transform: uppercase;
     white-space: nowrap;
     cursor: pointer;
+    transition:
+      background-color 0.25s ease,
+      color 0.25s ease;
 
     // Survol seulement sur grand écran avec souris : sur mobile, le tap
     // laisserait le bouton bloqué dans son état survolé.
@@ -68,13 +71,15 @@ const externe = href?.startsWith("http");
     }
   }
 
+  // Variante pour fond sombre (header, menu mobile, encart de réservation).
   .clair {
     background-color: var(--secondary-color);
     color: var(--primary-color);
 
     @media (hover: hover) and (width >= $breakpoint-desktop) {
       &:hover {
-        background-color: var(--tertiary-color);
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
       }
     }
   }

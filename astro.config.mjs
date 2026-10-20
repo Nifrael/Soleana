@@ -25,8 +25,9 @@ export default defineConfig({
   env: {
     schema: {
       // Clé d'accès Web3Forms (publique par nature : elle figure dans le HTML).
-      // Optionnelle : sans elle, la page contact n'affiche pas le formulaire.
-      WEB3FORMS_CLE: envField.string({ context: "server", access: "public", optional: true }),
+      // Obligatoire : sans elle, le build échoue plutôt que de publier un
+      // formulaire qui n'envoie rien.
+      WEB3FORMS_CLE: envField.string({ context: "server", access: "public" }),
     },
   },
   experimental: {

@@ -30,95 +30,132 @@ const prestations = [
     accueil harmonieux adapté à vos attentes.
   </p>
 
-  {
-    WEB3FORMS_CLE ? (
-      <form class="formulaire" method="POST" action="https://api.web3forms.com/submit">
-        <input type="hidden" name="access_key" value={WEB3FORMS_CLE} />
-        <input type="hidden" name="subject" value="Nouvelle demande depuis le site L'Instant Soleana" />
-        <input type="hidden" name="from_name" value="Site L'Instant Soleana" />
-        <input type="hidden" name="redirect" value={pageMerci} />
+  <form
+    class="formulaire"
+    method="POST"
+    action="https://api.web3forms.com/submit"
+  >
+    <input type="hidden" name="access_key" value={WEB3FORMS_CLE} />
+    <input
+      type="hidden"
+      name="subject"
+      value="Nouvelle demande depuis le site L'Instant Soleana"
+    />
+    <input type="hidden" name="from_name" value="Site L'Instant Soleana" />
+    <input type="hidden" name="redirect" value={pageMerci} />
 
-        {/* Champ piège : invisible, coché seulement par les robots. `botcheck` est le nom attendu par Web3Forms. */}
-        <p class="visually-hidden">
-          <label>
-            Ne pas cocher cette case
-            <input type="checkbox" name="botcheck" tabindex="-1" />
-          </label>
-        </p>
+    {
+      /* Champ piège : invisible, coché seulement par les robots. `botcheck` est le nom attendu par Web3Forms. */
+    }
+    <p class="visually-hidden">
+      <label>
+        Ne pas cocher cette case
+        <input type="checkbox" name="botcheck" tabindex="-1" />
+      </label>
+    </p>
 
-        <fieldset class="champ">
-          <legend>Vous êtes *</legend>
-          <div class="options deux">
-            {profils.map((profil, index) => (
-              <label class="option">
-                <input type="radio" name="profil" value={profil} checked={index === 0} />
-                {profil}
-              </label>
-            ))}
-          </div>
-        </fieldset>
+    <fieldset class="champ">
+      <legend>Vous êtes *</legend>
+      <div class="options">
+        {
+          profils.map((profil, index) => (
+            <label class="option">
+              <input
+                type="radio"
+                name="profil"
+                value={profil}
+                checked={index === 0}
+              />
+              {profil}
+            </label>
+          ))
+        }
+      </div>
+    </fieldset>
 
-        <div class="ligne">
-          <div class="champ">
-            <label for="prenom">Prénom *</label>
-            <input id="prenom" name="prenom" type="text" autocomplete="given-name" required />
-          </div>
-          <div class="champ">
-            <label for="nom">Nom *</label>
-            <input id="nom" name="nom" type="text" autocomplete="family-name" required />
-          </div>
-        </div>
+    <div class="ligne">
+      <div class="champ">
+        <label for="prenom">Prénom *</label>
+        <input
+          id="prenom"
+          name="prenom"
+          type="text"
+          autocomplete="given-name"
+          required
+        />
+      </div>
+      <div class="champ">
+        <label for="nom">Nom *</label>
+        <input
+          id="nom"
+          name="nom"
+          type="text"
+          autocomplete="family-name"
+          required
+        />
+      </div>
+    </div>
 
-        <div class="champ">
-          <label for="telephone">Numéro de téléphone *</label>
-          <input
-            id="telephone"
-            name="telephone"
-            type="tel"
-            autocomplete="tel"
-            placeholder="06 00 00 00 00"
-            required
-          />
-        </div>
+    <div class="ligne">
+      <div class="champ">
+        <label for="email">Adresse email *</label>
+        {
+          /* `email` est le nom attendu par Web3Forms pour pouvoir répondre directement. */
+        }
+        <input
+          id="email"
+          name="email"
+          type="email"
+          autocomplete="email"
+          placeholder="prenom@exemple.fr"
+          required
+        />
+      </div>
+      <div class="champ">
+        <label for="telephone">Numéro de téléphone *</label>
+        <input
+          id="telephone"
+          name="telephone"
+          type="tel"
+          autocomplete="tel"
+          placeholder="06 00 00 00 00"
+          required
+        />
+      </div>
+    </div>
 
-        <fieldset class="champ">
-          <legend>Prestation(s) envisagée(s)</legend>
-          <div class="options trois">
-            {prestations.map((prestation) => (
-              <label class="option">
-                <input type="checkbox" name="prestations[]" value={prestation} />
-                {prestation}
-              </label>
-            ))}
-          </div>
-        </fieldset>
+    <fieldset class="champ">
+      <legend>Prestation(s) envisagée(s)</legend>
+      <div class="options">
+        {
+          prestations.map((prestation) => (
+            <label class="option">
+              <input type="checkbox" name="prestations[]" value={prestation} />
+              {prestation}
+            </label>
+          ))
+        }
+      </div>
+    </fieldset>
 
-        <div class="champ">
-          <label for="message">Votre message *</label>
-          <textarea
-            id="message"
-            name="message"
-            rows="5"
-            placeholder="Vos envies, vos disponibilités, ou toute précision utile…"
-            required
-          />
-        </div>
+    <div class="champ">
+      <label for="message">Votre message *</label>
+      <textarea
+        id="message"
+        name="message"
+        rows="5"
+        placeholder="Vos envies, vos disponibilités, ou toute précision utile…"
+        required></textarea>
+    </div>
 
-        <div class="envoi">
-          <BoutonPilule texte="Envoyer ma demande" icone="envoyer" />
-          <p class="aide">
-            Vos coordonnées servent uniquement à vous répondre.{" "}
-            <a href="/politique-de-confidentialite">Politique de confidentialité</a>
-          </p>
-        </div>
-      </form>
-    ) : (
-      <p class="intro">
-        Le formulaire sera bientôt disponible. En attendant, le plus simple est de
-        m'appeler.
+    <div class="envoi">
+      <BoutonPilule texte="Envoyer ma demande" icone="envoyer" />
+      <p class="aide">
+        Vos coordonnées servent uniquement à vous répondre.{" "}
+        <a href="/politique-de-confidentialite">Politique de confidentialité</a>
       </p>
-    )
-  }
+    </div>
+  </form>
 </section>
 
 <style lang="scss">
@@ -126,7 +163,8 @@ const prestations = [
 
   .formulaire-bloc {
     padding: 2rem 1.5rem;
-    border: 1px solid color-mix(in srgb, var(--secondary-color) 70%, transparent);
+    border: 1px solid
+      color-mix(in srgb, var(--secondary-color) 70%, transparent);
     border-radius: 1.5rem;
     background-color: var(--tertiary-color);
     box-shadow: 0 2px 12px rgb(0 0 0 / 0.04);
@@ -198,7 +236,11 @@ const prestations = [
     padding: 0.75rem 1rem;
     border: 1px solid color-mix(in srgb, var(--primary-color) 45%, transparent);
     border-radius: 0.75rem;
-    background-color: color-mix(in srgb, var(--secondary-color) 25%, var(--tertiary-color));
+    background-color: color-mix(
+      in srgb,
+      var(--secondary-color) 25%,
+      var(--tertiary-color)
+    );
     color: var(--primary-color);
     font-family: var(--font-text);
     font-size: var(--base-size);
@@ -223,39 +265,56 @@ const prestations = [
   }
 
   .options {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-wrap: wrap;
     gap: 0.5rem;
   }
 
-  // Vraies cases et boutons radio (clavier et lecteurs d'écran), dans une tuile.
+  // Pilules : la vraie case (radio ou checkbox) reste dans le label, invisible,
+  // pour le clavier et les lecteurs d'écran. Une fois choisie, la pilule passe
+  // à la couleur principale.
   .option {
-    display: flex;
+    position: relative;
+    display: inline-flex;
     align-items: center;
-    gap: 0.6rem;
-    padding: 0.75rem 1rem;
-    border-radius: 0.75rem;
-    background-color: color-mix(in srgb, var(--secondary-color) 35%, var(--tertiary-color));
+    padding: 0.55rem 1.1rem;
+    border: 1px solid color-mix(in srgb, var(--primary-color) 30%, transparent);
+    border-radius: 2rem;
+    background-color: var(--tertiary-color);
     font-family: var(--font-text);
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 400;
     letter-spacing: normal;
     text-transform: none;
     cursor: pointer;
+    transition:
+      background-color 0.2s ease,
+      border-color 0.2s ease,
+      color 0.2s ease;
 
     input {
-      flex-shrink: 0;
+      position: absolute;
+      inset: 0;
       margin: 0;
-      accent-color: var(--primary-color);
+      opacity: 0;
+      cursor: pointer;
     }
 
     &:has(:checked) {
-      background-color: color-mix(in srgb, var(--secondary-color) 75%, var(--tertiary-color));
+      border-color: var(--primary-color);
+      background-color: var(--primary-color);
+      color: var(--tertiary-color);
     }
 
     &:has(:focus-visible) {
       outline: 2px solid var(--primary-color);
       outline-offset: 2px;
+    }
+
+    @media (hover: hover) and (width >= $breakpoint-desktop) {
+      &:hover:not(:has(:checked)) {
+        border-color: var(--primary-color);
+      }
     }
   }
 
@@ -289,13 +348,8 @@ const prestations = [
   }
 
   @media (width >= $breakpoint-tablet) {
-    .ligne,
-    .options.deux {
+    .ligne {
       grid-template-columns: repeat(2, 1fr);
-    }
-
-    .options.trois {
-      grid-template-columns: repeat(3, 1fr);
     }
 
     .envoi {

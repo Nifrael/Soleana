@@ -33,9 +33,7 @@ const liens = [{ href: "/", text: "Accueil" }, ...menuItems];
           liens.map((item, index) => (
             <li style={`--i: ${index + 1}`}>
               {item.subItems ? (
-                <div
-                  class:list={["accordeon", { deplie: prestationsActives }]}
-                >
+                <div class:list={["accordeon", { deplie: prestationsActives }]}>
                   <button
                     class:list={["lien", { actif: prestationsActives }]}
                     type="button"
@@ -98,7 +96,7 @@ const liens = [{ href: "/", text: "Accueil" }, ...menuItems];
           </li>
           <li>
             <Icone nom="lieu" />
-            <span>À domicile · Millas, Ille-sur-Têt, Thuir, Perpignan</span>
+            <span>Le Soler, près de Perpignan</span>
           </li>
         </ul>
 

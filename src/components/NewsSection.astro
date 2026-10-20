@@ -24,70 +24,83 @@ const semaines = [
         <SectionHeader surtitre="Moments • Événements" titre="Actualités" />
 
         <div class="news-grid">
-          {latestNews.map((item) => (
-            <article class="news-card">
-              <div class="card-top">
-                <p class="categorie">
-                  <Icone nom={item.icone} />
-                  {item.categorie}
-                </p>
-                {item.isNew && <span class="new-badge">Nouveau</span>}
-              </div>
+          {latestNews.map((item) => {
+            // Colonne mise en avant du calendrier (lue ici : TypeScript perd le
+            // type du visuel dans les boucles imbriquées plus bas).
+            const jourActif =
+              item.visuel.type === "calendrier" ? item.visuel.jour : -1;
 
-              <h3>{item.title}</h3>
-              <p class="description">{item.description}</p>
+            return (
+              <article class="news-card">
+                <div class="card-top">
+                  <p class="categorie">
+                    <Icone nom={item.icone} />
+                    {item.categorie}
+                  </p>
+                  {item.isNew && <span class="new-badge">Nouveau</span>}
+                </div>
 
-              {item.visuel.type === "calendrier" && (
-                <div class="calendrier" aria-hidden="true">
-                  <div class="calendrier-entete">
-                    <span>
-                      {item.visuel.titre} • {item.visuel.lieu}
-                    </span>
-                    <span class="calendrier-mention">{item.visuel.mention}</span>
-                  </div>
-                  <div class="calendrier-grille">
-                    {joursSemaine.map((jour, i) => (
-                      <span class:list={["jour", { actif: i === item.visuel.jour }]}>
-                        {jour}
+                <h3>{item.title}</h3>
+                <p class="description">{item.description}</p>
+
+                {item.visuel.type === "calendrier" && (
+                  <div class="calendrier" aria-hidden="true">
+                    <div class="calendrier-entete">
+                      <span>
+                        {item.visuel.titre} • {item.visuel.lieu}
                       </span>
-                    ))}
-                    {semaines.map((semaine, ligne) =>
-                      semaine.map((date, i) => (
-                        <span
-                          class:list={[
-                            "date",
-                            {
-                              autre: ligne === 0 && date > 7,
-                              ouvert: i === item.visuel.jour,
-                              prochain: i === item.visuel.jour && ligne === 1,
-                            },
-                          ]}
-                        >
-                          {date}
+                      <span class="calendrier-mention">
+                        {item.visuel.mention}
+                      </span>
+                    </div>
+                    <div class="calendrier-grille">
+                      {joursSemaine.map((jour, i) => (
+                        <span class:list={["jour", { actif: i === jourActif }]}>
+                          {jour}
                         </span>
-                      ))
-                    )}
+                      ))}
+                      {semaines.map((semaine, ligne) =>
+                        semaine.map((date, i) => (
+                          <span
+                            class:list={[
+                              "date",
+                              {
+                                autre: ligne === 0 && date > 7,
+                                ouvert: i === jourActif,
+                                prochain: i === jourActif && ligne === 1,
+                              },
+                            ]}
+                          >
+                            {date}
+                          </span>
+                        )),
+                      )}
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
 
-              {item.visuel.type === "image" && (
-                <figure class="photo">
-                  <Image src={item.visuel.image} alt={item.visuel.alt} />
-                  <figcaption>
-                    <Icone nom="lieu" />
-                    {item.visuel.lieu}
-                  </figcaption>
-                </figure>
-              )}
+                {item.visuel.type === "image" && (
+                  <figure class="photo">
+                    <Image src={item.visuel.image} alt={item.visuel.alt} />
+                    <figcaption>
+                      <Icone nom="lieu" />
+                      {item.visuel.lieu}
+                    </figcaption>
+                  </figure>
+                )}
 
-              {item.link && (
-                <div class="news-action">
-                  <BoutonPilule href={item.link} texte={item.linkText} icone={item.boutonIcone} />
-                </div>
-              )}
-            </article>
-          ))}
+                {item.link && (
+                  <div class="news-action">
+                    <BoutonPilule
+                      href={item.link}
+                      texte={item.linkText}
+                      icone={item.boutonIcone}
+                    />
+                  </div>
+                )}
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -119,7 +132,11 @@ const semaines = [
     flex-direction: column;
     padding: 1.75rem 1.5rem;
     border-radius: 1.5rem;
-    background-color: color-mix(in srgb, var(--secondary-color) 45%, var(--tertiary-color));
+    background-color: color-mix(
+      in srgb,
+      var(--secondary-color) 45%,
+      var(--tertiary-color)
+    );
 
     h3 {
       margin: 0.9rem 0 0.6rem;
@@ -174,7 +191,11 @@ const semaines = [
   .calendrier {
     padding: 1rem 1.25rem 1.25rem;
     border-radius: 1.5rem;
-    background-color: color-mix(in srgb, var(--tertiary-color) 60%, transparent);
+    background-color: color-mix(
+      in srgb,
+      var(--tertiary-color) 60%,
+      transparent
+    );
     color: var(--primary-color);
   }
 
@@ -185,7 +206,8 @@ const semaines = [
     gap: 0.25rem 1rem;
     padding-bottom: 0.6rem;
     margin-bottom: 0.75rem;
-    border-bottom: 1px solid color-mix(in srgb, var(--primary-color) 15%, transparent);
+    border-bottom: 1px solid
+      color-mix(in srgb, var(--primary-color) 15%, transparent);
     font-family: var(--font-text);
     font-size: 0.85rem;
     font-weight: 500;
@@ -219,7 +241,11 @@ const semaines = [
         opacity: 0.35;
       }
       &.ouvert {
-        background-color: color-mix(in srgb, var(--secondary-color) 80%, var(--accent-color));
+        background-color: color-mix(
+          in srgb,
+          var(--secondary-color) 80%,
+          var(--accent-color)
+        );
         font-weight: 700;
       }
       &.prochain {

@@ -1,11 +1,34 @@
+import type { ImageMetadata } from "astro";
+import type { NomIcone } from "../components/ui/Icone.astro";
 import jeannelleImage from "../assets/images/Jeannelle.jpg";
 
 // Chaque actualité a un visuel :
 // - "calendrier" : illustration décorative, sans vraies dates. `jour` est la colonne
 //   mise en avant (0 = lundi … 6 = dimanche) ;
 // - "image" : photo arrondie, avec le lieu en surimpression.
-// `icone` et `boutonIcone` : noms définis dans components/ui/Icone.astro.
-export const newsData = [
+type Visuel =
+  | {
+      type: "calendrier";
+      titre: string;
+      lieu: string;
+      mention: string;
+      jour: number;
+    }
+  | { type: "image"; image: ImageMetadata; alt: string; lieu: string };
+
+type Actualite = {
+  categorie: string;
+  icone: NomIcone;
+  title: string;
+  description: string;
+  isNew: boolean;
+  visuel: Visuel;
+  link?: string;
+  linkText: string;
+  boutonIcone: NomIcone;
+};
+
+export const newsData: Actualite[] = [
   {
     categorie: "Rendez-vous hebdomadaire",
     icone: "calendrier",

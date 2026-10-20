@@ -1,0 +1,41 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PageHero from "../../components/global/PageHero.astro";
+import Coordonnees from "../../components/contact/Coordonnees.astro";
+import FormulaireContact from "../../components/contact/FormulaireContact.astro";
+import ContactImage from "../../assets/images/Contact.jpg";
+---
+
+<Layout title="Soleana | Contact">
+  <PageHero
+    imageDesktop={ContactImage}
+    imageMobile={ContactImage}
+    altText="Image de la section Contact"
+    title="Contact"
+  />
+
+  <div class="contact-content">
+    <Coordonnees />
+    <FormulaireContact />
+  </div>
+</Layout>
+
+<style lang="scss">
+  @use "@styles/config/variables" as *;
+
+  .contact-content {
+    display: grid;
+    gap: 2rem;
+    width: 90%;
+    max-width: 72rem;
+    margin: 3rem auto 4rem;
+  }
+
+  @media (width >= $breakpoint-desktop) {
+    .contact-content {
+      grid-template-columns: 5fr 7fr;
+      align-items: start;
+      gap: 3rem;
+    }
+  }
+</style>

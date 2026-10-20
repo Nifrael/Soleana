@@ -6,10 +6,15 @@ import siteConfig from "../../content/siteConfig.js";
 export interface Props {
   title?: string;
   description?: string;
+  // Page à exclure des moteurs de recherche (ex. remerciement du formulaire).
+  noindex?: boolean;
 }
 
-const { title = siteConfig.title, description = siteConfig.description } =
-  Astro.props;
+const {
+  title = siteConfig.title,
+  description = siteConfig.description,
+  noindex = false,
+} = Astro.props;
 
 const optimizedDefault = await getImage({
   src: defaultImage,
@@ -34,6 +39,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
 <!-- Primary Meta Tags -->
 <title>{title}</title>
 <meta name="description" content={description} />
+{noindex && <meta name="robots" content="noindex" />}
 <meta name="language" content="fr" />
 
 <!-- Canonical URL -->

@@ -1,0 +1,226 @@
+---
+import Icone, { type NomIcone } from "../ui/Icone.astro";
+import BoutonPilule from "../ui/BoutonPilule.astro";
+import { reservation } from "../../data/navigation.js";
+
+const coordonnees: {
+  icone: NomIcone;
+  etiquette: string;
+  titre: string;
+  lien?: string;
+  detail: string;
+  partenaire?: boolean;
+}[] = [
+  {
+    icone: "telephone",
+    etiquette: "Téléphone",
+    titre: "06 25 48 78 61",
+    lien: "tel:+33625487861",
+    detail:
+      "Le moyen le plus simple et le plus rapide pour fixer un rendez-vous.",
+  },
+  {
+    icone: "lieu",
+    etiquette: "Rayon d'intervention",
+    titre: "À domicile ou au Soler",
+    detail: "Le Soler (Pyrénées-Orientales).",
+  },
+  {
+    icone: "boutique",
+    etiquette: "Lieu partenaire",
+    titre: "Espace Jeannelle — Millas",
+    lien: "/jeannelle",
+    detail: "Le samedi, sur rendez-vous.",
+    partenaire: true,
+  },
+];
+---
+
+<aside class="coordonnees">
+  <section class="bloc">
+    <h2>Prise de contact directe</h2>
+    <ul class="liste">
+      {
+        coordonnees.map((item) => (
+          <li class:list={["carte", { partenaire: item.partenaire }]}>
+            <span class="pastille">
+              <Icone nom={item.icone} />
+            </span>
+            <div>
+              <p class="etiquette">{item.etiquette}</p>
+              {item.lien ? (
+                <a class="titre" href={item.lien}>
+                  {item.titre}
+                </a>
+              ) : (
+                <p class="titre">{item.titre}</p>
+              )}
+              <p class="detail">{item.detail}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="reservation">
+    <p class="etiquette">
+      <Icone nom="eclair" />
+      Réservation en ligne
+    </p>
+    <h2>Réservez directement votre créneau</h2>
+    <p>
+      Choisissez votre prestation et la date qui vous convient sur la plateforme
+      SumUp Bookings.
+    </p>
+    <BoutonPilule
+      href={reservation.href}
+      texte="Réserver sur SumUp"
+      icone="calendrier"
+    />
+  </section>
+</aside>
+
+<style lang="scss">
+  @use "@styles/config/variables" as *;
+
+  .coordonnees {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .bloc {
+    padding: 1.75rem 1.5rem;
+    border: 1px solid
+      color-mix(in srgb, var(--secondary-color) 70%, transparent);
+    border-radius: 1.5rem;
+    background-color: color-mix(
+      in srgb,
+      var(--secondary-color) 20%,
+      var(--tertiary-color)
+    );
+
+    h2 {
+      margin: 0 0 1.25rem;
+      font-family: var(--font-title);
+      font-size: var(--h5);
+      font-weight: 400;
+    }
+  }
+
+  .liste {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .carte {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    border-radius: 1.25rem;
+    background-color: var(--tertiary-color);
+
+    &.partenaire {
+      background-color: color-mix(
+        in srgb,
+        var(--secondary-color) 55%,
+        var(--tertiary-color)
+      );
+
+      .pastille {
+        background-color: var(--tertiary-color);
+      }
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .pastille {
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: color-mix(
+      in srgb,
+      var(--secondary-color) 70%,
+      var(--tertiary-color)
+    );
+    color: var(--primary-color);
+
+    :global(.icone) {
+      font-size: 1.15rem;
+    }
+  }
+
+  .etiquette {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent-color);
+  }
+
+  .titre {
+    display: block;
+    margin: 0.15rem 0 0.25rem;
+    font-family: var(--font-text);
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--primary-color);
+  }
+
+  .detail {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .reservation {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1.75rem 1.5rem;
+    border-radius: 1.5rem;
+    background-color: var(--primary-color);
+
+    h2,
+    p {
+      margin: 0;
+      color: var(--tertiary-color);
+    }
+
+    h2 {
+      font-family: var(--font-title);
+      font-size: var(--h5);
+      font-weight: 400;
+    }
+
+    p:not(.etiquette) {
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .etiquette {
+      color: var(--secondary-color);
+    }
+
+    // Sur fond sombre, le bouton passe en clair.
+    :global(.bouton) {
+      margin-top: 0.5rem;
+      background-color: var(--tertiary-color);
+      color: var(--primary-color);
+    }
+  }
+</style>

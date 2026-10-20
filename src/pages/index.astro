@@ -5,7 +5,7 @@ import Bienvenue from "../assets/images/Bienvenue.jpg";
 import BienvenueMobile from "../assets/images/Bienvenue-Mobile.jpg";
 import PrestationsCards from "../components/PrestationsCards.astro";
 import MasseuseCard from "../components/MasseuseCard.astro";
-import Button from "../components/ui/Button.astro";
+import ContactCards from "../components/ContactCards.astro";
 import PageHero from "../components/global/PageHero.astro";
 import NewsSection from "../components/NewsSection.astro";
 import Logo from "../assets/logo.svg";
@@ -28,24 +28,7 @@ import Logo from "../assets/logo.svg";
     <NewsSection />
     <PrestationsCards />
     <MasseuseCard />
-    <div class="contact-section">
-      <div class="contact-card">
-        <h2>Offrez-vous une parenthèse de bien-être</h2>
-        <p>
-          Contactez-moi pour prévoir un rendez-vous, ou pour simplement poser
-          des questions, vous renseigner, nous rencontrer.
-        </p>
-        <Button text="Me contacter" href="/contact" variant="primary" />
-      </div>
-      <div class="contact-card">
-        <h2>Vous êtes professionnel ? Collaborons</h2>
-        <p>
-          Je peux proposer mes prestations dans vos hôtels, centres de
-          bien-être, etc... Contactez-moi afin que nous puissions en discuter.
-        </p>
-        <Button text="Me contacter" href="/contact" variant="primary" />
-      </div>
-    </div>
+    <ContactCards />
   </section>
 </Layout>
 
@@ -76,29 +59,6 @@ import Logo from "../assets/logo.svg";
     padding-bottom: 2rem;
   }
 
-  .contact-section {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    width: 90%;
-    margin: 2rem auto;
-    text-align: center;
-  }
-
-  .contact-card {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    color: var(--primary-color);
-    padding: 1rem;
-    border-radius: 15px;
-
-    h2 {
-      color: var(--primary-color);
-      margin-bottom: 1rem;
-    }
-  }
-
   @media (width >= $breakpoint-desktop) {
     .head-text {
       h1 {
@@ -107,11 +67,6 @@ import Logo from "../assets/logo.svg";
       h2 {
         font-size: 3.5rem;
       }
-    }
-
-    .contact-section {
-      flex-direction: row;
-      justify-content: space-around;
     }
   }
 </style>

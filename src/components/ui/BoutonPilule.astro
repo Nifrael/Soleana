@@ -1,0 +1,96 @@
+---
+import Icone, { type NomIcone } from "./Icone.astro";
+
+interface Props {
+  texte: string;
+  // Avec `href` : un lien. Sans : un bouton d'envoi de formulaire.
+  href?: string;
+  icone?: NomIcone;
+  // Prend toute la largeur de son conteneur (cartes des prestations).
+  pleineLargeur?: boolean;
+  // Crème sur fond sombre (header, menu mobile).
+  clair?: boolean;
+}
+
+const {
+  texte,
+  href,
+  icone = "fleche",
+  pleineLargeur = false,
+  clair = false,
+} = Astro.props;
+const Tag = href ? "a" : "button";
+// Un lien vers un autre site (SumUp…) s'ouvre toujours dans un nouvel onglet.
+const externe = href?.startsWith("http");
+---
+
+<Tag
+  class:list={["bouton", { "pleine-largeur": pleineLargeur, clair }]}
+  href={href}
+  type={href ? undefined : "submit"}
+  target={externe ? "_blank" : undefined}
+  rel={externe ? "noopener noreferrer" : undefined}
+>
+  {texte}
+  {externe && <span class="sr-only">(nouvel onglet)</span>}
+  <Icone nom={icone} />
+</Tag>
+
+<style lang="scss">
+  @use "@styles/config/variables" as *;
+
+  .bouton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-start;
+    gap: 0.6rem;
+    padding: 0.65rem 1.3rem;
+    border: none;
+    border-radius: 2rem;
+    background-color: var(--primary-color);
+    color: var(--tertiary-color);
+    font-family: var(--font-text);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    cursor: pointer;
+
+    // Survol seulement sur grand écran avec souris : sur mobile, le tap
+    // laisserait le bouton bloqué dans son état survolé.
+    @media (hover: hover) and (width >= $breakpoint-desktop) {
+      &:hover {
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+      }
+    }
+  }
+
+  .clair {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+
+    @media (hover: hover) and (width >= $breakpoint-desktop) {
+      &:hover {
+        background-color: var(--tertiary-color);
+      }
+    }
+  }
+
+  // Annoncé aux lecteurs d'écran, invisible à l'écran.
+  .sr-only {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .pleine-largeur {
+    flex-grow: 1;
+    align-self: stretch;
+  }
+</style>

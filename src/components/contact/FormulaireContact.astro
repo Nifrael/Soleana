@@ -1,0 +1,313 @@
+---
+import { WEB3FORMS_CLE } from "astro:env/server";
+import BoutonPilule from "../ui/BoutonPilule.astro";
+
+// Web3Forms exige une adresse complète pour la redirection après envoi.
+const pageMerci = new URL("/contact/merci/", Astro.site).href;
+
+const profils = ["Particulier", "Professionnel"];
+const prestations = [
+  "Massages bien-être",
+  "Soins bien-être",
+  "Épilation",
+  "Maquillage",
+  "Soins énergétiques",
+];
+---
+
+{
+  /*
+    Web3Forms : le formulaire est envoyé directement à leur service, qui le
+    transmet par email puis redirige vers `redirect`. Aucun JavaScript, et le
+    même code fonctionne quel que soit l'hébergeur.
+  */
+}
+<section class="formulaire-bloc" aria-labelledby="titre-formulaire">
+  <p class="surtitre">Formulaire de contact</p>
+  <h2 id="titre-formulaire">Partagez vos préférences</h2>
+  <p class="intro">
+    Renseignez les détails de votre demande afin que Soledad puisse préparer un
+    accueil harmonieux adapté à vos attentes.
+  </p>
+
+  {
+    WEB3FORMS_CLE ? (
+      <form class="formulaire" method="POST" action="https://api.web3forms.com/submit">
+        <input type="hidden" name="access_key" value={WEB3FORMS_CLE} />
+        <input type="hidden" name="subject" value="Nouvelle demande depuis le site L'Instant Soleana" />
+        <input type="hidden" name="from_name" value="Site L'Instant Soleana" />
+        <input type="hidden" name="redirect" value={pageMerci} />
+
+        {/* Champ piège : invisible, coché seulement par les robots. `botcheck` est le nom attendu par Web3Forms. */}
+        <p class="visually-hidden">
+          <label>
+            Ne pas cocher cette case
+            <input type="checkbox" name="botcheck" tabindex="-1" />
+          </label>
+        </p>
+
+        <fieldset class="champ">
+          <legend>Vous êtes *</legend>
+          <div class="options deux">
+            {profils.map((profil, index) => (
+              <label class="option">
+                <input type="radio" name="profil" value={profil} checked={index === 0} />
+                {profil}
+              </label>
+            ))}
+          </div>
+        </fieldset>
+
+        <div class="ligne">
+          <div class="champ">
+            <label for="prenom">Prénom *</label>
+            <input id="prenom" name="prenom" type="text" autocomplete="given-name" required />
+          </div>
+          <div class="champ">
+            <label for="nom">Nom *</label>
+            <input id="nom" name="nom" type="text" autocomplete="family-name" required />
+          </div>
+        </div>
+
+        <div class="champ">
+          <label for="telephone">Numéro de téléphone *</label>
+          <input
+            id="telephone"
+            name="telephone"
+            type="tel"
+            autocomplete="tel"
+            placeholder="06 00 00 00 00"
+            required
+          />
+        </div>
+
+        <fieldset class="champ">
+          <legend>Prestation(s) envisagée(s)</legend>
+          <div class="options trois">
+            {prestations.map((prestation) => (
+              <label class="option">
+                <input type="checkbox" name="prestations[]" value={prestation} />
+                {prestation}
+              </label>
+            ))}
+          </div>
+        </fieldset>
+
+        <div class="champ">
+          <label for="message">Votre message *</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            placeholder="Vos envies, vos disponibilités, ou toute précision utile…"
+            required
+          />
+        </div>
+
+        <div class="envoi">
+          <BoutonPilule texte="Envoyer ma demande" icone="envoyer" />
+          <p class="aide">
+            Vos coordonnées servent uniquement à vous répondre.{" "}
+            <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+          </p>
+        </div>
+      </form>
+    ) : (
+      <p class="intro">
+        Le formulaire sera bientôt disponible. En attendant, le plus simple est de
+        m'appeler.
+      </p>
+    )
+  }
+</section>
+
+<style lang="scss">
+  @use "@styles/config/variables" as *;
+
+  .formulaire-bloc {
+    padding: 2rem 1.5rem;
+    border: 1px solid color-mix(in srgb, var(--secondary-color) 70%, transparent);
+    border-radius: 1.5rem;
+    background-color: var(--tertiary-color);
+    box-shadow: 0 2px 12px rgb(0 0 0 / 0.04);
+
+    h2 {
+      margin: 0.25rem 0 0.5rem;
+      font-family: var(--font-title);
+      font-size: var(--h4);
+      font-weight: 400;
+    }
+  }
+
+  .surtitre,
+  label,
+  legend {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .surtitre {
+    margin: 0;
+    color: var(--accent-color);
+  }
+
+  .intro {
+    margin: 0 0 1.75rem;
+    font-size: var(--base-size);
+    line-height: 1.6;
+  }
+
+  .formulaire {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .ligne {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .champ {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+
+  label,
+  legend {
+    color: var(--primary-color);
+  }
+
+  legend {
+    margin-bottom: 0.4rem;
+    padding: 0;
+  }
+
+  // Contour assez marqué pour repérer les champs (contraste 3:1 pour les contours).
+  input:not([type="radio"], [type="checkbox"]),
+  textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid color-mix(in srgb, var(--primary-color) 45%, transparent);
+    border-radius: 0.75rem;
+    background-color: color-mix(in srgb, var(--secondary-color) 25%, var(--tertiary-color));
+    color: var(--primary-color);
+    font-family: var(--font-text);
+    font-size: var(--base-size);
+
+    &::placeholder {
+      color: color-mix(in srgb, var(--primary-color) 55%, transparent);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--primary-color);
+      outline-offset: 2px;
+    }
+
+    // :user-invalid ne s'active qu'après une saisie ou une tentative d'envoi.
+    &:user-invalid {
+      border-color: rgb(168, 50, 50);
+    }
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  .options {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  // Vraies cases et boutons radio (clavier et lecteurs d'écran), dans une tuile.
+  .option {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    background-color: color-mix(in srgb, var(--secondary-color) 35%, var(--tertiary-color));
+    font-family: var(--font-text);
+    font-size: 0.95rem;
+    font-weight: 400;
+    letter-spacing: normal;
+    text-transform: none;
+    cursor: pointer;
+
+    input {
+      flex-shrink: 0;
+      margin: 0;
+      accent-color: var(--primary-color);
+    }
+
+    &:has(:checked) {
+      background-color: color-mix(in srgb, var(--secondary-color) 75%, var(--tertiary-color));
+    }
+
+    &:has(:focus-visible) {
+      outline: 2px solid var(--primary-color);
+      outline-offset: 2px;
+    }
+  }
+
+  .envoi {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+  }
+
+  .aide {
+    margin: 0;
+    font-size: 0.85rem;
+
+    a {
+      color: var(--primary-color);
+      text-decoration: underline;
+    }
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  @media (width >= $breakpoint-tablet) {
+    .ligne,
+    .options.deux {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .options.trois {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .envoi {
+      flex-direction: row;
+      align-items: center;
+      gap: 1.5rem;
+    }
+  }
+
+  @media (width >= $breakpoint-desktop) {
+    .formulaire-bloc {
+      padding: 2.5rem 3rem;
+    }
+  }
+</style>

@@ -1,0 +1,61 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PageHero from "../../components/global/PageHero.astro";
+import BoutonPilule from "../../components/ui/BoutonPilule.astro";
+import ContactImage from "../../assets/images/Contact.jpg";
+---
+
+<Layout title="Soleana | Message envoyé" noindex>
+  {/* Même bandeau que la page contact : le menu, clair, est prévu pour passer sur une photo. */}
+  <PageHero
+    imageDesktop={ContactImage}
+    imageMobile={ContactImage}
+    altText="Image de la section Contact"
+    title="Merci"
+  />
+
+  <section class="merci">
+    <p class="surtitre">Message envoyé</p>
+    <h2>Merci pour votre demande</h2>
+    <p>Je vous recontacte au plus vite par téléphone.</p>
+    <BoutonPilule href="/" texte="Retour à l'accueil" />
+  </section>
+</Layout>
+
+<style lang="scss">
+  .merci {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    width: 90%;
+    max-width: 40rem;
+    margin: 0 auto;
+    padding: 4rem 0 5rem;
+    text-align: center;
+
+    h2 {
+      margin: 0;
+      font-family: var(--font-title);
+      font-size: var(--h3);
+      font-weight: 700;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    :global(.bouton) {
+      align-self: center;
+      margin-top: 1rem;
+    }
+  }
+
+  .surtitre {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent-color);
+  }
+</style>

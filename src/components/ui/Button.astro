@@ -9,10 +9,18 @@ interface Props
 
 const { text, href, variant = "primary", ...rest } = Astro.props;
 const Tag = href ? "a" : "button";
+// Un lien vers un autre site s'ouvre toujours dans un nouvel onglet.
+const externe = href?.startsWith("http");
 ---
 
 <div class="button-container">
-  <Tag href={href} class:list={["button", variant]} {...rest}>{text}</Tag>
+  <Tag
+    href={href}
+    class:list={["button", variant]}
+    target={externe ? "_blank" : undefined}
+    rel={externe ? "noopener noreferrer" : undefined}
+    {...rest}>{text}</Tag
+  >
 </div>
 
 <style lang="scss">

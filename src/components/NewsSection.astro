@@ -132,11 +132,7 @@ const semaines = [
     flex-direction: column;
     padding: 1.75rem 1.5rem;
     border-radius: 1.5rem;
-    background-color: color-mix(
-      in srgb,
-      var(--secondary-color) 45%,
-      var(--tertiary-color)
-    );
+    background-color: var(--secondary-color);
 
     h3 {
       margin: 0.9rem 0 0.6rem;
@@ -191,11 +187,7 @@ const semaines = [
   .calendrier {
     padding: 1rem 1.25rem 1.25rem;
     border-radius: 1.5rem;
-    background-color: color-mix(
-      in srgb,
-      var(--tertiary-color) 60%,
-      transparent
-    );
+    background-color: var(--tertiary-color);
     color: var(--primary-color);
   }
 
@@ -241,11 +233,7 @@ const semaines = [
         opacity: 0.35;
       }
       &.ouvert {
-        background-color: color-mix(
-          in srgb,
-          var(--secondary-color) 80%,
-          var(--accent-color)
-        );
+        background-color: var(--secondary-color);
         font-weight: 700;
       }
       &.prochain {

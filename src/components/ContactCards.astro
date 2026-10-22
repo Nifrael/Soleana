@@ -17,7 +17,7 @@ import BoutonPilule from "./ui/BoutonPilule.astro";
     </div>
   </article>
 
-  <article class="contact-card pro">
+  <article class="contact-card">
     <span class="pastille"><Icone nom="poignee-main" /></span>
     <p class="categorie">Hôtellerie & salons</p>
     <h3>Vous êtes professionnel ? Collaborons</h3>
@@ -49,17 +49,8 @@ import BoutonPilule from "./ui/BoutonPilule.astro";
     padding: 1.75rem 1.5rem;
     border: 1px solid color-mix(in srgb, var(--secondary-color) 70%, transparent);
     border-radius: 1.5rem;
-    background-color: color-mix(in srgb, var(--secondary-color) 20%, var(--tertiary-color));
+    background-color: var(--secondary-color);
     box-shadow: 0 2px 12px rgb(0 0 0 / 0.03);
-
-    // La carte des professionnels se distingue par un fond un peu plus soutenu.
-    &.pro {
-      background-color: color-mix(in srgb, var(--secondary-color) 45%, var(--tertiary-color));
-
-      .pastille {
-        background-color: var(--tertiary-color);
-      }
-    }
 
     h3 {
       margin: 0.4rem 0 0.75rem;
@@ -77,7 +68,7 @@ import BoutonPilule from "./ui/BoutonPilule.astro";
     height: 3.5rem;
     margin-bottom: 1.25rem;
     border-radius: 50%;
-    background-color: color-mix(in srgb, var(--secondary-color) 70%, var(--tertiary-color));
+    background-color: var(--tertiary-color);
     color: var(--accent-color);
 
     :global(.icone) {

@@ -1,4 +1,3 @@
-// Liens du menu, partagés par la barre de navigation (ordinateur) et le menu mobile.
 export const prestations = [
   { href: "/prestations/soins", text: "Soins bien-être" },
   { href: "/prestations/massages", text: "Massages" },

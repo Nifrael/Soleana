@@ -7,8 +7,6 @@ import { newsData } from "../data/news";
 
 const latestNews = newsData.slice(0, 3);
 
-// Calendrier purement décoratif : trois semaines types, la première commençant
-// par la fin du mois précédent. Aucune vraie date n'est affichée.
 const joursSemaine = ["L", "M", "M", "J", "V", "S", "D"];
 const semaines = [
   [28, 29, 30, 1, 2, 3, 4],
@@ -25,8 +23,6 @@ const semaines = [
 
         <div class="news-grid">
           {latestNews.map((item) => {
-            // Colonne mise en avant du calendrier (lue ici : TypeScript perd le
-            // type du visuel dans les boucles imbriquées plus bas).
             const jourActif =
               item.visuel.type === "calendrier" ? item.visuel.jour : -1;
 
@@ -275,7 +271,6 @@ const semaines = [
     }
   }
 
-  // Le bouton est poussé en bas de la carte, pour que les deux restent alignés.
   .news-action {
     display: flex;
     margin-top: auto;
@@ -300,7 +295,6 @@ const semaines = [
       padding: 1.25rem 1.5rem 1.5rem;
     }
 
-    // Photo allongée, pour que les deux cartes gardent des hauteurs proches.
     .photo img {
       aspect-ratio: 3 / 1;
     }

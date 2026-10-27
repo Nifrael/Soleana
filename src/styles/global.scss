@@ -1,4 +1,2 @@
-// Styles globaux du site, importés une seule fois dans Layout.astro.
-// Les composants n'importent que @styles/config/variables.
 @use "@styles/base/base" as *;
 @use "@styles/base/typography" as *;

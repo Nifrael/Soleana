@@ -6,12 +6,12 @@ import vercel from "@astrojs/vercel";
 
 import sitemap from "@astrojs/sitemap";
 
-// https://astro.build/config
 export default defineConfig({
   adapter: vercel(),
   site: "https://linstant-soleana.fr",
-  // La page de remerciement du formulaire n'a rien à faire dans le sitemap.
-  integrations: [sitemap({ filter: (page) => !page.includes("/contact/merci") })],
+  integrations: [
+    sitemap({ filter: (page) => !page.includes("/contact/merci") }),
+  ],
   vite: {
     resolve: {
       alias: {
@@ -24,9 +24,6 @@ export default defineConfig({
   },
   env: {
     schema: {
-      // Clé d'accès Web3Forms (publique par nature : elle figure dans le HTML).
-      // Obligatoire : sans elle, le build échoue plutôt que de publier un
-      // formulaire qui n'envoie rien.
       WEB3FORMS_CLE: envField.string({ context: "server", access: "public" }),
     },
   },

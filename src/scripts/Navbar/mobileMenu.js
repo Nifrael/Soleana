@@ -22,7 +22,6 @@ export function setupMobileMenu(headerElement) {
 
   const isOpen = () => panel.classList.contains("ouvert");
 
-  // Repart d'un état fermé après une navigation (ClientRouter).
   setOpen(false);
 
   menuButton.addEventListener("click", () => setOpen(!isOpen()));
@@ -31,7 +30,6 @@ export function setupMobileMenu(headerElement) {
     if (e.target.closest("a")) setOpen(false);
   });
 
-  // Accordéon des prestations.
   panel.querySelectorAll(".accordeon > button").forEach((toggle) => {
     toggle.addEventListener("click", () => {
       const deplie = toggle.parentElement.classList.toggle("deplie");
@@ -39,8 +37,6 @@ export function setupMobileMenu(headerElement) {
     });
   });
 
-  // Échap ferme le menu et rend le focus au bouton. L'écouteur se retire
-  // tout seul quand le header est remplacé par une navigation.
   const onKeydown = (e) => {
     if (!headerElement.isConnected) {
       document.removeEventListener("keydown", onKeydown);
@@ -53,7 +49,6 @@ export function setupMobileMenu(headerElement) {
   };
   document.addEventListener("keydown", onKeydown);
 
-  // Repasser en affichage ordinateur ferme le menu.
   const desktop = window.matchMedia("(width >= 1024px)");
   const onResize = (e) => {
     if (!headerElement.isConnected) {

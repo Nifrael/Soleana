@@ -3,10 +3,6 @@ import type { NomIcone } from "../components/ui/Icone.astro";
 import jeannelleImage from "../assets/images/Jeannelle.jpg";
 import { reservation } from "./navigation.js";
 
-// Chaque actualité a un visuel :
-// - "calendrier" : illustration décorative, sans vraies dates. `jour` est la colonne
-//   mise en avant (0 = lundi … 6 = dimanche) ;
-// - "image" : photo arrondie, avec le lieu en surimpression.
 type Visuel =
   | {
       type: "calendrier";

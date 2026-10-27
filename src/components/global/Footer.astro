@@ -1,16 +1,13 @@
 ---
 import { menuItems, prestations } from "../../data/navigation.js";
 
-// Année du build : le site étant statique, elle se met à jour à chaque déploiement.
 const annee = new Date().getFullYear();
-// Les pages du menu hors sous-menu (le sous-menu Prestations a sa propre colonne).
 const pages = menuItems.filter((item) => item.href);
 ---
 
 <footer class="footer-container">
   <div class="footer-content">
     <div class="primary-content">
-      {/* Pas de titre ici : le seul <h1> de la page appartient à son contenu. */}
       <p class="marque">L'Instant Soleana</p>
       <p class="slogan">S'invite chez vous.</p>
     </div>
@@ -66,7 +63,6 @@ const pages = menuItems.filter((item) => item.href);
       margin-bottom: 2rem;
     }
 
-    // Reprennent l'apparence des anciens <h1> et <h5>.
     .marque {
       margin: 0 0 1.5rem 0;
       font-family: var(--font-title);
@@ -100,8 +96,6 @@ const pages = menuItems.filter((item) => item.href);
 
     .footer-bottom {
       width: 85%;
-      // Même espace au-dessus du trait que sous le haut du footer, puis 1rem de part
-      // et d'autre des mentions, comme sur MamCram.
       margin: 2rem auto 0;
       padding-block: 1rem;
       border-top: 1px solid
@@ -116,7 +110,6 @@ const pages = menuItems.filter((item) => item.href);
         font-size: 0.75rem;
         opacity: 0.6;
       }
-      // Sur mobile les deux mentions sont empilées : le rond ne sert plus.
       .separateur {
         display: none;
         width: 3px;

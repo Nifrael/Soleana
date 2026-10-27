@@ -24,7 +24,6 @@ const prestationsCollection = defineCollection({
       quote: z.string(),
       image: imageSchema,
       icon: imageSchema,
-      // Autant de grilles que nécessaire (Femmes, Hommes, Formules…), dans l'ordre d'affichage.
       priceTables: z
         .array(
           z.object({
@@ -33,9 +32,7 @@ const prestationsCollection = defineCollection({
           }),
         )
         .min(1),
-      // Phrase affichée sous les tarifs (produits utilisés, hygiène…).
       note: z.string().optional(),
-      // false pour une prestation hors domicile : masque la liste des villages.
       homeService: z.boolean().default(true),
     });
   },

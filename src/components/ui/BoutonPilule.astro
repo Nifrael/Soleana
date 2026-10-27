@@ -3,12 +3,9 @@ import Icone, { type NomIcone } from "./Icone.astro";
 
 interface Props {
   texte: string;
-  // Avec `href` : un lien. Sans : un bouton d'envoi de formulaire.
   href?: string;
   icone?: NomIcone;
-  // Prend toute la largeur de son conteneur (cartes des prestations).
   pleineLargeur?: boolean;
-  // Crème sur fond sombre (header, menu mobile).
   clair?: boolean;
 }
 
@@ -20,7 +17,6 @@ const {
   clair = false,
 } = Astro.props;
 const Tag = href ? "a" : "button";
-// Un lien vers un autre site (SumUp…) s'ouvre toujours dans un nouvel onglet.
 const externe = href?.startsWith("http");
 ---
 
@@ -61,8 +57,6 @@ const externe = href?.startsWith("http");
       background-color 0.25s ease,
       color 0.25s ease;
 
-    // Survol seulement sur grand écran avec souris : sur mobile, le tap
-    // laisserait le bouton bloqué dans son état survolé.
     @media (hover: hover) and (width >= $breakpoint-desktop) {
       &:hover {
         background-color: var(--secondary-color);
@@ -71,7 +65,6 @@ const externe = href?.startsWith("http");
     }
   }
 
-  // Variante pour fond sombre (header, menu mobile, encart de réservation).
   .clair {
     background-color: var(--secondary-color);
     color: var(--primary-color);
@@ -84,7 +77,6 @@ const externe = href?.startsWith("http");
     }
   }
 
-  // Annoncé aux lecteurs d'écran, invisible à l'écran.
   .sr-only {
     position: absolute;
     inline-size: 1px;

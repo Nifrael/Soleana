@@ -201,8 +201,6 @@ const prestations = [
       background-attachment: fixed;
     }
 
-    // Grille de 4 demi-colonnes : chaque carte en prend 2, et la cinquième,
-    // seule sur sa ligne, est centrée.
     .prestations-grid {
       grid-template-columns: repeat(4, 1fr);
     }
@@ -217,8 +215,6 @@ const prestations = [
   }
 
   @media (width >= $breakpoint-desktop) {
-    // 6 demi-colonnes : trois cartes sur la première ligne, les deux suivantes
-    // centrées en dessous.
     .prestations-grid {
       grid-template-columns: repeat(6, 1fr);
     }

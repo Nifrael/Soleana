@@ -22,13 +22,16 @@ const { surtitre, titre, description } = Astro.props;
     margin-bottom: 2.5rem;
     text-align: center;
 
-    // Petit trait doré sous l'en-tête.
     &::after {
       content: "";
       width: 4rem;
       height: 2px;
       margin-top: 1rem;
-      background-color: color-mix(in srgb, var(--accent-color) 55%, var(--secondary-color));
+      background-color: color-mix(
+        in srgb,
+        var(--accent-color) 55%,
+        var(--secondary-color)
+      );
     }
   }
 

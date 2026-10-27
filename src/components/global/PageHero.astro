@@ -12,19 +12,13 @@ interface Props {
 
 const { imageDesktop, imageMobile, altText, title, subtitle } = Astro.props;
 
-// <picture> : le navigateur ne télécharge que l'image adaptée à l'écran.
-// Avec deux <Image> masquées en CSS, il chargeait les deux.
 const photoDesktop = await getImage({ src: imageDesktop, format: "webp" });
 const photoMobile = await getImage({ src: imageMobile, format: "webp" });
 ---
 
 <div class="head-background">
   <picture>
-    {
-      /* 768px = $breakpoint-tablet (les variables SCSS ne sont pas lisibles ici). */
-    }
     <source media="(width >= 768px)" srcset={photoDesktop.src} />
-    {/* Image principale de la page : chargée tout de suite, en priorité. */}
     <img
       src={photoMobile.src}
       alt={altText}

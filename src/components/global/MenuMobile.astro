@@ -4,7 +4,6 @@ import BoutonPilule from "../ui/BoutonPilule.astro";
 import { menuItems, reservation } from "../../data/navigation.js";
 import { telephone } from "../../data/coordonnees";
 
-// Lien actif : la page courante, ou la section parente pour les prestations.
 const chemin = Astro.url.pathname.replace(/\/$/, "") || "/";
 const estActif = (href: string) => chemin === href;
 const prestationsActives = chemin.startsWith("/prestations");
@@ -118,7 +117,6 @@ const liens = [{ href: "/", text: "Accueil" }, ...menuItems];
     display: contents;
   }
 
-  // Le bouton reste au-dessus du panneau et se transforme en croix.
   .burger {
     position: relative;
     z-index: 20;
@@ -174,8 +172,6 @@ const liens = [{ href: "/", text: "Accueil" }, ...menuItems];
     display: flex;
     flex-direction: column;
     block-size: 100dvh;
-    // Réserve la hauteur du header : les liens défilent dessous sans passer
-    // sous le logo ni la croix.
     padding-block-start: 5.75rem;
     background:
       radial-gradient(
@@ -206,12 +202,9 @@ const liens = [{ href: "/", text: "Accueil" }, ...menuItems];
     inline-size: 90%;
     margin-inline: auto;
     padding-block: 0.75rem 2rem;
-    // Fondu en haut de la liste : un masque n'utilise que l'opacité, la
-    // couleur n'apparaît pas à l'écran.
     mask-image: linear-gradient(transparent, var(--shadow-color) 1rem);
   }
 
-  // Apparition en cascade des éléments à l'ouverture.
   .surtitre,
   .liens > li,
   .pied {
@@ -296,7 +289,6 @@ const liens = [{ href: "/", text: "Accueil" }, ...menuItems];
     transform: rotate(180deg);
   }
 
-  // Ouverture fluide en hauteur, sans connaître la hauteur du contenu.
   .sous-menu {
     display: grid;
     grid-template-rows: 0fr;
@@ -388,8 +380,6 @@ const liens = [{ href: "/", text: "Accueil" }, ...menuItems];
     opacity: 0.4;
   }
 
-  // Placé en dernier : à spécificité égale, ces règles l'emportent sans
-  // !important (.panneau.ouvert, plus spécifique, est cité à part).
   @media (prefers-reduced-motion: reduce) {
     .panneau,
     .panneau.ouvert,

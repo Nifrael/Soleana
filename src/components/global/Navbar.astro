@@ -97,8 +97,6 @@ import { menuItems, reservation } from "../../data/navigation.js";
     }
   }
 
-  // Menu mobile ouvert : le panneau prend le relais du fond flouté
-  // (backdrop-filter le confinerait à la hauteur du header).
   header.menu-ouvert {
     background-color: transparent;
     backdrop-filter: none;
@@ -147,8 +145,6 @@ import { menuItems, reservation } from "../../data/navigation.js";
     overflow: hidden;
   }
 
-  // Le menu ordinateur n'existe qu'à partir du breakpoint desktop : sur mobile,
-  // c'est MenuMobile qui prend le relais.
   @media (width >= $breakpoint-desktop) {
     nav {
       position: relative;
@@ -218,7 +214,6 @@ import { menuItems, reservation } from "../../data/navigation.js";
       transform: rotate(180deg);
     }
 
-    // Le sous-menu reste dans le DOM et apparaît en fondu.
     .submenu {
       display: flex;
       flex-direction: column;

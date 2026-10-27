@@ -20,19 +20,13 @@ main {
   flex: 1;
 }
 
-// Les polices (--font-title, --font-text, --font-little-text) sont déclarées
-// dans astro.config.mjs et chargées par <Font /> dans Layout.astro.
 :root {
   color-scheme: light;
   --primary-color: rgb(0, 54, 66);
   --secondary-color: rgb(251, 236, 209);
   --tertiary-color: rgb(255, 255, 255);
-  // Doré des surtitres et étiquettes (contraste AA sur les fonds crème).
   --accent-color: rgb(128, 94, 55);
-  // Champ de formulaire invalide (hors charte, à faire valider par la cliente).
   --error-color: rgb(168, 50, 50);
-  // Noir des ombres et des voiles qui assombrissent les photos, toujours
-  // utilisé atténué : color-mix(in srgb, var(--shadow-color) 10%, transparent).
   --shadow-color: rgb(0, 0, 0);
   --base-size: 1rem;
   --scale: 1.25;

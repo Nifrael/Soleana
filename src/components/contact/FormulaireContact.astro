@@ -3,20 +3,12 @@ import { WEB3FORMS_CLE } from "astro:env/server";
 import BoutonPilule from "../ui/BoutonPilule.astro";
 import { prestations as liensPrestations } from "../../data/navigation.js";
 
-// Web3Forms exige une adresse complète pour la redirection après envoi.
 const pageMerci = new URL("/contact/merci/", Astro.site).href;
 
 const profils = ["Particulier", "Professionnel"];
-// Mêmes intitulés que le menu : une prestation ajoutée au menu apparaît ici aussi.
 const prestations = liensPrestations.map((lien) => lien.text);
 ---
 
-{
-  /*
-    Web3Forms : le formulaire est envoyé directement à leur service, qui le
-    transmet par email puis redirige vers `redirect`.
-  */
-}
 <section class="formulaire-bloc" aria-labelledby="titre-formulaire">
   <p class="surtitre">Formulaire de contact</p>
   <h2 id="titre-formulaire">Partagez vos préférences</h2>
@@ -39,9 +31,6 @@ const prestations = liensPrestations.map((lien) => lien.text);
     <input type="hidden" name="from_name" value="Site L'Instant Soleana" />
     <input type="hidden" name="redirect" value={pageMerci} />
 
-    {
-      /* Champ piège : invisible, coché seulement par les robots. `botcheck` est le nom attendu par Web3Forms. */
-    }
     <p class="visually-hidden">
       <label>
         Ne pas cocher cette case
@@ -70,18 +59,12 @@ const prestations = liensPrestations.map((lien) => lien.text);
 
     <div class="champ">
       <label for="nom">Nom et prénom *</label>
-      {
-        /* `name` : nom de l'expéditeur affiché par Web3Forms dans l'email reçu. */
-      }
       <input id="nom" name="name" type="text" autocomplete="name" required />
     </div>
 
     <div class="ligne">
       <div class="champ">
         <label for="email">Adresse email *</label>
-        {
-          /* `email` est le nom attendu par Web3Forms pour pouvoir répondre directement. */
-        }
         <input
           id="email"
           name="email"
@@ -210,7 +193,6 @@ const prestations = liensPrestations.map((lien) => lien.text);
     padding: 0;
   }
 
-  // Contour assez marqué pour repérer les champs (contraste 3:1 pour les contours).
   input:not([type="radio"], [type="checkbox"]),
   textarea {
     width: 100%;
@@ -231,7 +213,6 @@ const prestations = liensPrestations.map((lien) => lien.text);
       outline-offset: 2px;
     }
 
-    // :user-invalid ne s'active qu'après une saisie ou une tentative d'envoi.
     &:user-invalid {
       border-color: var(--error-color);
     }
@@ -247,9 +228,6 @@ const prestations = liensPrestations.map((lien) => lien.text);
     gap: 0.5rem;
   }
 
-  // Pilules : la vraie case (radio ou checkbox) reste dans le label, invisible,
-  // pour le clavier et les lecteurs d'écran. Une fois choisie, la pilule passe
-  // à la couleur principale.
   .option {
     position: relative;
     display: inline-flex;
@@ -341,7 +319,6 @@ const prestations = liensPrestations.map((lien) => lien.text);
       padding: 2.5rem 3rem;
     }
 
-    // Sur mobile, on garde 16 px : en dessous, iOS zoome à la saisie.
     input:not([type="radio"], [type="checkbox"]),
     textarea {
       font-size: 0.9rem;

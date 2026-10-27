@@ -6,7 +6,6 @@ import siteConfig from "../../content/siteConfig.js";
 export interface Props {
   title?: string;
   description?: string;
-  // Page à exclure des moteurs de recherche (ex. remerciement du formulaire).
   noindex?: boolean;
 }
 
@@ -36,16 +35,13 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <meta name="generator" content={Astro.generator} />
 
-<!-- Primary Meta Tags -->
 <title>{title}</title>
 <meta name="description" content={description} />
 {noindex && <meta name="robots" content="noindex" />}
 <meta name="language" content="fr" />
 
-<!-- Canonical URL -->
 <link rel="canonical" href={canonicalUrl} />
 
-<!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="L'Instant Soleana" />
 <meta property="og:locale" content="fr_FR" />

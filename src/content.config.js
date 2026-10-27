@@ -1,4 +1,6 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection } from "astro:content";
+import { glob } from "astro/loaders";
+import { z } from "astro/zod";
 
 const priceItemSchema = z.object({
   name: z.string(),
@@ -8,7 +10,7 @@ const priceItemSchema = z.object({
 });
 
 const prestationsCollection = defineCollection({
-  type: "data",
+  loader: glob({ pattern: "*.json", base: "./src/content/prestations" }),
   schema: ({ image }) => {
     const imageSchema = z.object({
       src: image(),
@@ -39,11 +41,11 @@ const prestationsCollection = defineCollection({
 });
 
 const partenairesCollection = defineCollection({
-  type: "data",
+  loader: glob({ pattern: "*.json", base: "./src/content/partenaires" }),
   schema: z.object({
     name: z.string(),
     location: z.string(),
-    websiteUrl: z.string().url(),
+    websiteUrl: z.url(),
     description: z.string(),
   }),
 });

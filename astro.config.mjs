@@ -2,13 +2,10 @@
 import { defineConfig, envField, fontProviders } from "astro/config";
 import { fileURLToPath } from "node:url";
 
-import vercel from "@astrojs/vercel";
-
 import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
-  adapter: vercel(),
-  site: "https://linstant-soleana.fr",
+  site: "https://www.linstant-soleana.fr",
   integrations: [
     sitemap({ filter: (page) => !page.includes("/contact/merci") }),
   ],
@@ -27,35 +24,33 @@ export default defineConfig({
       WEB3FORMS_CLE: envField.string({ context: "server", access: "public" }),
     },
   },
-  experimental: {
-    fonts: [
-      {
-        provider: fontProviders.google(),
-        name: "Playfair Display",
-        cssVariable: "--font-title",
-        weights: ["400 900"],
-        styles: ["normal"],
-        subsets: ["latin"],
-        fallbacks: ["serif"],
-      },
-      {
-        provider: fontProviders.google(),
-        name: "Maven Pro",
-        cssVariable: "--font-text",
-        weights: ["400 900"],
-        styles: ["normal"],
-        subsets: ["latin"],
-        fallbacks: ["sans-serif"],
-      },
-      {
-        provider: fontProviders.google(),
-        name: "Inria Serif",
-        cssVariable: "--font-little-text",
-        weights: ["400"],
-        styles: ["normal"],
-        subsets: ["latin"],
-        fallbacks: ["serif"],
-      },
-    ],
-  },
+  fonts: [
+    {
+      provider: fontProviders.google(),
+      name: "Playfair Display",
+      cssVariable: "--font-title",
+      weights: ["400 900"],
+      styles: ["normal"],
+      subsets: ["latin"],
+      fallbacks: ["serif"],
+    },
+    {
+      provider: fontProviders.google(),
+      name: "Maven Pro",
+      cssVariable: "--font-text",
+      weights: ["400 900"],
+      styles: ["normal"],
+      subsets: ["latin"],
+      fallbacks: ["sans-serif"],
+    },
+    {
+      provider: fontProviders.google(),
+      name: "Inria Serif",
+      cssVariable: "--font-little-text",
+      weights: ["400"],
+      styles: ["normal"],
+      subsets: ["latin"],
+      fallbacks: ["serif"],
+    },
+  ],
 });

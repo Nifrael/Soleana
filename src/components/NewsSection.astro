@@ -264,7 +264,10 @@ const semaines = [
       align-items: center;
       gap: 0.5rem;
       padding: 2rem 1.5rem 1rem;
-      background: linear-gradient(transparent, rgb(0 0 0 / 0.55));
+      background: linear-gradient(
+        transparent,
+        color-mix(in srgb, var(--shadow-color) 55%, transparent)
+      );
       color: var(--tertiary-color);
       font-family: var(--font-text);
       font-size: 0.85rem;

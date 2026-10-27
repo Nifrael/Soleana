@@ -87,9 +87,14 @@ import { telephone } from "../data/coordonnees";
     flex-direction: column;
     gap: 1.5rem;
     padding: 2rem;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: color-mix(
+      in srgb,
+      var(--tertiary-color) 50%,
+      transparent
+    );
     border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 15px
+      color-mix(in srgb, var(--shadow-color) 5%, transparent);
 
     h2 {
       text-align: center;
@@ -103,7 +108,7 @@ import { telephone } from "../data/coordonnees";
   }
 
   .event-block {
-    background-color: white;
+    background-color: var(--tertiary-color);
 
     .subtitle {
       text-align: center;

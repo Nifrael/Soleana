@@ -155,12 +155,13 @@ const { prestationData } = Astro.props;
 
   .warning {
     background-color: var(--primary-color);
-    color: white;
+    color: var(--tertiary-color);
     padding: 1.5rem;
     border-radius: 8px;
     text-align: center;
     font-weight: bold;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px
+      color-mix(in srgb, var(--shadow-color) 10%, transparent);
     margin: 1rem auto;
     max-width: 800px;
     width: 100%;
@@ -168,7 +169,7 @@ const { prestationData } = Astro.props;
     p {
       margin: 0;
       font-size: 1.1rem;
-      color: white;
+      color: var(--tertiary-color);
     }
   }
 
@@ -179,7 +180,8 @@ const { prestationData } = Astro.props;
     border-radius: 8px;
     text-align: center;
     font-weight: bold;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px
+      color-mix(in srgb, var(--shadow-color) 10%, transparent);
     margin: 1rem auto;
     max-width: 800px;
     width: 100%;

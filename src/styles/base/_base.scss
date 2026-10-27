@@ -29,6 +29,11 @@ main {
   --tertiary-color: rgb(255, 255, 255);
   // Doré des surtitres et étiquettes (contraste AA sur les fonds crème).
   --accent-color: rgb(128, 94, 55);
+  // Champ de formulaire invalide (hors charte, à faire valider par la cliente).
+  --error-color: rgb(168, 50, 50);
+  // Noir des ombres et des voiles qui assombrissent les photos, toujours
+  // utilisé atténué : color-mix(in srgb, var(--shadow-color) 10%, transparent).
+  --shadow-color: rgb(0, 0, 0);
   --base-size: 1rem;
   --scale: 1.25;
   --p: calc(var(--base-size) * 1.05);

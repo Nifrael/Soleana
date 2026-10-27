@@ -180,7 +180,7 @@ const liens = [{ href: "/", text: "Accueil" }, ...menuItems];
     background:
       radial-gradient(
         circle at 100% 0%,
-        rgba(251, 236, 209, 0.1),
+        color-mix(in srgb, var(--secondary-color) 10%, transparent),
         transparent 55%
       ),
       var(--primary-color);
@@ -206,7 +206,9 @@ const liens = [{ href: "/", text: "Accueil" }, ...menuItems];
     inline-size: 90%;
     margin-inline: auto;
     padding-block: 0.75rem 2rem;
-    mask-image: linear-gradient(transparent, #000 1rem);
+    // Fondu en haut de la liste : un masque n'utilise que l'opacité, la
+    // couleur n'apparaît pas à l'écran.
+    mask-image: linear-gradient(transparent, var(--shadow-color) 1rem);
   }
 
   // Apparition en cascade des éléments à l'ouverture.
@@ -249,7 +251,8 @@ const liens = [{ href: "/", text: "Accueil" }, ...menuItems];
   }
 
   .liens > li {
-    border-block-end: 1px solid rgba(251, 236, 209, 0.15);
+    border-block-end: 1px solid
+      color-mix(in srgb, var(--secondary-color) 15%, transparent);
   }
 
   .lien {
@@ -311,7 +314,8 @@ const liens = [{ href: "/", text: "Accueil" }, ...menuItems];
   .sous-menu a {
     display: block;
     padding: 0.55rem 0 0.55rem 1rem;
-    border-inline-start: 1px solid rgba(251, 236, 209, 0.2);
+    border-inline-start: 1px solid
+      color-mix(in srgb, var(--secondary-color) 20%, transparent);
     color: var(--secondary-color);
     font-size: var(--p);
     opacity: 0.8;
@@ -366,7 +370,8 @@ const liens = [{ href: "/", text: "Accueil" }, ...menuItems];
     gap: 0.6rem;
     margin: 0;
     padding-block-start: 1.25rem;
-    border-block-start: 1px solid rgba(251, 236, 209, 0.12);
+    border-block-start: 1px solid
+      color-mix(in srgb, var(--secondary-color) 12%, transparent);
 
     a {
       color: var(--secondary-color);
@@ -383,15 +388,18 @@ const liens = [{ href: "/", text: "Accueil" }, ...menuItems];
     opacity: 0.4;
   }
 
+  // Placé en dernier : à spécificité égale, ces règles l'emportent sans
+  // !important (.panneau.ouvert, plus spécifique, est cité à part).
   @media (prefers-reduced-motion: reduce) {
     .panneau,
+    .panneau.ouvert,
     .surtitre,
     .liens > li,
     .pied,
     .sous-menu,
     .picto,
     .burger span {
-      transition: none !important;
+      transition: none;
     }
   }
 

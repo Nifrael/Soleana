@@ -20,7 +20,9 @@ const photoMobile = await getImage({ src: imageMobile, format: "webp" });
 
 <div class="head-background">
   <picture>
-    {/* 768px = $breakpoint-tablet (les variables SCSS ne sont pas lisibles ici). */}
+    {
+      /* 768px = $breakpoint-tablet (les variables SCSS ne sont pas lisibles ici). */
+    }
     <source media="(width >= 768px)" srcset={photoDesktop.src} />
     {/* Image principale de la page : chargée tout de suite, en priorité. */}
     <img
@@ -56,7 +58,7 @@ const photoMobile = await getImage({ src: imageMobile, format: "webp" });
     content: "";
     position: absolute;
     inset: 0;
-    background-color: black;
+    background-color: var(--shadow-color);
     opacity: 0.3;
     z-index: -1;
   }

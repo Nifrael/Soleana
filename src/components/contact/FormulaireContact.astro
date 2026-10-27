@@ -147,7 +147,8 @@ const prestations = liensPrestations.map((lien) => lien.text);
       color-mix(in srgb, var(--secondary-color) 70%, transparent);
     border-radius: 1.5rem;
     background-color: var(--tertiary-color);
-    box-shadow: 0 2px 12px rgb(0 0 0 / 0.04);
+    box-shadow: 0 2px 12px
+      color-mix(in srgb, var(--shadow-color) 4%, transparent);
 
     h2 {
       margin: 0.25rem 0 0.5rem;
@@ -232,7 +233,7 @@ const prestations = liensPrestations.map((lien) => lien.text);
 
     // :user-invalid ne s'active qu'après une saisie ou une tentative d'envoi.
     &:user-invalid {
-      border-color: rgb(168, 50, 50);
+      border-color: var(--error-color);
     }
   }
 

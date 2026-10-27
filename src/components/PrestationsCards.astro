@@ -97,7 +97,11 @@ const prestations = [
             <p>{prestation.description}</p>
           </div>
           <div class="prestation-action">
-            <BoutonPilule href={prestation.lien} texte={prestation.bouton} pleineLargeur />
+            <BoutonPilule
+              href={prestation.lien}
+              texte={prestation.bouton}
+              pleineLargeur
+            />
           </div>
         </article>
       ))
@@ -152,10 +156,12 @@ const prestations = [
     display: grid;
     grid-template-rows: 1fr auto;
     padding: 1.75rem 1.5rem;
-    border: 1px solid color-mix(in srgb, var(--secondary-color) 70%, transparent);
+    border: 1px solid
+      color-mix(in srgb, var(--secondary-color) 70%, transparent);
     border-radius: 1.5rem;
     background-color: var(--secondary-color);
-    box-shadow: 0 2px 12px rgb(0 0 0 / 0.03);
+    box-shadow: 0 2px 12px
+      color-mix(in srgb, var(--shadow-color) 3%, transparent);
 
     h3 {
       margin: 1.25rem 0 0.6rem;

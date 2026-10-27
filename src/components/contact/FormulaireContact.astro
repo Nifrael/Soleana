@@ -1,18 +1,14 @@
 ---
 import { WEB3FORMS_CLE } from "astro:env/server";
 import BoutonPilule from "../ui/BoutonPilule.astro";
+import { prestations as liensPrestations } from "../../data/navigation.js";
 
 // Web3Forms exige une adresse complète pour la redirection après envoi.
 const pageMerci = new URL("/contact/merci/", Astro.site).href;
 
 const profils = ["Particulier", "Professionnel"];
-const prestations = [
-  "Massages bien-être",
-  "Soins bien-être",
-  "Épilation",
-  "Maquillage",
-  "Soins énergétiques",
-];
+// Mêmes intitulés que le menu : une prestation ajoutée au menu apparaît ici aussi.
+const prestations = liensPrestations.map((lien) => lien.text);
 ---
 
 {

@@ -1,6 +1,7 @@
 import type { ImageMetadata } from "astro";
 import type { NomIcone } from "../components/ui/Icone.astro";
 import jeannelleImage from "../assets/images/Jeannelle.jpg";
+import { reservation } from "./navigation.js";
 
 // Chaque actualité a un visuel :
 // - "calendrier" : illustration décorative, sans vraies dates. `jour` est la colonne
@@ -44,7 +45,7 @@ export const newsData: Actualite[] = [
       mention: "Créneaux ouverts",
       jour: 5,
     },
-    link: "https://www.sumupbookings.com/linstant-soleana",
+    link: reservation.href,
     linkText: "Réserver",
     boutonIcone: "calendrier",
   },

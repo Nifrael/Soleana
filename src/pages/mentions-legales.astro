@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import PageHero from "../components/global/PageHero.astro";
 import Legal from "../assets/images/Legal.jpg";
 import LegalDesktop from "../assets/images/LegalDesktop.jpg";
+import { email, telephone } from "../data/coordonnees";
 ---
 
 <Layout title="Soleana | Mentions Légales">
@@ -12,7 +13,7 @@ import LegalDesktop from "../assets/images/LegalDesktop.jpg";
     title="Mentions Légales"
     altText="Image de la section Mentions Légales"
   />
-  <main class="page-content">
+  <div class="page-content">
     <section>
       <h2>Éditeur et responsable de la publication du site</h2>
       <p>
@@ -22,7 +23,7 @@ import LegalDesktop from "../assets/images/LegalDesktop.jpg";
       </p>
       <p>
         L'adresse mail de contact de l'entreprise est
-        linstant.soleana@gmail.com, également joignable au 06.25.48.78.61.
+        {email}, également joignable au {telephone.affiche}.
       </p>
       <p>Le SIRET de l'entreprise est le 500 009 899 00021.</p>
     </section>
@@ -67,7 +68,7 @@ import LegalDesktop from "../assets/images/LegalDesktop.jpg";
         >.
       </p>
     </section>
-  </main>
+  </div>
 </Layout>
 
 <style lang="scss">
@@ -89,7 +90,7 @@ import LegalDesktop from "../assets/images/LegalDesktop.jpg";
     }
   }
   .page-content a {
-    color: var(--color-primary);
+    color: var(--primary-color);
     &:hover {
       text-decoration: underline;
     }

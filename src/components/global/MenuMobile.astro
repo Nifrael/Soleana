@@ -2,6 +2,7 @@
 import Icone from "../ui/Icone.astro";
 import BoutonPilule from "../ui/BoutonPilule.astro";
 import { menuItems, reservation } from "../../data/navigation.js";
+import { telephone } from "../../data/coordonnees";
 
 // Lien actif : la page courante, ou la section parente pour les prestations.
 const chemin = Astro.url.pathname.replace(/\/$/, "") || "/";
@@ -92,7 +93,7 @@ const liens = [{ href: "/", text: "Accueil" }, ...menuItems];
         <ul class="coordonnees">
           <li>
             <Icone nom="telephone" />
-            <a href="tel:+33625487861">06 25 48 78 61</a>
+            <a href={telephone.lien}>{telephone.affiche}</a>
           </li>
           <li>
             <Icone nom="lieu" />

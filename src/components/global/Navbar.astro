@@ -125,7 +125,6 @@ import { menuItems, reservation } from "../../data/navigation.js";
   }
 
   a {
-    font-size: var(--h2);
     font-family: var(--font-text);
   }
 
@@ -139,33 +138,7 @@ import { menuItems, reservation } from "../../data/navigation.js";
     background: none;
     border: none;
     cursor: pointer;
-    font-size: var(--h2);
-    &:hover {
-      color: var(--tertiary-color);
-      transition: all 0.4s ease-in-out;
-    }
-  }
-
-  .submenu {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-    padding-top: 1.5rem;
-  }
-
-  .submenu a {
-    font-size: var(--h5);
-    opacity: 0.8;
-    color: var(--secondary-color);
-    &:hover {
-      color: var(--tertiary-color);
-      transition: all 0.4s ease-in-out;
-    }
-  }
-
-  .has-submenu.open > .submenu {
-    display: flex;
+    transition: color 0.4s ease-in-out;
   }
 
   :global(body.no-scroll),
@@ -173,11 +146,9 @@ import { menuItems, reservation } from "../../data/navigation.js";
     overflow: hidden;
   }
 
+  // Le menu ordinateur n'existe qu'à partir du breakpoint desktop : sur mobile,
+  // c'est MenuMobile qui prend le relais.
   @media (width >= $breakpoint-desktop) {
-    header {
-      z-index: 100;
-    }
-
     nav {
       position: relative;
     }
@@ -215,6 +186,12 @@ import { menuItems, reservation } from "../../data/navigation.js";
       gap: 0.35rem;
       padding: 0;
 
+      @media (hover: hover) {
+        &:hover {
+          color: var(--tertiary-color);
+        }
+      }
+
       :global(.icone) {
         font-size: 0.85rem;
         transition: transform 0.3s ease;
@@ -243,6 +220,7 @@ import { menuItems, reservation } from "../../data/navigation.js";
     // Le sous-menu reste dans le DOM et apparaît en fondu.
     .submenu {
       display: flex;
+      flex-direction: column;
       position: absolute;
       top: calc(100% + 0.9rem);
       left: 50%;

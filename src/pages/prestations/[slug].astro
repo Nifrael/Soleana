@@ -6,7 +6,6 @@ import Layout from "../../layouts/Layout.astro";
 import PageHero from "../../components/global/PageHero.astro";
 import PriceTable from "../../components/prestations/PriceTable.astro";
 import ContactCard from "../../components/global/ContactCard.astro";
-import StructureCard from "../../components/global/StructuresCards.astro";
 import Villages from "../../components/global/VillagesSansFrais.astro";
 
 export async function getStaticPaths() {
@@ -23,9 +22,6 @@ export async function getStaticPaths() {
 }
 
 const { prestationData } = Astro.props;
-
-const partenaires = await getCollection("partenaires");
-const partenaire = partenaires.length > 0 ? partenaires[0].data : null;
 ---
 
 <Layout
@@ -67,17 +63,6 @@ const partenaire = partenaires.length > 0 ? partenaires[0].data : null;
       title={prestationData.priceTableTitle}
       items={prestationData.prices}
     />
-
-    <!-- {
-      prestationData.pageLayout === "structures" && partenaire && (
-        <StructureCard
-          name={partenaire.name}
-          location={partenaire.location}
-          websiteUrl={partenaire.websiteUrl}
-          description={partenaire.description}
-        />
-      )
-    } -->
 
     {
       prestationData.secondPrices && (

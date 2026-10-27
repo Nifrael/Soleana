@@ -2,6 +2,7 @@
 import Icone, { type NomIcone } from "../ui/Icone.astro";
 import BoutonPilule from "../ui/BoutonPilule.astro";
 import { reservation } from "../../data/navigation.js";
+import { telephone } from "../../data/coordonnees";
 
 const coordonnees: {
   icone: NomIcone;
@@ -14,8 +15,8 @@ const coordonnees: {
   {
     icone: "telephone",
     etiquette: "Téléphone",
-    titre: "06 25 48 78 61",
-    lien: "tel:+33625487861",
+    titre: telephone.affiche,
+    lien: telephone.lien,
     detail:
       "Le moyen le plus simple et le plus rapide pour fixer un rendez-vous.",
   },

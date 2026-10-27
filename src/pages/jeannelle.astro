@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import PageHero from "../components/global/PageHero.astro";
 import imageJeannelle from "../assets/images/Jeannelle.jpg";
 import Button from "../components/ui/Button.astro";
+import { telephone } from "../data/coordonnees";
 ---
 
 <Layout
@@ -24,7 +25,7 @@ import Button from "../components/ui/Button.astro";
 
       <div class="info-banner">
         <p class="date">
-          Contactez-moi pour prendre rendez-vous au 06.25.48.78.61.
+          Contactez-moi pour prendre rendez-vous au {telephone.affiche}.
         </p>
         <p class="location">📍 18 rue Lieutenant Basseras, 66170 Millas</p>
       </div>

@@ -16,10 +16,9 @@ import AboutPhoto from "../assets/images/Apropos.jpg";
     imageMobile={Soledad}
     altText="Photo section derrière le soin"
     title="Derrière le soin"
-    subtitle=""
   />
   <div class="page-content">
-    <h1>Pourquoi Soleana ?</h1>
+    <h2>Pourquoi Soleana ?</h2>
     <p>
       Parce que je suis profondément convaincue que chacun mérite une parenthèse
       enchantée, un moment privilégié pour soi. C'est de cette conviction qu'est
@@ -43,7 +42,7 @@ import AboutPhoto from "../assets/images/Apropos.jpg";
       douceur, directement dans le confort et la sérénité de votre foyer.
     </p>
 
-    <h1>L'expertise Soleana</h1>
+    <h2>L'expertise Soleana</h2>
     <p>
       Diplômée en esthétique, je m'engage à mettre à votre service une expertise
       et une rigueur professionnelle affûtées par de nombreuses années de
@@ -71,9 +70,13 @@ import AboutPhoto from "../assets/images/Apropos.jpg";
     .page-content {
       margin: 0 auto;
       padding-bottom: 2rem;
-      h1 {
+      // Ex-<h1> (le titre de la page est dans le héro) : même apparence.
+      h2 {
         text-align: center;
         padding-top: 2rem;
+        font-family: var(--font-title);
+        font-size: var(--h2);
+        font-weight: 900;
         font-style: italic;
       }
       p {
@@ -98,6 +101,9 @@ import AboutPhoto from "../assets/images/Apropos.jpg";
     @media (width >= $breakpoint-desktop) {
       .page-content {
         max-width: 1000px;
+        h2 {
+          font-size: var(--h1);
+        }
       }
     }
   </style>

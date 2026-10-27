@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import { getImage } from "astro:assets";
 import type { ImageMetadata } from "astro";
 
 interface Props {
@@ -11,15 +11,33 @@ interface Props {
 }
 
 const { imageDesktop, imageMobile, altText, title, subtitle } = Astro.props;
+
+// <picture> : le navigateur ne télécharge que l'image adaptée à l'écran.
+// Avec deux <Image> masquées en CSS, il chargeait les deux.
+const photoDesktop = await getImage({ src: imageDesktop, format: "webp" });
+const photoMobile = await getImage({ src: imageMobile, format: "webp" });
 ---
 
 <div class="head-background">
-  <Image src={imageDesktop} alt={altText} class="head-photo desktop priority" />
-  <Image src={imageMobile} alt={altText} class="head-photo mobile priority" />
+  <picture>
+    {/* 768px = $breakpoint-tablet (les variables SCSS ne sont pas lisibles ici). */}
+    <source media="(width >= 768px)" srcset={photoDesktop.src} />
+    {/* Image principale de la page : chargée tout de suite, en priorité. */}
+    <img
+      src={photoMobile.src}
+      alt={altText}
+      width={photoMobile.attributes.width}
+      height={photoMobile.attributes.height}
+      class="head-photo"
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+    />
+  </picture>
   <div class="head-text">
     <slot>
       <h1>{title}</h1>
-      <h2>{subtitle}</h2>
+      {subtitle && <p class="sous-titre">{subtitle}</p>}
     </slot>
   </div>
 </div>
@@ -58,14 +76,14 @@ const { imageDesktop, imageMobile, altText, title, subtitle } = Astro.props;
       font-size: 2.5rem;
       margin: 0;
     }
-    h2 {
+    .sous-titre {
       font-size: 1.4rem;
       font-style: italic;
       font-weight: 400;
       margin: 0.5rem 0 0 0;
     }
     h1,
-    h2 {
+    .sous-titre {
       color: var(--secondary-color);
     }
   }
@@ -79,10 +97,6 @@ const { imageDesktop, imageMobile, altText, title, subtitle } = Astro.props;
     z-index: -1;
     object-position: top;
     object-fit: cover;
-  }
-
-  .desktop {
-    display: none;
   }
 
   @media (orientation: landscape) and (width < $breakpoint-tablet) {
@@ -100,19 +114,11 @@ const { imageDesktop, imageMobile, altText, title, subtitle } = Astro.props;
   }
 
   @media (width >= $breakpoint-tablet) {
-    .desktop {
-      display: block;
-    }
-
-    .mobile {
-      display: none;
-    }
-
     .head-text {
       h1 {
         font-size: 4rem;
       }
-      h2 {
+      .sous-titre {
         font-size: 1.7rem;
       }
     }
@@ -123,7 +129,7 @@ const { imageDesktop, imageMobile, altText, title, subtitle } = Astro.props;
       h1 {
         font-size: 6rem;
       }
-      h2 {
+      .sous-titre {
         font-size: 2rem;
       }
     }

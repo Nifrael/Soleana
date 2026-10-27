@@ -40,7 +40,7 @@ const partenaire = partenaires.length > 0 ? partenaires[0].data : null;
     subtitle={prestationData.subtitle}
   />
   <div class="page-content">
-    <h1>"{prestationData.quote}"</h1>
+    <p class="citation">"{prestationData.quote}"</p>
     <Image
       id="icon"
       src={prestationData.icon.src}
@@ -143,10 +143,15 @@ const partenaire = partenaires.length > 0 ? partenaires[0].data : null;
     align-items: center;
     justify-content: center;
     gap: 2rem;
-    h1 {
+    // Le <h1> de la page est le titre du héro : la citation garde son
+    // apparence de grand titre sans en être un.
+    .citation {
       text-align: center;
       padding-top: 1rem;
       margin-bottom: 0;
+      font-family: var(--font-title);
+      font-size: var(--h2);
+      font-weight: 900;
       font-style: italic;
     }
     img {
@@ -198,6 +203,12 @@ const partenaire = partenaires.length > 0 ? partenaires[0].data : null;
       margin: 0;
       font-size: 1.1rem;
       color: var(--primary-color);
+    }
+  }
+
+  @media (width >= $breakpoint-desktop) {
+    .page-content .citation {
+      font-size: var(--h1);
     }
   }
 </style>

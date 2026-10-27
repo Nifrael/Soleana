@@ -1,33 +1,30 @@
 ---
+import { menuItems, prestations } from "../../data/navigation.js";
+
 // Année du build : le site étant statique, elle se met à jour à chaque déploiement.
 const annee = new Date().getFullYear();
+// Les pages du menu hors sous-menu (le sous-menu Prestations a sa propre colonne).
+const pages = menuItems.filter((item) => item.href);
 ---
 
 <footer class="footer-container">
   <div class="footer-content">
     <div class="primary-content">
-      <h1>L'Instant Soleana</h1>
-      <h5>S'invite chez vous.</h5>
-      <nav class="icon-links">
-        <!-- <a href="/">Instagram</a> -->
-      </nav>
+      {/* Pas de titre ici : le seul <h1> de la page appartient à son contenu. */}
+      <p class="marque">L'Instant Soleana</p>
+      <p class="slogan">S'invite chez vous.</p>
     </div>
     <div class="secondary-content">
       <div class="footer-column">
         <h3>Prestations</h3>
         <nav class="footer-links">
-          <a href="/prestations/massages">Massages</a>
-          <a href="/prestations/soins">Soins</a>
-          <a href="/prestations/epilations">Epilation</a>
-          <a href="/prestations/maquillages">Maquillage</a>
-          <!-- <a href="/prestations/structures">En Structure</a> -->
+          {prestations.map((lien) => <a href={lien.href}>{lien.text}</a>)}
         </nav>
       </div>
       <div class="footer-column">
         <h3>Plan du site</h3>
         <nav class="footer-links">
-          <a href="/apropos">Derrière le soin</a>
-          <a href="/contact">Contact</a>
+          {pages.map((lien) => <a href={lien.href}>{lien.text}</a>)}
           <a href="/mentions-legales">Mentions légales</a>
           <a href="/politique-de-confidentialite"
             >Politique de confidentialité</a
@@ -67,12 +64,20 @@ const annee = new Date().getFullYear();
       display: flex;
       flex-direction: column;
       margin-bottom: 2rem;
-      h1 {
-        margin: 0 0 1.5rem 0;
-      }
-      h5 {
-        margin: 0.75rem 0;
-      }
+    }
+
+    // Reprennent l'apparence des anciens <h1> et <h5>.
+    .marque {
+      margin: 0 0 1.5rem 0;
+      font-family: var(--font-title);
+      font-size: var(--h2);
+      font-weight: 900;
+    }
+
+    .slogan {
+      margin: 0.75rem 0;
+      font-size: var(--h5);
+      font-weight: 700;
     }
 
     .secondary-content {
@@ -137,6 +142,12 @@ const annee = new Date().getFullYear();
       .footer-container {
         padding: 2rem 0 0;
       }
+      .marque {
+        font-size: var(--h1);
+      }
+    }
+
+    @media (hover: hover) and (width >= $breakpoint-desktop) {
       .footer-links a:hover {
         color: var(--tertiary-color);
       }

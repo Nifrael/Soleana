@@ -8,7 +8,7 @@ import Button from "./ui/Button.astro";
   <div class="person-card">
     <Image src={PhotoProfil} alt="Photo de profil" id="profile-photo" />
     <div class="person-card-text">
-      <h1>Soledad Barranco</h1>
+      <h2 class="nom">Soledad Barranco</h2>
       <p>
         "Passionnée par la beauté au naturel et le bien-être global, je choisis
         d'aller au-delà du simple soin, pour créer de véritables rituels sur
@@ -52,11 +52,18 @@ import Button from "./ui/Button.astro";
     justify-items: center;
     align-items: center;
     text-align: center;
-    h1,
+    h2,
     h5,
     p {
       color: var(--secondary-color);
     }
+  }
+
+  // Ex-<h1> (un seul par page, celui de l'accueil) : même apparence.
+  .nom {
+    font-family: var(--font-title);
+    font-size: var(--h2);
+    font-weight: 900;
   }
 
   .person-card-text {
@@ -69,6 +76,12 @@ import Button from "./ui/Button.astro";
   @media (width >= $breakpoint-tablet) {
     .person-card-container {
       background-attachment: fixed;
+    }
+  }
+
+  @media (width >= $breakpoint-desktop) {
+    .nom {
+      font-size: var(--h1);
     }
   }
 

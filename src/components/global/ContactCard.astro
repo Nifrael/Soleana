@@ -1,9 +1,9 @@
 ---
-import Button from "../ui/Button.astro";
+import BoutonPilule from "../ui/BoutonPilule.astro";
 ---
 
 <div class="contact-card">
-  <Button text="Contactez-moi" href="/contact" variant="secondary" />
+  <BoutonPilule texte="Contactez-moi" href="/contact" icone="email" clair />
 </div>
 
 <style lang="scss">
@@ -20,6 +20,11 @@ import Button from "../ui/Button.astro";
     display: flex;
     justify-content: center;
     align-items: center;
+
+    // BoutonPilule s'aligne en haut par défaut (align-self: flex-start).
+    :global(.bouton) {
+      align-self: center;
+    }
   }
 
   @media (width >= $breakpoint-tablet) {

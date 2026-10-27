@@ -1,7 +1,7 @@
 ---
 import PhotoProfil from "../assets/images/Soledad.jpg";
 import { Image } from "astro:assets";
-import Button from "./ui/Button.astro";
+import BoutonPilule from "./ui/BoutonPilule.astro";
 ---
 
 <div class="person-card-container">
@@ -15,7 +15,7 @@ import Button from "./ui/Button.astro";
         mesure."
       </p>
       <h5>Je vous invite à en découvrir plus sur moi, si vous le souhaitez.</h5>
-      <Button text="Derrière le soin" href="/apropos" variant="secondary" />
+      <BoutonPilule texte="Derrière le soin" href="/apropos" clair />
     </div>
   </div>
 </div>
@@ -71,6 +71,11 @@ import Button from "./ui/Button.astro";
   }
 
   .person-card-text {
+    // Même espace que l'ancien conteneur de Button.
+    :global(.bouton) {
+      margin-block: 1rem;
+    }
+
     background-color: color-mix(
       in srgb,
       var(--tertiary-color) 25%,

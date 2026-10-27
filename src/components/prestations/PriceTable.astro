@@ -1,12 +1,14 @@
 ---
-import type { CollectionEntry } from "astro:content";
-
-type PriceTableData =
-  CollectionEntry<"prestations">["data"]["priceTables"][number];
+interface PriceItem {
+  name: string;
+  duration: string;
+  price: string;
+  description: string;
+}
 
 interface Props {
-  title: PriceTableData["title"];
-  items: PriceTableData["prices"];
+  title: string;
+  items: PriceItem[];
 }
 
 const { title, items } = Astro.props;

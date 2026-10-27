@@ -1,7 +1,7 @@
 {
   "title": "Soins Visage & Corps",
   "description": "Découvrez nos soins du visage et du corps près de Perpignan. Offrez-vous un moment de bien-être et de détente.",
-  "pageLayout": "soins",
+  "note": "Tous les soins et massages sont effectués avec des produits de qualité et respectueux de la santé, de la marque du Dr Belter.",
   "subtitle": "Révélez l'éclat de votre peau, une touche à la fois.",
   "quote": "Des soins sur mesure pour une peau rayonnante.",
   "image": {
@@ -12,136 +12,146 @@
     "src": "../../assets/icons/handsIcon.svg",
     "alt": "Icône de la section soins"
   },
-  "priceTableTitle": "Les Soins Corps",
-  "prices": [
+  "priceTables": [
     {
-      "name": "Eclat du Corps",
-      "duration": "",
-      "price": "40€",
-      "description": "Offrez à votre peau un souffle de douceur et de lumière avec notre gommage corps aux textures raffinées."
+      "title": "Les Soins Corps",
+      "prices": [
+        {
+          "name": "Eclat du Corps",
+          "duration": "",
+          "price": "40€",
+          "description": "Offrez à votre peau un souffle de douceur et de lumière avec notre gommage corps aux textures raffinées."
+        },
+        {
+          "name": "Cocon Naturel",
+          "duration": "",
+          "price": "45€",
+          "description": "Purifiez votre corps grâce à un enveloppement pour une peau ressourcée et lumineuse."
+        },
+        {
+          "name": "Eclat du corps & Cocon Naturel",
+          "duration": "",
+          "price": "80€",
+          "description": ""
+        },
+        {
+          "name": "Eclat du corps & Cocon Naturel & Modelage",
+          "duration": "",
+          "price": "110€",
+          "description": ""
+        }
+      ]
     },
     {
-      "name": "Cocon Naturel",
-      "duration": "",
-      "price": "45€",
-      "description": "Purifiez votre corps grâce à un enveloppement pour une peau ressourcée et lumineuse."
+      "title": "Le Soin Visage",
+      "prices": [
+        {
+          "name": "Soin Rituel Eclat",
+          "duration": "",
+          "price": "59€",
+          "description": "Un soin tout en douceur pour révéler l’éclat et apaiser les peaux les plus sensibles. Imaginez… Une bulle de calme où chaque geste est une caresse, chaque texture un réconfort."
+        },
+        {
+          "name": "Soin Visage Signature Équilibre & Revitalisation",
+          "duration": "",
+          "price": "75€",
+          "description": "Offrez à votre peau un véritable recentrage cutané, entre douceur, précision et efficacité. Ce soin complet est conçu pour rééquilibrer, revitaliser et oxygéner la peau en profondeur."
+        },
+        {
+          "name": "Soin Profond",
+          "duration": "",
+          "price": "85€",
+          "description": "Un soin sur-mesure, puissant et hautement ciblé. Offrez à votre peau un traitement complet, pensé pour relancer les fonctions vitales, lisser les traits et préserver l’ovale du visage."
+        },
+        {
+          "name": "Soin du visage Douceur & Eclat, Contexte Oncologique",
+          "duration": "",
+          "price": "100€",
+          "description": "Chaque peau méritant une attention particulière, le soin est réalisé avec des produits en unidoses hautement spécifiques : hygiène parfaite, sécurité renforcée et respect absolue de votre peau sensible. Ce soin permet d'accompagner les personnes traversant ou ayant traversé un traitement à visée curative contre le cancer."
+        }
+      ]
     },
     {
-      "name": "Eclat du corps & Cocon Naturel",
-      "duration": "",
-      "price": "80€",
-      "description": ""
+      "title": "Les Soins Mains",
+      "prices": [
+        {
+          "name": "Manucure Soignée",
+          "duration": "",
+          "price": "28€",
+          "description": "Nettoyage des mains - Limage et mise en forme des ongles - Soin des cuticules - Polissage de l'ongle."
+        },
+        {
+          "name": "Beauté des mains",
+          "duration": "",
+          "price": "60€",
+          "description": "Nettoyage des mains - Limage et mise en forme de l'ongle - Soins des cuticules - Gommage des mains - Massage des mains et poignets - Masque mains - Polissage"
+        },
+        {
+          "name": "Vernis semi-permanent",
+          "duration": "",
+          "price": "25€",
+          "description": "En Option Avec Soins"
+        },
+        {
+          "name": "Vernis simple",
+          "duration": "",
+          "price": "15€",
+          "description": "En Option Avec Soins"
+        },
+        {
+          "name": "Pose de vernis semi-permanent sur ongles nus",
+          "duration": "",
+          "price": "35€",
+          "description": ""
+        },
+        {
+          "name": "Dépose",
+          "duration": "",
+          "price": "12€",
+          "description": ""
+        }
+      ]
     },
     {
-      "name": "Eclat du corps & Cocon Naturel & Modelage",
-      "duration": "",
-      "price": "110€",
-      "description": ""
-    }
-  ],
-  "secondPriceTableTitle": "Le Soin Visage",
-  "secondPrices": [
-    {
-      "name": "Soin Rituel Eclat",
-      "duration": "",
-      "price": "59€",
-      "description": "Un soin tout en douceur pour révéler l’éclat et apaiser les peaux les plus sensibles. Imaginez… Une bulle de calme où chaque geste est une caresse, chaque texture un réconfort."
-    },
-    {
-      "name": "Soin Visage Signature Équilibre & Revitalisation",
-      "duration": "",
-      "price": "75€",
-      "description": "Offrez à votre peau un véritable recentrage cutané, entre douceur, précision et efficacité. Ce soin complet est conçu pour rééquilibrer, revitaliser et oxygéner la peau en profondeur."
-    },
-    {
-      "name": "Soin Profond",
-      "duration": "",
-      "price": "85€",
-      "description": "Un soin sur-mesure, puissant et hautement ciblé. Offrez à votre peau un traitement complet, pensé pour relancer les fonctions vitales, lisser les traits et préserver l’ovale du visage."
-    },
-    {
-      "name": "Soin du visage Douceur & Eclat, Contexte Oncologique",
-      "duration": "",
-      "price": "100€",
-      "description": "Chaque peau méritant une attention particulière, le soin est réalisé avec des produits en unidoses hautement spécifiques : hygiène parfaite, sécurité renforcée et respect absolue de votre peau sensible. Ce soin permet d'accompagner les personnes traversant ou ayant traversé un traitement à visée curative contre le cancer."
-    }
-  ],
-  "thirdPriceTableTitle": "Les Soins Mains",
-  "thirdPrices": [
-    {
-      "name": "Manucure Soignée",
-      "duration": "",
-      "price": "28€",
-      "description": "Nettoyage des mains - Limage et mise en forme des ongles - Soin des cuticules - Polissage de l'ongle."
-    },
-    {
-      "name": "Beauté des mains",
-      "duration": "",
-      "price": "60€",
-      "description": "Nettoyage des mains - Limage et mise en forme de l'ongle - Soins des cuticules - Gommage des mains - Massage des mains et poignets - Masque mains - Polissage"
-    },
-    {
-      "name": "Vernis semi-permanent",
-      "duration": "",
-      "price": "25€",
-      "description": "En Option Avec Soins"
-    },
-    {
-      "name": "Vernis simple",
-      "duration": "",
-      "price": "15€",
-      "description": "En Option Avec Soins"
-    },
-    {
-      "name": "Pose de vernis semi-permanent sur ongles nus",
-      "duration": "",
-      "price": "35€",
-      "description": ""
-    },
-    {
-      "name": "Dépose",
-      "duration": "",
-      "price": "12€",
-      "description": ""
-    }
-  ],
-  "fourthPriceTableTitle": "Les Soins Pieds",
-  "fourthPrices": [
-    {
-      "name": "Soin Pédicure",
-      "duration": "",
-      "price": "28€",
-      "description": "Nettoyage des pieds - Limage et mise en forme des ongles - Soin des cuticules - Polissage de l'ongle."
-    },
-    {
-      "name": "Beauté des pieds",
-      "duration": "",
-      "price": "60€",
-      "description": "Nettoyage des pieds - Coupe et limage des ongles - Soins des cuticules - Ponçage ou rape des zones rugueuses et callosités - Gommage exfoliant des pieds - Massage des pieds et chevilles"
-    },
-    {
-      "name": "Vernis semi-permanent",
-      "duration": "",
-      "price": "25€",
-      "description": "En Option Avec Soins"
-    },
-    {
-      "name": "Vernis simple",
-      "duration": "",
-      "price": "15€",
-      "description": "En Option Avec Soins"
-    },
-    {
-      "name": "Pose de vernis semi-permanent sur ongles nus",
-      "duration": "",
-      "price": "35€",
-      "description": ""
-    },
-    {
-      "name": "Dépose",
-      "duration": "",
-      "price": "12€",
-      "description": ""
+      "title": "Les Soins Pieds",
+      "prices": [
+        {
+          "name": "Soin Pédicure",
+          "duration": "",
+          "price": "28€",
+          "description": "Nettoyage des pieds - Limage et mise en forme des ongles - Soin des cuticules - Polissage de l'ongle."
+        },
+        {
+          "name": "Beauté des pieds",
+          "duration": "",
+          "price": "60€",
+          "description": "Nettoyage des pieds - Coupe et limage des ongles - Soins des cuticules - Ponçage ou rape des zones rugueuses et callosités - Gommage exfoliant des pieds - Massage des pieds et chevilles"
+        },
+        {
+          "name": "Vernis semi-permanent",
+          "duration": "",
+          "price": "25€",
+          "description": "En Option Avec Soins"
+        },
+        {
+          "name": "Vernis simple",
+          "duration": "",
+          "price": "15€",
+          "description": "En Option Avec Soins"
+        },
+        {
+          "name": "Pose de vernis semi-permanent sur ongles nus",
+          "duration": "",
+          "price": "35€",
+          "description": ""
+        },
+        {
+          "name": "Dépose",
+          "duration": "",
+          "price": "12€",
+          "description": ""
+        }
+      ]
     }
   ]
 }

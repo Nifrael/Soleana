@@ -31,17 +31,13 @@ const { prestationData } = Astro.props;
   <PageHero
     imageDesktop={prestationData.image.src}
     imageMobile={prestationData.image.src}
-    altText={`Photo d'accueil de la section ${prestationData.title}`}
+    altText={prestationData.image.alt}
     title={prestationData.title}
     subtitle={prestationData.subtitle}
   />
   <div class="page-content">
     <p class="citation">"{prestationData.quote}"</p>
-    <Image
-      id="icon"
-      src={prestationData.icon.src}
-      alt={`Icône de ${prestationData.title}`}
-    />
+    <Image id="icon" src={prestationData.icon.src} alt="" />
 
     {
       prestationData.professionalDisclaimer && (
@@ -59,59 +55,21 @@ const { prestationData } = Astro.props;
       )
     }
 
-    <PriceTable
-      title={prestationData.priceTableTitle}
-      items={prestationData.prices}
-    />
-
     {
-      prestationData.secondPrices && (
-        <PriceTable
-          title={prestationData.secondPriceTableTitle}
-          items={prestationData.secondPrices}
-        />
-      )
+      prestationData.priceTables.map((table) => (
+        <PriceTable title={table.title} items={table.prices} />
+      ))
     }
 
     {
-      prestationData.thirdPrices && (
-        <PriceTable
-          title={prestationData.thirdPriceTableTitle}
-          items={prestationData.thirdPrices}
-        />
-      )
-    }
-
-    {
-      prestationData.fourthPrices && (
-        <PriceTable
-          title={prestationData.fourthPriceTableTitle}
-          items={prestationData.fourthPrices}
-        />
-      )
-    }
-
-    {
-      prestationData.pageLayout === "soins" ||
-      prestationData.pageLayout === "massages" ? (
+      prestationData.note && (
         <div class="prestations-content">
-          <p>
-            Tous les soins et massages sont effectués avec des produits de
-            qualité et respectueux de la santé, de la marque du Dr Belter.
-          </p>
+          <p>{prestationData.note}</p>
         </div>
-      ) : prestationData.pageLayout === "epilations" ? (
-        <div class="prestations-content">
-          <p>
-            Toutes les épilations sont réalisées à la cire professionnelle,
-            respectent une hygiène rigoureuse et sont effectuées par des gestes
-            experts.
-          </p>
-        </div>
-      ) : null
+      )
     }
 
-    {prestationData.pageLayout !== "structures" && <Villages />}
+    {prestationData.homeService && <Villages />}
   </div>
   <ContactCard />
 </Layout>

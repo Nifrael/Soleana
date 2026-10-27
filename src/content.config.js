@@ -18,21 +18,25 @@ const prestationsCollection = defineCollection({
     return z.object({
       title: z.string(),
       description: z.string().optional(),
-      pageLayout: z.string().optional(),
       professionalDisclaimer: z.string().optional(),
       familyInfo: z.string().optional(),
       subtitle: z.string().optional(),
       quote: z.string(),
       image: imageSchema,
       icon: imageSchema,
-      priceTableTitle: z.string(),
-      prices: z.array(priceItemSchema),
-      secondPriceTableTitle: z.string().optional(),
-      secondPrices: z.array(priceItemSchema).optional(),
-      thirdPriceTableTitle: z.string().optional(),
-      thirdPrices: z.array(priceItemSchema).optional(),
-      fourthPriceTableTitle: z.string().optional(),
-      fourthPrices: z.array(priceItemSchema).optional(),
+      // Autant de grilles que nécessaire (Femmes, Hommes, Formules…), dans l'ordre d'affichage.
+      priceTables: z
+        .array(
+          z.object({
+            title: z.string(),
+            prices: z.array(priceItemSchema),
+          }),
+        )
+        .min(1),
+      // Phrase affichée sous les tarifs (produits utilisés, hygiène…).
+      note: z.string().optional(),
+      // false pour une prestation hors domicile : masque la liste des villages.
+      homeService: z.boolean().default(true),
     });
   },
 });

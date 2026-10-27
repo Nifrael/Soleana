@@ -1,21 +1,20 @@
 ---
-export interface PriceItem {
-  name: string;
-  duration: string;
-  price: string;
-  description: string;
-}
+import type { CollectionEntry } from "astro:content";
+
+// Types déduits du schéma (content.config.js) : pas de copie à tenir à jour.
+type PriceTableData =
+  CollectionEntry<"prestations">["data"]["priceTables"][number];
 
 interface Props {
-  title?: string;
-  items: PriceItem[];
+  title: PriceTableData["title"];
+  items: PriceTableData["prices"];
 }
 
 const { title, items } = Astro.props;
 ---
 
 <section class="price-table">
-  {title && <h2>{title}</h2>}
+  <h2>{title}</h2>
 
   <div class="price-table-grid">
     {

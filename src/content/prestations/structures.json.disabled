@@ -1,7 +1,7 @@
 {
   "title": "En Structure",
   "description": "Découvrez nos prestations en structure près de Perpignan. Profitez d'un moment de détente dans un cadre agréable et relaxant.",
-  "pageLayout": "structures",
+  "homeService": false,
   "subtitle": "Faites-vous vraiment plaisir.",
   "quote": "Un moment de détente inoubliable.",
   "image": {
@@ -12,37 +12,41 @@
     "src": "../../assets/icons/spaIcon.svg",
     "alt": "Icône de spa"
   },
-  "priceTableTitle": "Hôtel Mar I Cel - Canet-En-Roussillon",
-  "prices": [
+  "priceTables": [
     {
-      "name": "Hammam ou Sauna & Massage",
-      "duration": "50 min.",
-      "price": "65€",
-      "description": "20 min de Hammam ou Sauna et 30 min de massage."
-    },
-    {
-      "name": "Hammam ou Sauna & Massage",
-      "duration": "80 min.",
-      "price": "95€",
-      "description": "20 min de Hammam ou Sauna et 60 min de massage."
-    },
-    {
-      "name": "Hammam ou Sauna & Gommage Corps",
-      "duration": "50 min.",
-      "price": "55€",
-      "description": "20 min de Hammam ou Sauna et 30 min de gommage."
-    },
-    {
-      "name": "Hammam ou Sauna & Soin Visage",
-      "duration": "80 min.",
-      "price": "100€",
-      "description": "20 min de Hammam ou Sauna et 60 min de soin."
-    },
-    {
-      "name": "Option Accès Piscine",
-      "duration": "La demi-journée.",
-      "price": "25€",
-      "description": "Ajoutez un moment de détente supplémentaire à votre soin avec notre accès piscine."
+      "title": "Hôtel Mar I Cel - Canet-En-Roussillon",
+      "prices": [
+        {
+          "name": "Hammam ou Sauna & Massage",
+          "duration": "50 min.",
+          "price": "65€",
+          "description": "20 min de Hammam ou Sauna et 30 min de massage."
+        },
+        {
+          "name": "Hammam ou Sauna & Massage",
+          "duration": "80 min.",
+          "price": "95€",
+          "description": "20 min de Hammam ou Sauna et 60 min de massage."
+        },
+        {
+          "name": "Hammam ou Sauna & Gommage Corps",
+          "duration": "50 min.",
+          "price": "55€",
+          "description": "20 min de Hammam ou Sauna et 30 min de gommage."
+        },
+        {
+          "name": "Hammam ou Sauna & Soin Visage",
+          "duration": "80 min.",
+          "price": "100€",
+          "description": "20 min de Hammam ou Sauna et 60 min de soin."
+        },
+        {
+          "name": "Option Accès Piscine",
+          "duration": "La demi-journée.",
+          "price": "25€",
+          "description": "Ajoutez un moment de détente supplémentaire à votre soin avec notre accès piscine."
+        }
+      ]
     }
   ]
 }

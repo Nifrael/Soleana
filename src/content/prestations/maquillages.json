@@ -1,7 +1,6 @@
 {
   "title": "Maquillage",
   "description": "Découvrez nos prestations de maquillage à domicile près de Perpignan. Mettez en lumière votre beauté naturelle avec nos services personnalisés.",
-  "pageLayout": "maquillages",
   "subtitle": "Mettez en lumière votre beauté naturelle.",
   "quote": "Le maquillage pour sublimer votre visage.",
   "image": {
@@ -12,49 +11,53 @@
     "src": "../../assets/icons/makeupIcon.svg",
     "alt": "Icône de la section maquillage"
   },
-  "priceTableTitle": "Les tarifs Soleana",
-  "prices": [
+  "priceTables": [
     {
-      "name": "Maquillage Jour",
-      "duration": "",
-      "price": "37€",
-      "description": "Teint frais, lumineux et naturel, regard léger, idéal pour la journée ou un entretien."
-    },
-    {
-      "name": "Maquillage Soir",
-      "duration": "",
-      "price": "45€",
-      "description": "Teint travaillé, regard intensifié, plus de sophistication et de tenue."
-    },
-    {
-      "name": "Maquillage Mariée",
-      "duration": "",
-      "price": "90€",
-      "description": "Préparation complète, teint longue tenue, harmonie avec la tenue."
-    },
-    {
-      "name": "Essai Maquillage Mariée",
-      "duration": "",
-      "price": "50€",
-      "description": "Essai préalable avec ajustement personnalisé."
-    },
-    {
-      "name": "Maquillage Convives",
-      "duration": "",
-      "price": "40€",
-      "description": "Mise en beauté pour les invitées d'un mariage."
-    },
-    {
-      "name": "Maquillage Pour Evènement",
-      "duration": "",
-      "price": "40€",
-      "description": "Mise en beauté pour un évènement particulier (Modèle photo...)."
-    },
-    {
-      "name": "Atelier Beauté - Maquillage & Conseils Personnalisés",
-      "duration": "",
-      "price": "90€",
-      "description": "Un instant privilégié pensé avec douceur. Découvrez une leçon de maquillage adaptée à vos besoins, des conseils personnalisés pour sublimer votre beauté naturelle et des astuces simples à reproduire chaque jour. Les produits utilisés, du Dr Belter, deviennent vos alliés de beauté et de confiance, et sont parfaitement adaptées pour tous les types de peau, y compris les peaux fragilisées par des traitements oncologiques."
+      "title": "Les tarifs Soleana",
+      "prices": [
+        {
+          "name": "Maquillage Jour",
+          "duration": "",
+          "price": "37€",
+          "description": "Teint frais, lumineux et naturel, regard léger, idéal pour la journée ou un entretien."
+        },
+        {
+          "name": "Maquillage Soir",
+          "duration": "",
+          "price": "45€",
+          "description": "Teint travaillé, regard intensifié, plus de sophistication et de tenue."
+        },
+        {
+          "name": "Maquillage Mariée",
+          "duration": "",
+          "price": "90€",
+          "description": "Préparation complète, teint longue tenue, harmonie avec la tenue."
+        },
+        {
+          "name": "Essai Maquillage Mariée",
+          "duration": "",
+          "price": "50€",
+          "description": "Essai préalable avec ajustement personnalisé."
+        },
+        {
+          "name": "Maquillage Convives",
+          "duration": "",
+          "price": "40€",
+          "description": "Mise en beauté pour les invitées d'un mariage."
+        },
+        {
+          "name": "Maquillage Pour Evènement",
+          "duration": "",
+          "price": "40€",
+          "description": "Mise en beauté pour un évènement particulier (Modèle photo...)."
+        },
+        {
+          "name": "Atelier Beauté - Maquillage & Conseils Personnalisés",
+          "duration": "",
+          "price": "90€",
+          "description": "Un instant privilégié pensé avec douceur. Découvrez une leçon de maquillage adaptée à vos besoins, des conseils personnalisés pour sublimer votre beauté naturelle et des astuces simples à reproduire chaque jour. Les produits utilisés, du Dr Belter, deviennent vos alliés de beauté et de confiance, et sont parfaitement adaptées pour tous les types de peau, y compris les peaux fragilisées par des traitements oncologiques."
+        }
+      ]
     }
   ]
 }

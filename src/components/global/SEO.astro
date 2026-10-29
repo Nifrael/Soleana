@@ -4,6 +4,7 @@ import defaultImage from "../../assets/images/Bienvenue.jpg";
 import siteConfig from "../../content/siteConfig.js";
 import {
   email,
+  horaires,
   localisation,
   praticienne,
   telephone,
@@ -65,10 +66,17 @@ const donneesStructurees = {
       founder: { "@type": "Person", name: praticienne },
       address: {
         "@type": "PostalAddress",
+        streetAddress: localisation.rue,
         addressLocality: localisation.ville,
         postalCode: localisation.codePostal,
         addressRegion: localisation.departement,
         addressCountry: "FR",
+      },
+      openingHoursSpecification: {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: horaires.joursSemaine,
+        opens: horaires.ouverture,
+        closes: horaires.fermeture,
       },
       areaServed: villages.map((village) => ({
         "@type": "City",

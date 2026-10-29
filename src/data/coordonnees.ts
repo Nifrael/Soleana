@@ -13,13 +13,33 @@ export const jeannelle = {
 
 export const zone = {
   titre: "À domicile ou au Soler",
-  detail: "Le Soler (Pyrénées-Orientales).",
 };
 
 export const localisation = {
+  rue: "28 rue des Arbousiers",
   ville: "Le Soler",
   codePostal: "66270",
   departement: "Pyrénées-Orientales",
+};
+
+export const adresse = `${localisation.rue}, ${localisation.codePostal} ${localisation.ville}`;
+
+const ouverture = "09:00";
+const fermeture = "20:00";
+
+export const horaires = {
+  jours: "Du lundi au samedi",
+  heures: `De ${Number.parseInt(ouverture)} h à ${Number.parseInt(fermeture)} h`,
+  joursSemaine: [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ],
+  ouverture,
+  fermeture,
 };
 
 export const praticienne = "Soledad Barranco";

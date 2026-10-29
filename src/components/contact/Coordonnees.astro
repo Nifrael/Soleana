@@ -3,7 +3,13 @@ import Icone, { type NomIcone } from "../ui/Icone.astro";
 import BoutonPilule from "../ui/BoutonPilule.astro";
 import Telephone from "../ui/Telephone.astro";
 import { reservation } from "../../data/navigation.js";
-import { telephone, jeannelle, zone } from "../../data/coordonnees";
+import {
+  telephone,
+  jeannelle,
+  zone,
+  adresse,
+  horaires,
+} from "../../data/coordonnees";
 
 const coordonnees: {
   icone: NomIcone;
@@ -26,7 +32,13 @@ const coordonnees: {
     icone: "lieu",
     etiquette: "Rayon d'intervention",
     titre: zone.titre,
-    detail: zone.detail,
+    detail: `${adresse}.`,
+  },
+  {
+    icone: "calendrier",
+    etiquette: "Horaires",
+    titre: horaires.jours,
+    detail: `${horaires.heures}.`,
   },
   {
     icone: "boutique",

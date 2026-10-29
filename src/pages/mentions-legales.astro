@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import PageHero from "../components/global/PageHero.astro";
 import Legal from "../assets/images/Legal.jpg";
 import LegalDesktop from "../assets/images/LegalDesktop.jpg";
-import { email, telephone } from "../data/coordonnees";
+import { email, telephone, adresse } from "../data/coordonnees";
 ---
 
 <Layout
@@ -21,8 +21,8 @@ import { email, telephone } from "../data/coordonnees";
       <h2>Éditeur et responsable de la publication du site</h2>
       <p>
         Le site L'Instant Soleana est édité par Soledad Barranco,
-        auto-entrepreneuse dont l'entreprise est domiciliée au 28 Rue des
-        Arbousiers dans la commune de Le Soler, 66270.
+        auto-entrepreneuse dont l'entreprise est domiciliée au{" "}
+        {adresse}.
       </p>
       <p>
         L'adresse mail de contact de l'entreprise est

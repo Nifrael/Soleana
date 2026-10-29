@@ -2,7 +2,7 @@
 import Icone from "../ui/Icone.astro";
 import BoutonPilule from "../ui/BoutonPilule.astro";
 import { menuItems, reservation } from "../../data/navigation.js";
-import { telephone } from "../../data/coordonnees";
+import { telephone, adresse, horaires } from "../../data/coordonnees";
 
 const estActif = (href: string) => Astro.url.pathname === href;
 const prestationsActives = Astro.url.pathname.startsWith("/prestations/");
@@ -95,7 +95,11 @@ const liens = [{ href: "/", text: "Accueil" }, ...menuItems];
           </li>
           <li>
             <Icone nom="lieu" />
-            <span>Le Soler, près de Perpignan</span>
+            <span>{adresse}</span>
+          </li>
+          <li>
+            <Icone nom="calendrier" />
+            <span>{`${horaires.jours}, ${horaires.heures.toLowerCase()}`}</span>
           </li>
         </ul>
 
@@ -349,6 +353,7 @@ const liens = [{ href: "/", text: "Accueil" }, ...menuItems];
     }
 
     :global(.icone) {
+      flex-shrink: 0;
       font-size: 1.1rem;
       opacity: 0.7;
     }

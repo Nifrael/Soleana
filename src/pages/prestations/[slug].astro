@@ -57,7 +57,11 @@ const { prestationData } = Astro.props;
 
     {
       prestationData.priceTables.map((table) => (
-        <PriceTable title={table.title} items={table.prices} />
+        <PriceTable
+          surtitre={prestationData.title}
+          title={table.title}
+          items={table.prices}
+        />
       ))
     }
 

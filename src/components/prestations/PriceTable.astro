@@ -1,4 +1,6 @@
 ---
+import SectionHeader from "../ui/SectionHeader.astro";
+
 interface PriceItem {
   name: string;
   duration: string;
@@ -7,15 +9,16 @@ interface PriceItem {
 }
 
 interface Props {
+  surtitre: string;
   title: string;
   items: PriceItem[];
 }
 
-const { title, items } = Astro.props;
+const { surtitre, title, items } = Astro.props;
 ---
 
 <section class="price-table">
-  <h2>{title}</h2>
+  <SectionHeader surtitre={surtitre} titre={title} />
 
   <div class="price-table-grid">
     {
@@ -43,15 +46,6 @@ const { title, items } = Astro.props;
     width: 95%;
     max-width: 1200px;
     margin: 0 auto 1rem auto;
-  }
-
-  h2 {
-    text-align: center;
-    color: var(--primary-color);
-    position: relative;
-    padding-bottom: 1rem;
-    margin-top: 0;
-    text-decoration: underline;
   }
 
   .price-table-grid {

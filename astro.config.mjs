@@ -6,8 +6,9 @@ import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
   site: "https://www.linstant-soleana.fr",
+  trailingSlash: "always",
   integrations: [
-    sitemap({ filter: (page) => !page.includes("/contact/merci") }),
+    sitemap({ filter: (page) => !page.includes("/contact/merci") && !page.includes("/404") }),
   ],
   vite: {
     resolve: {

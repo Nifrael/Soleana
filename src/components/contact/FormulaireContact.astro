@@ -123,6 +123,7 @@ const prestations = liensPrestations.map((lien) => lien.text);
 
 <style lang="scss">
   @use "@styles/config/variables" as *;
+  @use "@styles/config/mixins" as *;
 
   .formulaire-bloc {
     padding: 2rem 1.5rem;
@@ -141,18 +142,14 @@ const prestations = liensPrestations.map((lien) => lien.text);
     }
   }
 
-  .surtitre,
-  label,
-  legend {
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+  .surtitre {
+    @include surtitre;
+    margin: 0;
   }
 
-  .surtitre {
-    margin: 0;
-    color: var(--accent-color);
+  label,
+  legend {
+    @include surtitre(var(--primary-color));
   }
 
   .intro {
@@ -181,11 +178,6 @@ const prestations = liensPrestations.map((lien) => lien.text);
     margin: 0;
     padding: 0;
     border: none;
-  }
-
-  label,
-  legend {
-    color: var(--primary-color);
   }
 
   legend {

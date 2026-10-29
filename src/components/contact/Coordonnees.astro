@@ -85,6 +85,7 @@ const coordonnees: {
 
 <style lang="scss">
   @use "@styles/config/variables" as *;
+  @use "@styles/config/mixins" as *;
 
   .coordonnees {
     display: flex;
@@ -156,11 +157,7 @@ const coordonnees: {
     display: flex;
     align-items: center;
     gap: 0.4rem;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--accent-color);
+    @include surtitre;
   }
 
   .titre {

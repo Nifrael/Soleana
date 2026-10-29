@@ -33,6 +33,7 @@ import BoutonPilule from "./ui/BoutonPilule.astro";
 
 <style lang="scss">
   @use "@styles/config/variables" as *;
+  @use "@styles/config/mixins" as *;
 
   .contact-section {
     display: grid;
@@ -79,12 +80,8 @@ import BoutonPilule from "./ui/BoutonPilule.astro";
   }
 
   .categorie {
+    @include surtitre;
     margin: 0;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--accent-color);
   }
 
   .description {

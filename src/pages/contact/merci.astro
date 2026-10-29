@@ -22,6 +22,8 @@ import ContactImage from "../../assets/images/Contact.jpg";
 </Layout>
 
 <style lang="scss">
+  @use "@styles/config/mixins" as *;
+
   .merci {
     display: flex;
     flex-direction: column;
@@ -51,10 +53,6 @@ import ContactImage from "../../assets/images/Contact.jpg";
   }
 
   .surtitre {
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--accent-color);
+    @include surtitre;
   }
 </style>

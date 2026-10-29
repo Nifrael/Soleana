@@ -2,7 +2,7 @@
 import Icone, { type NomIcone } from "../ui/Icone.astro";
 import BoutonPilule from "../ui/BoutonPilule.astro";
 import { reservation } from "../../data/navigation.js";
-import { telephone } from "../../data/coordonnees";
+import { telephone, jeannelle } from "../../data/coordonnees";
 
 const coordonnees: {
   icone: NomIcone;
@@ -31,7 +31,7 @@ const coordonnees: {
     etiquette: "Lieu partenaire",
     titre: "Espace Jeannelle — Millas",
     lien: "/jeannelle",
-    detail: "Le samedi, sur rendez-vous.",
+    detail: jeannelle.horaires,
     partenaire: true,
   },
 ];

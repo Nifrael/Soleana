@@ -4,3 +4,9 @@ export const telephone = {
 };
 
 export const email = "linstant.soleana@gmail.com";
+
+export const jeannelle = {
+  adresse: "18 rue Lieutenant Basseras, 66170 Millas",
+  horaires: "Le samedi, sur rendez-vous.",
+  site: "https://www.jeannelle.me",
+};

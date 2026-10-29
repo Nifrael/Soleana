@@ -4,9 +4,8 @@ import BoutonPilule from "../ui/BoutonPilule.astro";
 import { menuItems, reservation } from "../../data/navigation.js";
 import { telephone } from "../../data/coordonnees";
 
-const chemin = Astro.url.pathname.replace(/\/$/, "") || "/";
-const estActif = (href: string) => chemin === href;
-const prestationsActives = chemin.startsWith("/prestations");
+const estActif = (href: string) => Astro.url.pathname === href;
+const prestationsActives = Astro.url.pathname.startsWith("/prestations/");
 
 const liens = [{ href: "/", text: "Accueil" }, ...menuItems];
 ---
@@ -101,9 +100,9 @@ const liens = [{ href: "/", text: "Accueil" }, ...menuItems];
         </ul>
 
         <p class="mentions">
-          <a href="/mentions-legales">Mentions légales</a>
+          <a href="/mentions-legales/">Mentions légales</a>
           <span class="separateur" aria-hidden="true"></span>
-          <a href="/politique-de-confidentialite">Confidentialité</a>
+          <a href="/politique-de-confidentialite/">Confidentialité</a>
         </p>
       </div>
     </nav>

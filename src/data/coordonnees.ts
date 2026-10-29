@@ -15,3 +15,11 @@ export const zone = {
   titre: "À domicile ou au Soler",
   detail: "Le Soler (Pyrénées-Orientales).",
 };
+
+export const localisation = {
+  ville: "Le Soler",
+  codePostal: "66270",
+  departement: "Pyrénées-Orientales",
+};
+
+export const praticienne = "Soledad Barranco";

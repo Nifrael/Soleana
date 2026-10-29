@@ -58,7 +58,7 @@ export const newsData: Actualite[] = [
       alt: "Devanture de l'espace Jeannelle à Millas",
       lieu: "Espace Jeannelle • Millas",
     },
-    link: "/jeannelle",
+    link: "/jeannelle/",
     linkText: "En savoir plus",
     boutonIcone: "oeil",
   },

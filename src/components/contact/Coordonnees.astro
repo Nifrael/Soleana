@@ -1,6 +1,7 @@
 ---
 import Icone, { type NomIcone } from "../ui/Icone.astro";
 import BoutonPilule from "../ui/BoutonPilule.astro";
+import Telephone from "../ui/Telephone.astro";
 import { reservation } from "../../data/navigation.js";
 import { telephone, jeannelle, zone } from "../../data/coordonnees";
 
@@ -9,6 +10,7 @@ const coordonnees: {
   etiquette: string;
   titre: string;
   lien?: string;
+  telephone?: string;
   detail: string;
   partenaire?: boolean;
 }[] = [
@@ -16,7 +18,7 @@ const coordonnees: {
     icone: "telephone",
     etiquette: "Téléphone",
     titre: telephone.affiche,
-    lien: telephone.lien,
+    telephone: telephone.lien,
     detail:
       "Le moyen le plus simple et le plus rapide pour fixer un rendez-vous.",
   },
@@ -49,7 +51,11 @@ const coordonnees: {
             </span>
             <div>
               <p class="etiquette">{item.etiquette}</p>
-              {item.lien ? (
+              {item.telephone ? (
+                <p class="titre">
+                  <Telephone lien={item.telephone} texte={item.titre} />
+                </p>
+              ) : item.lien ? (
                 <a class="titre" href={item.lien}>
                   {item.titre}
                 </a>

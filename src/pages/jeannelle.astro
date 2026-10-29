@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import PageHero from "../components/global/PageHero.astro";
 import SectionHeader from "../components/ui/SectionHeader.astro";
 import BoutonPilule from "../components/ui/BoutonPilule.astro";
+import Telephone from "../components/ui/Telephone.astro";
 import ContactCard from "../components/global/ContactCard.astro";
 import Icone, { type NomIcone } from "../components/ui/Icone.astro";
 import imageJeannelle from "../assets/images/Jeannelle.jpg";
@@ -69,7 +70,9 @@ const infos: {
               <div>
                 <p class="etiquette">{info.etiquette}</p>
                 {info.lien ? (
-                  <a href={info.lien}>{info.texte}</a>
+                  <p>
+                    <Telephone lien={info.lien} texte={info.texte} />
+                  </p>
                 ) : (
                   <p>{info.texte}</p>
                 )}
@@ -154,7 +157,8 @@ const infos: {
       color: var(--primary-color);
     }
 
-    a {
+    a,
+    :global(.telephone-lien) {
       font-weight: 600;
       text-decoration: underline;
       text-decoration-color: var(--accent-color);

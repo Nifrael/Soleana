@@ -1,0 +1,33 @@
+---
+interface Props {
+  lien: string;
+  texte: string;
+}
+
+const { lien, texte } = Astro.props;
+---
+
+<a href={lien} class="telephone-lien">{texte}</a>
+<span class="telephone-texte">{texte}</span>
+
+<style lang="scss">
+  @use "@styles/config/variables" as *;
+
+  .telephone-lien {
+    color: inherit;
+  }
+
+  .telephone-texte {
+    display: none;
+  }
+
+  @media (hover: hover) and (width >= $breakpoint-desktop) {
+    .telephone-lien {
+      display: none;
+    }
+
+    .telephone-texte {
+      display: inline;
+    }
+  }
+</style>

@@ -1,6 +1,7 @@
 ---
 import Icone from "../ui/Icone.astro";
 import BoutonPilule from "../ui/BoutonPilule.astro";
+import Telephone from "../ui/Telephone.astro";
 import { menuItems, prestations, reservation } from "../../data/navigation.js";
 import { telephone, zone } from "../../data/coordonnees";
 
@@ -46,7 +47,7 @@ const pages = [
       <ul class="footer-links">
         <li>
           <Icone nom="telephone" />
-          <a href={telephone.lien}>{telephone.affiche}</a>
+          <Telephone lien={telephone.lien} texte={telephone.affiche} />
         </li>
         <li>
           <Icone nom="lieu" />

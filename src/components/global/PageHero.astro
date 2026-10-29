@@ -8,7 +8,7 @@ interface Props {
   altText: string;
   title: string;
   subtitle?: string;
-  desktopFocus?: "top" | "bottom";
+  desktopFocus?: "top" | "center" | "bottom";
 }
 
 const {
@@ -42,7 +42,10 @@ const photoMobile = await getImage({
       height={photoMobile.attributes.height}
       class:list={[
         "head-photo",
-        { "head-photo--bas": desktopFocus === "bottom" },
+        {
+          "head-photo--centre": desktopFocus === "center",
+          "head-photo--bas": desktopFocus === "bottom",
+        },
       ]}
       loading="eager"
       fetchpriority="high"
@@ -129,6 +132,10 @@ const photoMobile = await getImage({
   }
 
   @media (width >= $breakpoint-tablet) {
+    .head-photo--centre {
+      object-position: center;
+    }
+
     .head-photo--bas {
       object-position: center 70%;
     }

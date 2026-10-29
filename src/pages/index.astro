@@ -1,8 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
-import Bienvenue from "../assets/images/Bienvenue.jpg";
-import BienvenueMobile from "../assets/images/Bienvenue-Mobile.jpg";
+import Soleana from "../assets/images/Soleana.jpg";
 import PrestationsCards from "../components/PrestationsCards.astro";
 import MasseuseCard from "../components/MasseuseCard.astro";
 import ContactCards from "../components/ContactCards.astro";
@@ -14,9 +13,10 @@ import Logo from "../assets/logo.svg";
 <Layout>
   <section class="page-content">
     <PageHero
-      imageDesktop={Bienvenue}
-      imageMobile={BienvenueMobile}
-      altText="Photo d'accueil Soleana"
+      imageDesktop={Soleana}
+      imageMobile={Soleana}
+      desktopFocus="center"
+      altText="Table de massage préparée dans la cabine de soin"
       title="L'Instant Soleana"
       subtitle="Vous invite"
     >

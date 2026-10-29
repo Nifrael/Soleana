@@ -8,12 +8,28 @@ interface Props {
   altText: string;
   title: string;
   subtitle?: string;
+  desktopFocus?: "top" | "bottom";
 }
 
-const { imageDesktop, imageMobile, altText, title, subtitle } = Astro.props;
+const {
+  imageDesktop,
+  imageMobile,
+  altText,
+  title,
+  subtitle,
+  desktopFocus = "top",
+} = Astro.props;
 
-const photoDesktop = await getImage({ src: imageDesktop, format: "webp" });
-const photoMobile = await getImage({ src: imageMobile, format: "webp" });
+const photoDesktop = await getImage({
+  src: imageDesktop,
+  width: Math.min(imageDesktop.width, 1920),
+  format: "webp",
+});
+const photoMobile = await getImage({
+  src: imageMobile,
+  width: Math.min(imageMobile.width, 1200),
+  format: "webp",
+});
 ---
 
 <div class="head-background">
@@ -24,7 +40,10 @@ const photoMobile = await getImage({ src: imageMobile, format: "webp" });
       alt={altText}
       width={photoMobile.attributes.width}
       height={photoMobile.attributes.height}
-      class="head-photo"
+      class:list={[
+        "head-photo",
+        { "head-photo--bas": desktopFocus === "bottom" },
+      ]}
       loading="eager"
       fetchpriority="high"
       decoding="async"
@@ -110,6 +129,10 @@ const photoMobile = await getImage({ src: imageMobile, format: "webp" });
   }
 
   @media (width >= $breakpoint-tablet) {
+    .head-photo--bas {
+      object-position: center 70%;
+    }
+
     .head-text {
       h1 {
         font-size: 4rem;

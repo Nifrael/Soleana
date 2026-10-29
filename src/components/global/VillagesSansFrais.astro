@@ -1,4 +1,6 @@
 ---
+import Icone from "../ui/Icone.astro";
+
 const villages = [
   "Bages",
   "Baho",
@@ -38,8 +40,11 @@ const villages = [
 
 <details class="villages-container">
   <summary class="villages-summary">
-    Cliquez ici pour voir la liste des villages où les frais de déplacement sont
-    offerts. Pour les villages plus éloignés, nous en parlerons ensemble.
+    <span>
+      Cliquez ici pour voir la liste des villages où les frais de déplacement
+      sont offerts. Pour les villages plus éloignés, nous en parlerons ensemble.
+    </span>
+    <Icone nom="chevron" />
   </summary>
 
   <ul class="villages-list">
@@ -56,7 +61,24 @@ const villages = [
     border-radius: 10px;
     padding: 0.5rem 1rem;
     background-color: var(--tertiary-color);
+    interpolate-size: allow-keywords;
+
+    &::details-content {
+      block-size: 0;
+      overflow: hidden;
+      transition:
+        block-size 0.5s ease,
+        content-visibility 0.5s allow-discrete;
+    }
+
+    &[open]::details-content {
+      block-size: auto;
+    }
+
     .villages-summary {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
       cursor: pointer;
       text-align: justify;
       font-weight: 500;
@@ -65,6 +87,26 @@ const villages = [
       color: var(--primary-color);
       list-style: none;
       align-self: center;
+
+      &::-webkit-details-marker {
+        display: none;
+      }
+
+      :global(.icone) {
+        flex-shrink: 0;
+        transition: transform 0.5s ease;
+      }
+    }
+
+    &[open] .villages-summary :global(.icone) {
+      transform: rotate(180deg);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .villages-container::details-content,
+    .villages-container .villages-summary :global(.icone) {
+      transition: none;
     }
   }
 
@@ -75,6 +117,7 @@ const villages = [
     list-style-type: none;
     padding-left: 0.5rem;
     margin-top: 1rem;
+    font-family: var(--font-text);
     color: var(--primary-color);
   }
 

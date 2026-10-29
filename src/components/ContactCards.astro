@@ -1,0 +1,108 @@
+---
+import Icone from "./ui/Icone.astro";
+import BoutonPilule from "./ui/BoutonPilule.astro";
+---
+
+<section class="contact-section">
+  <article class="contact-card">
+    <span class="pastille"><Icone nom="coeur" /></span>
+    <p class="categorie">Pour vous-même</p>
+    <h3>Offrez-vous une parenthèse de bien-être</h3>
+    <p class="description">
+      Contactez-moi pour prévoir un rendez-vous, ou pour simplement poser des
+      questions, vous renseigner, nous rencontrer.
+    </p>
+    <div class="contact-action">
+      <BoutonPilule href="/contact/" texte="Me contacter" icone="email" />
+    </div>
+  </article>
+
+  <article class="contact-card">
+    <span class="pastille"><Icone nom="poignee-main" /></span>
+    <p class="categorie">Hôtellerie & salons</p>
+    <h3>Vous êtes professionnel ? Collaborons</h3>
+    <p class="description">
+      Je peux proposer mes prestations dans vos hôtels, centres de bien-être,
+      etc... Contactez-moi afin que nous puissions en discuter.
+    </p>
+    <div class="contact-action">
+      <BoutonPilule href="/contact/" texte="Me contacter" icone="mallette" />
+    </div>
+  </article>
+</section>
+
+<style lang="scss">
+  @use "@styles/config/variables" as *;
+  @use "@styles/config/mixins" as *;
+
+  .contact-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    width: 90%;
+    max-width: 72rem;
+    margin: 3rem auto;
+  }
+
+  .contact-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.75rem 1.5rem;
+    border: 1px solid
+      color-mix(in srgb, var(--secondary-color) 70%, transparent);
+    border-radius: 1.5rem;
+    background-color: var(--secondary-color);
+    box-shadow: 0 2px 12px
+      color-mix(in srgb, var(--shadow-color) 3%, transparent);
+
+    h3 {
+      margin: 0.4rem 0 0.75rem;
+      font-family: var(--font-title);
+      font-size: var(--h4);
+      font-weight: 400;
+      line-height: 1.3;
+    }
+  }
+
+  .pastille {
+    display: grid;
+    place-items: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    margin-bottom: 1.25rem;
+    border-radius: 50%;
+    background-color: var(--tertiary-color);
+    color: var(--accent-color);
+
+    :global(.icone) {
+      font-size: 1.5rem;
+    }
+  }
+
+  .categorie {
+    @include surtitre;
+    margin: 0;
+  }
+
+  .description {
+    margin: 0 0 1.75rem;
+    font-size: var(--base-size);
+    line-height: 1.6;
+  }
+
+  .contact-action {
+    display: flex;
+    margin-top: auto;
+  }
+
+  @media (width >= $breakpoint-desktop) {
+    .contact-section {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3.5rem;
+    }
+
+    .contact-card {
+      padding: 2rem 2.5rem;
+    }
+  }
+</style>

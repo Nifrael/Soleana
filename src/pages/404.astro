@@ -1,0 +1,48 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHero from "../components/global/PageHero.astro";
+import SectionHeader from "../components/ui/SectionHeader.astro";
+import BoutonPilule from "../components/ui/BoutonPilule.astro";
+import Bienvenue from "../assets/images/Bienvenue.jpg";
+import BienvenueMobile from "../assets/images/Bienvenue-Mobile.jpg";
+---
+
+<Layout
+  title="Page introuvable | L'Instant Soleana"
+  description="Cette page n'existe pas ou a été déplacée."
+  noindex
+>
+  <PageHero
+    imageDesktop={Bienvenue}
+    imageMobile={BienvenueMobile}
+    altText=""
+    title="Page introuvable"
+  />
+
+  <section class="introuvable">
+    <SectionHeader
+      surtitre="Erreur 404"
+      titre="Cette page s'est éclipsée"
+      description="Elle n'existe pas ou a été déplacée. Les prestations sont toutes accessibles depuis l'accueil et le menu."
+    />
+    <BoutonPilule href="/" texte="Retour à l'accueil" />
+  </section>
+</Layout>
+
+<style lang="scss">
+  .introuvable {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 40rem;
+    margin: 0 auto;
+    padding: 3rem 0 5rem;
+    text-align: center;
+
+    :global(.bouton) {
+      align-self: center;
+      margin-top: 1rem;
+    }
+  }
+</style>

@@ -1,45 +1,15 @@
 ---
-const villages = [
-  "Bages",
-  "Baho",
-  "Baixas",
-  "Bompas",
-  "Brouilla",
-  "Cabestany",
-  "Camelas",
-  "Canet en roussillon",
-  "Canohès",
-  "Claira",
-  "Corneilla la Rivière",
-  "Espira de l'Agly",
-  "Ille sur Têt",
-  "Le Soler",
-  "Millas",
-  "Montescot",
-  "Perpignan",
-  "Peyrestortes",
-  "Pézilla la Rivière",
-  "Pia",
-  "Pollestres",
-  "Ponteilla",
-  "Rivesaltes",
-  "St Cyprien",
-  "St Estève",
-  "St Féliu d’Amont",
-  "St Féliu d’Aval",
-  "Ste Marie la Mer",
-  "Thuir",
-  "Toulouges",
-  "Tresserre",
-  "Villeneuve de la Raho",
-  "Villeneuve la Rivière",
-];
+import Icone from "../ui/Icone.astro";
+import { villages } from "../../data/villages";
 ---
 
 <details class="villages-container">
   <summary class="villages-summary">
-    Cliquez ici pour voir la liste des villages où les frais de déplacement sont
-    offerts. Pour les villages plus éloignés, nous en parlerons ensemble.
+    <span>
+      Cliquez ici pour voir la liste des villages où les frais de déplacement
+      sont offerts. Pour les villages plus éloignés, nous en parlerons ensemble.
+    </span>
+    <Icone nom="chevron" />
   </summary>
 
   <ul class="villages-list">
@@ -48,7 +18,7 @@ const villages = [
 </details>
 
 <style lang="scss">
-  @use "../../styles/global.scss";
+  @use "@styles/config/variables" as *;
 
   .villages-container {
     margin: 1rem;
@@ -56,15 +26,52 @@ const villages = [
     border-radius: 10px;
     padding: 0.5rem 1rem;
     background-color: var(--tertiary-color);
+    interpolate-size: allow-keywords;
+
+    &::details-content {
+      block-size: 0;
+      overflow: hidden;
+      transition:
+        block-size 0.5s ease,
+        content-visibility 0.5s allow-discrete;
+    }
+
+    &[open]::details-content {
+      block-size: auto;
+    }
+
     .villages-summary {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
       cursor: pointer;
       text-align: justify;
       font-weight: 500;
       line-height: 1.2rem;
-      font-style: var(--font-text);
+      font-family: var(--font-text);
       color: var(--primary-color);
       list-style: none;
       align-self: center;
+
+      &::-webkit-details-marker {
+        display: none;
+      }
+
+      :global(.icone) {
+        flex-shrink: 0;
+        transition: transform 0.5s ease;
+      }
+    }
+
+    &[open] .villages-summary :global(.icone) {
+      transform: rotate(180deg);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .villages-container::details-content,
+    .villages-container .villages-summary :global(.icone) {
+      transition: none;
     }
   }
 
@@ -75,10 +82,11 @@ const villages = [
     list-style-type: none;
     padding-left: 0.5rem;
     margin-top: 1rem;
+    font-family: var(--font-text);
     color: var(--primary-color);
   }
 
-  @media (width >= global.$breakpoint-desktop) {
+  @media (width >= $breakpoint-desktop) {
     .villages-list {
       column-count: 4;
     }

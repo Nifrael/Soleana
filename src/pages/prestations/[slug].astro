@@ -6,7 +6,6 @@ import Layout from "../../layouts/Layout.astro";
 import PageHero from "../../components/global/PageHero.astro";
 import PriceTable from "../../components/prestations/PriceTable.astro";
 import ContactCard from "../../components/global/ContactCard.astro";
-import StructureCard from "../../components/global/StructuresCards.astro";
 import Villages from "../../components/global/VillagesSansFrais.astro";
 
 export async function getStaticPaths() {
@@ -24,180 +23,167 @@ export async function getStaticPaths() {
 
 const { prestationData } = Astro.props;
 
-const partenaires = await getCollection("partenaires");
-const partenaire = partenaires.length > 0 ? partenaires[0].data : null;
+const indications = [
+  prestationData.professionalDisclaimer,
+  prestationData.familyInfo,
+].filter((texte) => texte !== undefined);
 ---
 
 <Layout
-  title={`Soleana | ${prestationData.title}`}
+  title={`${prestationData.title} à domicile près de Perpignan | L'Instant Soleana`}
   description={prestationData.description}
+  image={prestationData.image.src}
 >
   <PageHero
     imageDesktop={prestationData.image.src}
     imageMobile={prestationData.image.src}
-    altText={`Photo d'accueil de la section ${prestationData.title}`}
+    altText={prestationData.image.alt}
     title={prestationData.title}
     subtitle={prestationData.subtitle}
   />
   <div class="page-content">
-    <h1>"{prestationData.quote}"</h1>
-    <Image
-      id="icon"
-      src={prestationData.icon.src}
-      alt={`Icône de ${prestationData.title}`}
-    />
+    <div class="ornement">
+      <Image src={prestationData.icon.src} alt="" />
+    </div>
+    <p class="citation">« {prestationData.quote} »</p>
 
     {
-      prestationData.professionalDisclaimer && (
-        <div class="warning">
-          <p>{prestationData.professionalDisclaimer}</p>
-        </div>
-      )
-    }
-
-    {
-      prestationData.familyInfo && (
-        <div class="family-info">
-          <p>{prestationData.familyInfo}</p>
-        </div>
-      )
-    }
-
-    <PriceTable
-      title={prestationData.priceTableTitle}
-      items={prestationData.prices}
-    />
-
-    <!-- {
-      prestationData.pageLayout === "structures" && partenaire && (
-        <StructureCard
-          name={partenaire.name}
-          location={partenaire.location}
-          websiteUrl={partenaire.websiteUrl}
-          description={partenaire.description}
-        />
-      )
-    } -->
-
-    {
-      prestationData.secondPrices && (
-        <PriceTable
-          title={prestationData.secondPriceTableTitle}
-          items={prestationData.secondPrices}
-        />
-      )
-    }
-
-    {
-      prestationData.thirdPrices && (
-        <PriceTable
-          title={prestationData.thirdPriceTableTitle}
-          items={prestationData.thirdPrices}
-        />
-      )
-    }
-
-    {
-      prestationData.fourthPrices && (
-        <PriceTable
-          title={prestationData.fourthPriceTableTitle}
-          items={prestationData.fourthPrices}
-        />
-      )
-    }
-
-    {
-      prestationData.pageLayout === "soins" ||
-      prestationData.pageLayout === "massages" ? (
-        <div class="prestations-content">
-          <p>
-            Tous les soins et massages sont effectués avec des produits de
-            qualité et respectueux de la santé, de la marque du Dr Belter.
+      indications.length > 0 && (
+        <aside class="bon-a-savoir" aria-labelledby="titre-bon-a-savoir">
+          <p class="surtitre" id="titre-bon-a-savoir">
+            Bon à savoir
           </p>
-        </div>
-      ) : prestationData.pageLayout === "epilations" ? (
-        <div class="prestations-content">
-          <p>
-            Toutes les épilations sont réalisées à la cire professionnelle,
-            respectent une hygiène rigoureuse et sont effectuées par des gestes
-            experts.
-          </p>
-        </div>
-      ) : null
+          <ul>
+            {indications.map((texte) => (
+              <li>{texte}</li>
+            ))}
+          </ul>
+        </aside>
+      )
     }
 
-    {prestationData.pageLayout !== "structures" && <Villages />}
+    {
+      prestationData.priceTables.map((table) => (
+        <PriceTable
+          surtitre={prestationData.title}
+          title={table.title}
+          items={table.prices}
+        />
+      ))
+    }
+
+    {
+      prestationData.note && <p class="note">{prestationData.note}</p>
+    }
+
+    {prestationData.homeService && <Villages />}
   </div>
   <ContactCard />
 </Layout>
 
 <style lang="scss">
-  @use "../../styles/global.scss";
+  @use "@styles/config/variables" as *;
+  @use "@styles/config/mixins" as *;
 
   .page-content {
-    max-width: 90vw;
-    margin: 0 auto;
-    padding-bottom: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    h1 {
-      text-align: center;
-      padding-top: 1rem;
-      margin-bottom: 0;
-      font-style: italic;
+    gap: 1.5rem;
+    width: 90%;
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 2.5rem 0 2rem;
+  }
+
+  .ornement {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    &::before,
+    &::after {
+      content: "";
+      width: 2rem;
+      height: 1px;
+      background-color: color-mix(
+        in srgb,
+        var(--accent-color) 55%,
+        var(--secondary-color)
+      );
     }
+
     img {
-      width: 30px;
-      justify-self: center;
+      width: 1.5rem;
+      height: auto;
     }
-    .prestations-content {
-      p {
-        text-align: center;
-        font-style: italic;
-        color: var(--primary-color);
-        font-weight: bold;
+  }
+
+  .citation {
+    max-width: 32rem;
+    margin: 0 0 1rem;
+    font-family: var(--font-title);
+    font-size: var(--h3);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.3;
+    text-align: center;
+    text-wrap: balance;
+  }
+
+  .bon-a-savoir {
+    width: 100%;
+    max-width: 40rem;
+    margin-bottom: 1.5rem;
+    padding: 1.25rem 1.5rem;
+    border-radius: 1.5rem;
+    background-color: var(--secondary-color);
+
+    .surtitre {
+      @include surtitre;
+      margin: 0 0 0.5rem;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    li {
+      position: relative;
+      padding-left: 1.1rem;
+      font-family: var(--font-text);
+      font-size: var(--base-size);
+      line-height: 1.5;
+      color: var(--primary-color);
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0.6em;
+        left: 0;
+        width: 0.4rem;
+        height: 0.4rem;
+        border-radius: 50%;
+        background-color: var(--accent-color);
       }
     }
   }
 
-  .warning {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 1.5rem;
-    border-radius: 8px;
+  .note {
+    max-width: 40rem;
+    margin: 0;
+    padding-top: 1.25rem;
+    border-top: 1px solid
+      color-mix(in srgb, var(--accent-color) 30%, transparent);
+    font-size: var(--small-text);
+    font-style: italic;
+    line-height: 1.5;
     text-align: center;
-    font-weight: bold;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin: 1rem auto;
-    max-width: 800px;
-    width: 100%;
-
-    p {
-      margin: 0;
-      font-size: 1.1rem;
-      color: white;
-    }
-  }
-
-  .family-info {
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
-    padding: 1.5rem;
-    border-radius: 8px;
-    text-align: center;
-    font-weight: bold;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin: 1rem auto;
-    max-width: 800px;
-    width: 100%;
-
-    p {
-      margin: 0;
-      font-size: 1.1rem;
-      color: var(--primary-color);
-    }
+    color: color-mix(in srgb, var(--primary-color) 75%, transparent);
   }
 </style>

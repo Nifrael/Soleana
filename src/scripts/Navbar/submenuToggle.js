@@ -5,7 +5,6 @@ export function setupSubmenuToggle(headerElement) {
         e.stopPropagation();
 
         const parentContainer = toggle.parentElement;
-        const wasOpen = parentContainer.classList.contains("open");
 
         headerElement.querySelectorAll(".has-submenu.open").forEach((openSubmenu) => {
             if (openSubmenu !== parentContainer) {

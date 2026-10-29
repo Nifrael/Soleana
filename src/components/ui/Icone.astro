@@ -1,0 +1,53 @@
+---
+import Boutique from "../../assets/icones/boutique.svg";
+import Calendrier from "../../assets/icones/calendrier.svg";
+import Chevron from "../../assets/icones/chevron.svg";
+import Coeur from "../../assets/icones/coeur.svg";
+import Eclair from "../../assets/icones/eclair.svg";
+import Email from "../../assets/icones/email.svg";
+import Envoyer from "../../assets/icones/envoyer.svg";
+import Fleche from "../../assets/icones/fleche.svg";
+import Lieu from "../../assets/icones/lieu.svg";
+import Mallette from "../../assets/icones/mallette.svg";
+import Oeil from "../../assets/icones/oeil.svg";
+import PoigneeMain from "../../assets/icones/poignee-main.svg";
+import Telephone from "../../assets/icones/telephone.svg";
+
+const icones = {
+  boutique: Boutique,
+  calendrier: Calendrier,
+  chevron: Chevron,
+  coeur: Coeur,
+  eclair: Eclair,
+  email: Email,
+  envoyer: Envoyer,
+  fleche: Fleche,
+  lieu: Lieu,
+  mallette: Mallette,
+  oeil: Oeil,
+  "poignee-main": PoigneeMain,
+  telephone: Telephone,
+};
+
+export type NomIcone = keyof typeof icones;
+
+type Props = { nom: NomIcone };
+
+const { nom } = Astro.props;
+const Svg = icones[nom];
+---
+
+<Svg class="icone" aria-hidden="true" />
+
+<style lang="scss">
+  :where(.icone) {
+    flex-shrink: 0;
+    inline-size: 1em;
+    block-size: 1em;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.75;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+</style>

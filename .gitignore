@@ -1,6 +1,6 @@
 # build output
 dist/
-.vercel/
+.wrangler/
 
 # generated types
 .astro/
@@ -23,3 +23,7 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# instructions locales pour Claude Code
+CLAUDE.md
+AValider.md

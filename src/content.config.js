@@ -1,4 +1,6 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection } from "astro:content";
+import { glob } from "astro/loaders";
+import { z } from "astro/zod";
 
 const priceItemSchema = z.object({
   name: z.string(),
@@ -8,7 +10,7 @@ const priceItemSchema = z.object({
 });
 
 const prestationsCollection = defineCollection({
-  type: "data",
+  loader: glob({ pattern: "*.json", base: "./src/content/prestations" }),
   schema: ({ image }) => {
     const imageSchema = z.object({
       src: image(),
@@ -18,31 +20,32 @@ const prestationsCollection = defineCollection({
     return z.object({
       title: z.string(),
       description: z.string().optional(),
-      pageLayout: z.string().optional(),
       professionalDisclaimer: z.string().optional(),
       familyInfo: z.string().optional(),
       subtitle: z.string().optional(),
       quote: z.string(),
       image: imageSchema,
       icon: imageSchema,
-      priceTableTitle: z.string(),
-      prices: z.array(priceItemSchema),
-      secondPriceTableTitle: z.string().optional(),
-      secondPrices: z.array(priceItemSchema).optional(),
-      thirdPriceTableTitle: z.string().optional(),
-      thirdPrices: z.array(priceItemSchema).optional(),
-      fourthPriceTableTitle: z.string().optional(),
-      fourthPrices: z.array(priceItemSchema).optional(),
+      priceTables: z
+        .array(
+          z.object({
+            title: z.string(),
+            prices: z.array(priceItemSchema),
+          }),
+        )
+        .min(1),
+      note: z.string().optional(),
+      homeService: z.boolean().default(true),
     });
   },
 });
 
 const partenairesCollection = defineCollection({
-  type: "data",
+  loader: glob({ pattern: "*.json", base: "./src/content/partenaires" }),
   schema: z.object({
     name: z.string(),
     location: z.string(),
-    websiteUrl: z.string().url(),
+    websiteUrl: z.url(),
     description: z.string(),
   }),
 });

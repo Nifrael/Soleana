@@ -1,0 +1,405 @@
+---
+import Icone from "../ui/Icone.astro";
+import BoutonPilule from "../ui/BoutonPilule.astro";
+import { menuItems, reservation } from "../../data/navigation.js";
+import { telephone, adresse, horaires } from "../../data/coordonnees";
+
+const estActif = (href: string) => Astro.url.pathname === href;
+const prestationsActives = Astro.url.pathname.startsWith("/prestations/");
+
+const liens = [{ href: "/", text: "Accueil" }, ...menuItems];
+---
+
+<div class="menu-mobile">
+  <button
+    class="burger"
+    type="button"
+    aria-expanded="false"
+    aria-controls="panneau-menu"
+    aria-label="Ouvrir le menu"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <div id="panneau-menu" class="panneau" inert>
+    <nav class="contenu" aria-label="Menu principal">
+      <p class="surtitre" style="--i: 0">Menu</p>
+
+      <ul class="liens">
+        {
+          liens.map((item, index) => (
+            <li style={`--i: ${index + 1}`}>
+              {item.subItems ? (
+                <div class:list={["accordeon", { deplie: prestationsActives }]}>
+                  <button
+                    class:list={["lien", { actif: prestationsActives }]}
+                    type="button"
+                    aria-expanded={prestationsActives ? "true" : "false"}
+                    aria-controls="sous-menu-prestations"
+                  >
+                    {item.text}
+                    <span class="picto">
+                      <Icone nom="chevron" />
+                    </span>
+                  </button>
+                  <div id="sous-menu-prestations" class="sous-menu">
+                    <ul>
+                      {item.subItems.map((sub) => (
+                        <li>
+                          <a
+                            href={sub.href}
+                            class:list={{ actif: estActif(sub.href) }}
+                            aria-current={
+                              estActif(sub.href) ? "page" : undefined
+                            }
+                          >
+                            {sub.text}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              ) : (
+                <a
+                  href={item.href}
+                  class:list={["lien", { actif: estActif(item.href) }]}
+                  aria-current={estActif(item.href) ? "page" : undefined}
+                >
+                  {item.text}
+                  <span class="picto">
+                    <Icone nom="fleche" />
+                  </span>
+                </a>
+              )}
+            </li>
+          ))
+        }
+      </ul>
+
+      <div class="pied" style={`--i: ${liens.length + 1}`}>
+        <BoutonPilule
+          href={reservation.href}
+          texte="Réserver en ligne"
+          icone="calendrier"
+          pleineLargeur
+          clair
+        />
+
+        <ul class="coordonnees">
+          <li>
+            <Icone nom="telephone" />
+            <a href={telephone.lien}>{telephone.affiche}</a>
+          </li>
+          <li>
+            <Icone nom="lieu" />
+            <span>{adresse}</span>
+          </li>
+          <li>
+            <Icone nom="calendrier" />
+            <span>{`${horaires.jours}, ${horaires.heures.toLowerCase()}`}</span>
+          </li>
+        </ul>
+
+        <p class="mentions">
+          <a href="/mentions-legales/">Mentions légales</a>
+          <span class="separateur" aria-hidden="true"></span>
+          <a href="/politique-de-confidentialite/">Confidentialité</a>
+        </p>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<style lang="scss">
+  @use "@styles/config/variables" as *;
+
+  .menu-mobile {
+    display: contents;
+  }
+
+  .burger {
+    position: relative;
+    z-index: 20;
+    inline-size: 2.75rem;
+    block-size: 2.75rem;
+    margin-inline-end: -0.5rem;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+
+    span {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      inline-size: 1.6rem;
+      block-size: 2px;
+      border-radius: 2px;
+      background-color: var(--secondary-color);
+      transform: translate(-50%, -50%);
+      transition:
+        transform 0.3s ease,
+        opacity 0.2s ease;
+    }
+
+    span:first-child {
+      transform: translate(-50%, calc(-50% - 0.45rem));
+    }
+
+    span:last-child {
+      transform: translate(-50%, calc(-50% + 0.45rem));
+    }
+
+    &[aria-expanded="true"] {
+      span:first-child {
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+
+      span:nth-child(2) {
+        opacity: 0;
+      }
+
+      span:last-child {
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+    }
+  }
+
+  .panneau {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    block-size: 100dvh;
+    padding-block-start: 5.75rem;
+    background:
+      radial-gradient(
+        circle at 100% 0%,
+        color-mix(in srgb, var(--secondary-color) 10%, transparent),
+        transparent 55%
+      ),
+      var(--primary-color);
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.35s ease,
+      visibility 0s linear 0.35s;
+  }
+
+  .panneau.ouvert {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.35s ease;
+  }
+
+  .contenu {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    inline-size: 90%;
+    margin-inline: auto;
+    padding-block: 0.75rem 2rem;
+    mask-image: linear-gradient(transparent, var(--shadow-color) 1rem);
+  }
+
+  .surtitre,
+  .liens > li,
+  .pied {
+    opacity: 0;
+    transform: translateY(0.75rem);
+    transition:
+      opacity 0.4s ease,
+      transform 0.4s ease;
+  }
+
+  .ouvert {
+    .surtitre,
+    .liens > li,
+    .pied {
+      opacity: 1;
+      transform: none;
+      transition-delay: calc(0.08s + var(--i) * 0.05s);
+    }
+  }
+
+  .surtitre {
+    margin: 0 0 0.75rem;
+    color: var(--secondary-color);
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .ouvert .surtitre {
+    opacity: 0.6;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .liens > li {
+    border-block-end: 1px solid
+      color-mix(in srgb, var(--secondary-color) 15%, transparent);
+  }
+
+  .lien {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    inline-size: 100%;
+    padding: 1rem 0;
+    border: none;
+    background: none;
+    color: var(--secondary-color);
+    font-family: var(--font-text);
+    font-size: var(--h4);
+    text-align: start;
+    cursor: pointer;
+  }
+
+  .lien.actif {
+    color: var(--tertiary-color);
+
+    &::before {
+      content: "";
+      flex-shrink: 0;
+      inline-size: 0.4rem;
+      block-size: 0.4rem;
+      margin-inline-end: 0.75rem;
+      border-radius: 50%;
+      background-color: currentColor;
+    }
+  }
+
+  .picto {
+    display: inline-flex;
+    margin-inline-start: auto;
+    font-size: 1.1rem;
+    opacity: 0.6;
+    transition: transform 0.3s ease;
+  }
+
+  .accordeon.deplie .picto {
+    transform: rotate(180deg);
+  }
+
+  .sous-menu {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.35s ease;
+
+    > ul {
+      overflow: hidden;
+    }
+  }
+
+  .accordeon.deplie .sous-menu {
+    grid-template-rows: 1fr;
+  }
+
+  .sous-menu a {
+    display: block;
+    padding: 0.55rem 0 0.55rem 1rem;
+    border-inline-start: 1px solid
+      color-mix(in srgb, var(--secondary-color) 20%, transparent);
+    color: var(--secondary-color);
+    font-size: var(--p);
+    opacity: 0.8;
+  }
+
+  .sous-menu li:last-child a {
+    margin-block-end: 1rem;
+  }
+
+  .sous-menu a.actif {
+    border-inline-start-color: var(--secondary-color);
+    color: var(--tertiary-color);
+    opacity: 1;
+  }
+
+  .pied {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-block-start: auto;
+    padding-block-start: 2.5rem;
+  }
+
+  .coordonnees {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--secondary-color);
+      font-family: var(--font-text);
+      font-size: 0.9rem;
+    }
+
+    span {
+      opacity: 0.8;
+    }
+
+    :global(.icone) {
+      flex-shrink: 0;
+      font-size: 1.1rem;
+      opacity: 0.7;
+    }
+  }
+
+  .mentions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    margin: 0;
+    padding-block-start: 1.25rem;
+    border-block-start: 1px solid
+      color-mix(in srgb, var(--secondary-color) 12%, transparent);
+
+    a {
+      color: var(--secondary-color);
+      font-size: 0.75rem;
+      opacity: 0.6;
+    }
+  }
+
+  .separateur {
+    inline-size: 3px;
+    block-size: 3px;
+    border-radius: 50%;
+    background-color: var(--secondary-color);
+    opacity: 0.4;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .panneau,
+    .panneau.ouvert,
+    .surtitre,
+    .liens > li,
+    .pied,
+    .sous-menu,
+    .picto,
+    .burger span {
+      transition: none;
+    }
+  }
+
+  @media (width >= $breakpoint-desktop) {
+    .menu-mobile {
+      display: none;
+    }
+  }
+</style>

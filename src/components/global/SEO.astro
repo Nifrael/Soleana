@@ -2,24 +2,89 @@
 import { getImage } from "astro:assets";
 import defaultImage from "../../assets/images/Bienvenue.jpg";
 import siteConfig from "../../content/siteConfig.js";
+import {
+  email,
+  horaires,
+  localisation,
+  praticienne,
+  telephone,
+} from "../../data/coordonnees";
+import { villages } from "../../data/villages";
 
 export interface Props {
   title?: string;
   description?: string;
+  image?: ImageMetadata;
+  noindex?: boolean;
 }
 
-const { title = siteConfig.title, description = siteConfig.description } =
-  Astro.props;
+const {
+  title = siteConfig.title,
+  description = siteConfig.description,
+  image = defaultImage,
+  noindex = false,
+} = Astro.props;
 
-const optimizedDefault = await getImage({
+const imagePartage = await getImage({
+  src: image,
+  width: 1200,
+  height: 630,
+  fit: "cover",
+  format: "jpg",
+});
+const imageEntreprise = await getImage({
   src: defaultImage,
   width: 1200,
   height: 630,
+  fit: "cover",
   format: "jpg",
 });
-const ogImageUrl = new URL(optimizedDefault.src, Astro.site).toString();
+const ogImageUrl = new URL(imagePartage.src, Astro.site).toString();
 
+const accueil = new URL("/", Astro.site).toString();
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
+
+const donneesStructurees = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${accueil}#site`,
+      name: siteConfig.name,
+      url: accueil,
+      inLanguage: "fr-FR",
+    },
+    {
+      "@type": "HealthAndBeautyBusiness",
+      "@id": `${accueil}#entreprise`,
+      name: siteConfig.name,
+      description: siteConfig.description,
+      url: accueil,
+      image: new URL(imageEntreprise.src, Astro.site).toString(),
+      telephone: telephone.lien.replace("tel:", ""),
+      email,
+      founder: { "@type": "Person", name: praticienne },
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: localisation.rue,
+        addressLocality: localisation.ville,
+        postalCode: localisation.codePostal,
+        addressRegion: localisation.departement,
+        addressCountry: "FR",
+      },
+      openingHoursSpecification: {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: horaires.joursSemaine,
+        opens: horaires.ouverture,
+        closes: horaires.fermeture,
+      },
+      areaServed: villages.map((village) => ({
+        "@type": "City",
+        name: village,
+      })),
+    },
+  ],
+};
 ---
 
 <meta charset="UTF-8" />
@@ -31,17 +96,14 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <meta name="generator" content={Astro.generator} />
 
-<!-- Primary Meta Tags -->
 <title>{title}</title>
 <meta name="description" content={description} />
-<meta name="language" content="fr" />
+{noindex && <meta name="robots" content="noindex" />}
 
-<!-- Canonical URL -->
 <link rel="canonical" href={canonicalUrl} />
 
-<!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
-<meta property="og:site_name" content="L'Instant Soleana" />
+<meta property="og:site_name" content={siteConfig.name} />
 <meta property="og:locale" content="fr_FR" />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
@@ -50,3 +112,9 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content={title} />
+<meta name="twitter:card" content="summary_large_image" />
+
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify(donneesStructurees)}
+/>

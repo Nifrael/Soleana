@@ -1,17 +1,63 @@
 ---
-import Button from "./ui/Button.astro";
+import { Image } from "astro:assets";
+import SectionHeader from "./ui/SectionHeader.astro";
+import BoutonPilule from "./ui/BoutonPilule.astro";
 import MassageIcon from "../assets/icons/massageIcon.svg";
 import HandsIcon from "../assets/icons/handsIcon.svg";
 import HairIcon from "../assets/icons/hairIcon.svg";
 import MakeUpIcon from "../assets/icons/makeupIcon.svg";
 import SoinIcon from "../assets/icons/soinsIcon.svg";
-import SpaIcon from "../assets/icons/spaIcon.svg";
-import { Image } from "astro:assets";
+
+const prestations = [
+  {
+    titre: "Massages Bien-Être",
+    description:
+      "Découvrez une sélection de massages vous plongeant dans un instant prolongé de bien-être et de détente.",
+    icone: MassageIcon,
+    lien: "/prestations/massages/",
+    bouton: "Massages",
+  },
+  {
+    titre: "Soins Bien-Être",
+    description:
+      "Découvrez une sélection de soins pour prendre soin de vous, de votre corps et plus spécifiquement de votre visage, de vos mains, de vos pieds.",
+    icone: HandsIcon,
+    lien: "/prestations/soins/",
+    bouton: "Soins",
+  },
+  {
+    titre: "Epilation",
+    description:
+      "Une peau douce et soyeuse, sans effort, à l'aide d'une cire professionnelle sélectionnée avec soin.",
+    icone: HairIcon,
+    lien: "/prestations/epilations/",
+    bouton: "Epilation",
+  },
+  {
+    titre: "Maquillage",
+    description:
+      "Un évènement ? Une occasion particulière ? Choisissez la formule adaptée à vos envies.",
+    icone: MakeUpIcon,
+    lien: "/prestations/maquillages/",
+    bouton: "Maquillage",
+  },
+  {
+    titre: "Soins énergétiques",
+    description:
+      "Découvrez mon soin énergétique pour retrouver une santé optimale. Rééquilibrage profond des flux corporels et revitalisation de l'esprit.",
+    icone: SoinIcon,
+    lien: "/prestations/soins_energetiques/",
+    bouton: "Soins énergétiques",
+  },
+];
 ---
 
 <div class="text-background">
   <div class="text-content">
-    <h1>L'Instant Soleana s'invite chez vous.</h1>
+    <SectionHeader
+      surtitre="Soins à domicile"
+      titre="L'Instant Soleana s'invite chez vous."
+    />
     <p>
       Plus besoin de courir ou de vous soucier du monde extérieur. Imaginez une
       bulle de bien-être qui s'installe directement dans le confort de votre
@@ -36,76 +82,38 @@ import { Image } from "astro:assets";
     </p>
   </div>
 </div>
-<h1 class="prestations-title">Les Prestations Soleana</h1>
-<div class="prestations-cards-container">
-  <div class="prestation-card">
-    <Image src={MassageIcon} alt="Icône de massage" />
-    <h2>Massages Bien-Être</h2>
-    <p>
-      Découvrez une sélection de massages vous plongeant dans un instant
-      prolongé de bien-être et de détente.
-    </p>
-    <Button text="Massages" href="/prestations/massages" variant="primary" />
+<section class="prestations-section">
+  <SectionHeader
+    surtitre="Carte complète"
+    titre="Les Prestations Soleana"
+    description="Une alchimie de protocoles holistiques, massages relaxants et soins esthétiques soignés avec rigueur."
+  />
+  <div class="prestations-grid">
+    {
+      prestations.map((prestation) => (
+        <article class="prestation-card">
+          <div class="prestation-texte">
+            <span class="pastille">
+              <Image src={prestation.icone} alt="" />
+            </span>
+            <h3>{prestation.titre}</h3>
+            <p>{prestation.description}</p>
+          </div>
+          <div class="prestation-action">
+            <BoutonPilule
+              href={prestation.lien}
+              texte={prestation.bouton}
+              pleineLargeur
+            />
+          </div>
+        </article>
+      ))
+    }
   </div>
-
-  <div class="prestation-card">
-    <Image src={HandsIcon} alt="Icône de mains" />
-    <h2>Soins Bien-Être</h2>
-    <p>
-      Découvrez une sélection de soins pour prendre soin de vous, de votre corps
-      et plus spécifiquement de votre visage, de vos mains, de vos pieds.
-    </p>
-    <Button text="Soins" href="/prestations/soins" variant="primary" />
-  </div>
-
-  <div class="prestation-card">
-    <Image src={HairIcon} alt="Icône d'épilation" />
-    <h2>Epilation</h2>
-    <p>
-      Une peau douce et soyeuse, sans effort, à l'aide d'une cire
-      professionnelle sélectionnée avec soin.
-    </p>
-    <Button text="Epilation" href="/prestations/epilations" variant="primary" />
-  </div>
-
-  <div class="prestation-card">
-    <Image src={MakeUpIcon} alt="Icône de maquillage" />
-    <h2>Maquillage</h2>
-    <p>
-      Un évènement ? Une occasion particulière ? Choisissez la formule adaptée à
-      vos envies.
-    </p>
-    <Button
-      text="Maquillage"
-      href="/prestations/maquillages"
-      variant="primary"
-    />
-  </div>
-
-  <div class="prestation-card">
-    <Image src={SoinIcon} alt="Icône de soins énergétiques" />
-    <h2>Soins énergétiques</h2>
-    <p>Découvrez mon soin énergétique pour retrouver une santé optimale.</p>
-    <Button
-      text="Soins énergétiques"
-      href="/prestations/soins_energetiques"
-      variant="primary"
-    />
-  </div>
-
-  <!-- <div class="prestation-card">
-    <Image src={SpaIcon} alt="Icône de spa" />
-    <h2>En structure</h2>
-    <p>
-      Rejoignez-moi en structure pour profiter de massages, de soins, associés à
-      une session de spa, de sauna, de hammam ou de piscine.
-    </p>
-    <Button text="Structure" href="/prestations/structures" variant="primary" />
-  </div> -->
-</div>
+</section>
 
 <style lang="scss">
-  @use "../styles/global.scss";
+  @use "@styles/config/variables" as *;
 
   .text-background {
     background: url("../assets/background.svg");
@@ -124,9 +132,7 @@ import { Image } from "astro:assets";
     align-items: center;
     justify-content: space-between;
     gap: 1.5rem;
-    h1,
     h3,
-    h5,
     p {
       text-align: center;
     }
@@ -135,48 +141,97 @@ import { Image } from "astro:assets";
     }
   }
 
-  .prestations-title {
-    text-align: center;
-    margin: 3rem 0 4rem 0;
+  .prestations-section {
+    width: 90%;
+    max-width: 72rem;
+    margin: 3rem auto 4rem;
   }
 
-  .prestations-cards-container {
-    width: 90%;
-    margin: 0 auto;
+  .prestations-grid {
     display: grid;
     grid-template-columns: 1fr;
-    justify-content: center;
     gap: 2rem;
   }
 
   .prestation-card {
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 25% 25% 25% 25%;
-    align-items: center;
-    justify-items: center;
-    height: 100%;
-    margin: 0 auto;
+    grid-template-rows: 1fr auto;
+    padding: 1.75rem 1.5rem;
+    border: 1px solid
+      color-mix(in srgb, var(--secondary-color) 70%, transparent);
+    border-radius: 1.5rem;
+    background-color: var(--secondary-color);
+    box-shadow: 0 2px 12px
+      color-mix(in srgb, var(--shadow-color) 3%, transparent);
 
-    h2,
-    p {
-      text-align: center;
-      padding: 0 2rem;
+    h3 {
+      margin: 1.25rem 0 0.6rem;
+      font-family: var(--font-title);
+      font-size: var(--h4);
+      font-weight: 400;
     }
 
     p {
-      font-style: italic;
-      color: var(--primary-color);
+      margin: 0;
+      font-size: var(--base-size);
+      line-height: 1.6;
     }
   }
 
-  @media (width >= global.$breakpoint-tablet) {
+  .pastille {
+    display: grid;
+    place-items: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    background-color: var(--tertiary-color);
+
+    img {
+      width: 1.75rem;
+      height: 1.75rem;
+    }
+  }
+
+  .prestation-action {
+    display: flex;
+    margin-top: 1.75rem;
+  }
+
+  @media (width >= $breakpoint-tablet) {
     .text-background {
       background-attachment: fixed;
     }
+
+    .prestations-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .prestation-card {
+      grid-column: span 2;
+
+      &:last-child:nth-child(odd) {
+        grid-column: 2 / span 2;
+      }
+    }
   }
 
-  @media (width >= global.$breakpoint-desktop) {
+  @media (width >= $breakpoint-desktop) {
+    .prestations-grid {
+      grid-template-columns: repeat(6, 1fr);
+    }
+
+    .prestation-card {
+      grid-column: span 2;
+
+      &:nth-child(4) {
+        grid-column: 2 / span 2;
+      }
+
+      &:last-child:nth-child(odd) {
+        grid-column: span 2;
+      }
+    }
+
     .text-content {
       width: 60%;
       h1,
@@ -186,17 +241,8 @@ import { Image } from "astro:assets";
       }
     }
 
-    .prestations-cards-container {
-      width: 95%;
-      grid-template-columns: repeat(2, 1fr);
-
-      .prestation-card:last-of-type {
-        grid-column: span 2;
-      }
-    }
-
     .prestation-card {
-      width: 80%;
+      padding: 2rem 2.25rem;
     }
   }
 </style>

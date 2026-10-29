@@ -4,14 +4,17 @@ import PageHero from "../components/global/PageHero.astro";
 import Data from "../assets/images/Data.jpg";
 ---
 
-<Layout title="Soleana | Mentions Légales">
+<Layout
+  title="Politique de confidentialité | L'Instant Soleana"
+  description="Comment L'Instant Soleana collecte, utilise et protège les données envoyées via le formulaire de contact, et comment exercer vos droits."
+>
   <PageHero
     imageDesktop={Data}
     imageMobile={Data}
     title="Politique de Confidentialité"
     altText="Image de la section Politique de Confidentialité"
   />
-  <main class="page-content">
+  <div class="page-content">
     <section>
       <h2>Traitement des données personnelles</h2>
       <p>
@@ -24,38 +27,41 @@ import Data from "../assets/images/Data.jpg";
     <section>
       <h2>Données collectées</h2>
       <p>
-        Actuellement, aucune donnée personnelle n'est collectée sur ce site
-        internet. Lorsque cela sera amené à changer, par exemple via la création
-        du formulaire de contact, la politique de confidentialité sera mise à
-        jour en conséquence.
+        Les seules données personnelles collectées sur ce site sont celles que
+        vous saisissez dans le formulaire de la page
+        <a href="/contact/">Contact</a> : votre profil (particulier ou professionnel),
+        vos nom et prénom, votre adresse e-mail, votre numéro de téléphone, les prestations
+        qui vous intéressent et votre message.
       </p>
     </section>
 
-    <!-- <section>
+    <section>
       <h2>Finalité de la collecte</h2>
       <p>
-        Les données collectées via le formulaire de contact sont utilisées
-        uniquement pour répondre à votre demande. Votre nom, prénom, adresse
-        e-mail et numéro de téléphone nous permettent de vous recontacter afin
-        de vous fournir les informations demandées.
+        Ces données sont utilisées uniquement pour répondre à votre demande et
+        vous recontacter, par exemple pour fixer un rendez-vous ou établir un
+        devis. Elles ne sont utilisées à aucune autre fin (marketing, publicité,
+        etc.) et ne sont ni vendues ni cédées.
       </p>
-      <p>
-        Nous ne traitons pas vos données à d'autres fins (marketing, publicité,
-        etc.).
-      </p>
-    </section> -->
+    </section>
 
-    <!-- <section>
+    <section>
       <h2>Destinataires des données</h2>
       <p>
-        Les données collectées sont envoyées par e-mail à l'unique destinataire
-        suivant : [Adresse e-mail de la propriétaire du site].
+        Vos données sont transmises par e-mail à Soledad Barranco, seule
+        destinataire. Le site ne les enregistre dans aucune base de données.
       </p>
       <p>
-        Les données transitent par un service tiers d'envoi d'e-mail, mais ne
-        sont pas stockées sur une base de données du site. Nous vous invitons à
-        consulter la politique de confidentialité de ce service tiers : [Lien
-        vers la politique de confidentialité du service tiers].
+        L'envoi du formulaire passe par le service tiers Web3Forms, qui transmet
+        votre message par e-mail. Nous vous invitons à consulter
+        <a
+          href="https://web3forms.com/privacy"
+          target="_blank"
+          rel="noopener noreferrer"
+          >sa politique de confidentialité<span class="visually-hidden">
+            (nouvel onglet)</span
+          ></a
+        >.
       </p>
     </section>
 
@@ -63,7 +69,7 @@ import Data from "../assets/images/Data.jpg";
       <h2>Durée de conservation des données</h2>
       <p>
         Vos données sont conservées le temps nécessaire au traitement de votre
-        demande, puis sont supprimées de la boîte de réception.
+        demande, puis supprimées de la boîte de réception.
       </p>
     </section>
 
@@ -82,11 +88,18 @@ import Data from "../assets/images/Data.jpg";
       <p>
         Conformément au RGPD, vous disposez d'un droit d'accès, de
         rectification, d'opposition, de portabilité et de suppression des
-        données qui vous concernent. Pour exercer ces droits, vous pouvez nous
-        contacter par e-mail à l'adresse suivante : [Adresse e-mail de la
-        propriétaire du site].
+        données qui vous concernent. Pour exercer ces droits, contactez-nous via
+        la page <a href="/contact/">Contact</a>.
       </p>
-    </section> -->
+      <p>
+        Vous pouvez également adresser une réclamation à la CNIL (<a
+          href="https://www.cnil.fr"
+          target="_blank"
+          rel="noopener noreferrer"
+          >cnil.fr<span class="visually-hidden"> (nouvel onglet)</span></a
+        >).
+      </p>
+    </section>
 
     <section>
       <h2>Cookies</h2>
@@ -104,11 +117,11 @@ import Data from "../assets/images/Data.jpg";
         serait mise en place.
       </p>
     </section>
-  </main>
+  </div>
 </Layout>
 
 <style lang="scss">
-  @use "../styles/global.scss";
+  @use "@styles/config/variables" as *;
 
   .page-content {
     margin: 0 auto;
@@ -126,13 +139,22 @@ import Data from "../assets/images/Data.jpg";
     }
   }
   .page-content a {
-    color: var(--color-primary);
+    color: var(--primary-color);
     &:hover {
       text-decoration: underline;
     }
   }
 
-  @media (width >= global.$breakpoint-desktop) {
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  @media (width >= $breakpoint-desktop) {
     .page-content {
       max-width: 1000px;
     }

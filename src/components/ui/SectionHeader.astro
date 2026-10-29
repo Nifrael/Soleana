@@ -1,0 +1,58 @@
+---
+interface Props {
+  surtitre: string;
+  titre: string;
+  description?: string;
+}
+
+const { surtitre, titre, description } = Astro.props;
+---
+
+<header class="section-header">
+  <p class="surtitre">{surtitre}</p>
+  <h2>{titre}</h2>
+  {description && <p class="description">{description}</p>}
+</header>
+
+<style lang="scss">
+  @use "@styles/config/mixins" as *;
+
+  .section-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2.5rem;
+    text-align: center;
+
+    &::after {
+      content: "";
+      width: 4rem;
+      height: 2px;
+      margin-top: 1rem;
+      background-color: color-mix(
+        in srgb,
+        var(--accent-color) 55%,
+        var(--secondary-color)
+      );
+    }
+  }
+
+  .surtitre {
+    @include surtitre;
+    margin: 0;
+  }
+
+  h2 {
+    margin: 0.25rem 0 0;
+    font-family: var(--font-title);
+    font-size: var(--h2);
+    font-weight: 700;
+  }
+
+  .description {
+    max-width: 40rem;
+    margin: 0.75rem 0 0;
+    font-size: var(--base-size);
+    line-height: 1.6;
+  }
+</style>

@@ -1,8 +1,3 @@
-/**
- * @param {HTMLElement} headerElement
- * @returns {() => void}
- */
-
 export function setupNavbarScroll(headerElement) {
   if (!headerElement) return () => {};
 

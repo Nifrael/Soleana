@@ -3,26 +3,30 @@ import Layout from "../layouts/Layout.astro";
 import PageHero from "../components/global/PageHero.astro";
 import Legal from "../assets/images/Legal.jpg";
 import LegalDesktop from "../assets/images/LegalDesktop.jpg";
+import { email, telephone, adresse } from "../data/coordonnees";
 ---
 
-<Layout title="Soleana | Mentions Légales">
+<Layout
+  title="Mentions légales | L'Instant Soleana"
+  description="Mentions légales du site L'Instant Soleana : éditeur, hébergement et propriété intellectuelle."
+>
   <PageHero
     imageDesktop={LegalDesktop}
     imageMobile={Legal}
     title="Mentions Légales"
     altText="Image de la section Mentions Légales"
   />
-  <main class="page-content">
+  <div class="page-content">
     <section>
       <h2>Éditeur et responsable de la publication du site</h2>
       <p>
         Le site L'Instant Soleana est édité par Soledad Barranco,
-        auto-entrepreneuse dont l'entreprise est domiciliée au 28 Rue des
-        Arbousiers dans la commune de Le Soler, 66270.
+        auto-entrepreneuse dont l'entreprise est domiciliée au{" "}
+        {adresse}.
       </p>
       <p>
         L'adresse mail de contact de l'entreprise est
-        linstant.soleana@gmail.com, également joignable au 06.25.48.78.61.
+        {email}, également joignable au {telephone.affiche}.
       </p>
       <p>Le SIRET de l'entreprise est le 500 009 899 00021.</p>
     </section>
@@ -30,13 +34,14 @@ import LegalDesktop from "../assets/images/LegalDesktop.jpg";
     <section>
       <h2>Hébergement</h2>
       <p>
-        Le site est hébergé par Vercel, Inc, située 340 S Lemon Ave #4133
-        Walnut, CA 91789, aux États-Unis.
+        Le site est hébergé par Cloudflare, Inc., située 101 Townsend Street,
+        San Francisco, CA 94107, aux États-Unis.
       </p>
       <p>
         Leur site est disponible à l'adresse suivante : <a
-          href="https://www.vercel.com"
-          target="_blank">www.vercel.com</a
+          href="https://www.cloudflare.com"
+          target="_blank"
+          rel="noopener noreferrer">www.cloudflare.com</a
         >.
       </p>
     </section>
@@ -61,15 +66,16 @@ import LegalDesktop from "../assets/images/LegalDesktop.jpg";
         représentant Soledad Barranco elle-même sont issues de la banque
         d'images libres de droits nommée Unsplash, accessible à l'adresse <a
           href="https://www.unsplash.com"
-          target="_blank">www.unsplash.com</a
+          target="_blank"
+          rel="noopener noreferrer">www.unsplash.com</a
         >.
       </p>
     </section>
-  </main>
+  </div>
 </Layout>
 
 <style lang="scss">
-  @use "../styles/global.scss";
+  @use "@styles/config/variables" as *;
 
   .page-content {
     margin: 0 auto;
@@ -87,13 +93,13 @@ import LegalDesktop from "../assets/images/LegalDesktop.jpg";
     }
   }
   .page-content a {
-    color: var(--color-primary);
+    color: var(--primary-color);
     &:hover {
       text-decoration: underline;
     }
   }
 
-  @media (width >= global.$breakpoint-desktop) {
+  @media (width >= $breakpoint-desktop) {
     .page-content {
       max-width: 1000px;
     }

@@ -1,7 +1,7 @@
 {
   "title": "Épilations",
   "description": "Découvrez nos prestations d'épilation à domicile près de Perpignan. Offrez-vous une peau douce et soyeuse, sans effort.",
-  "pageLayout": "epilations",
+  "note": "Toutes les épilations sont réalisées à la cire professionnelle, respectent une hygiène rigoureuse et sont effectuées par des gestes experts.",
   "subtitle": "Une peau douce et soyeuse, sans effort.",
   "quote": "Un instant de douceur, une peau parfaite.",
   "image": {
@@ -12,214 +12,224 @@
     "src": "../../assets/icons/hairIcon.svg",
     "alt": "Icône de la section épilations"
   },
-  "priceTableTitle": "Les tarifs Soleana - Femmes",
-  "prices": [
+  "priceTables": [
     {
-      "name": "Sourcils",
-      "duration": "",
-      "price": "9€",
-      "description": ""
+      "title": "Les tarifs Soleana - Femmes",
+      "prices": [
+        {
+          "name": "Sourcils",
+          "duration": "",
+          "price": "9€",
+          "description": ""
+        },
+        {
+          "name": "Lèvre Supérieure",
+          "duration": "",
+          "price": "9€",
+          "description": ""
+        },
+        {
+          "name": "Menton",
+          "duration": "",
+          "price": "9€",
+          "description": ""
+        },
+        {
+          "name": "Aisselles",
+          "duration": "",
+          "price": "16€",
+          "description": ""
+        },
+        {
+          "name": "Demi – bras",
+          "duration": "",
+          "price": "18€",
+          "description": ""
+        },
+        {
+          "name": "Maillot simple",
+          "duration": "",
+          "price": "16€",
+          "description": ""
+        },
+        {
+          "name": "Maillot échancré",
+          "duration": "",
+          "price": "19€",
+          "description": ""
+        },
+        {
+          "name": "Maillot Intégral",
+          "duration": "",
+          "price": "32€",
+          "description": ""
+        },
+        {
+          "name": "Demi – jambes",
+          "duration": "",
+          "price": "18€",
+          "description": ""
+        },
+        {
+          "name": "Jambes Complètes",
+          "duration": "",
+          "price": "25€",
+          "description": ""
+        }
+      ]
     },
     {
-      "name": "Lèvre Supérieure",
-      "duration": "",
-      "price": "9€",
-      "description": ""
+      "title": "Les tarifs Soleana - Hommes",
+      "prices": [
+        {
+          "name": "Sourcils",
+          "duration": "",
+          "price": "12€",
+          "description": ""
+        },
+        {
+          "name": "Nez",
+          "duration": "",
+          "price": "12€",
+          "description": ""
+        },
+        {
+          "name": "Oreilles",
+          "duration": "",
+          "price": "12€",
+          "description": ""
+        },
+        {
+          "name": "Aisselles",
+          "duration": "",
+          "price": "18€",
+          "description": ""
+        },
+        {
+          "name": "Bras complets",
+          "duration": "",
+          "price": "24€",
+          "description": ""
+        },
+        {
+          "name": "Demi – Bras",
+          "duration": "",
+          "price": "20€",
+          "description": ""
+        },
+        {
+          "name": "Torse",
+          "duration": "",
+          "price": "24€",
+          "description": ""
+        },
+        {
+          "name": "Ventre",
+          "duration": "",
+          "price": "20€",
+          "description": ""
+        },
+        {
+          "name": "Dos",
+          "duration": "",
+          "price": "25€",
+          "description": ""
+        },
+        {
+          "name": "Demi – jambes",
+          "duration": "",
+          "price": "25€",
+          "description": ""
+        },
+        {
+          "name": "Jambes complètes",
+          "duration": "",
+          "price": "35€",
+          "description": ""
+        }
+      ]
     },
     {
-      "name": "Menton",
-      "duration": "",
-      "price": "9€",
-      "description": ""
+      "title": "Formules épilation – Femmes",
+      "prices": [
+        {
+          "name": "Formule Visage",
+          "duration": "",
+          "price": "20€",
+          "description": "Sourcils + Lèvres + Menton"
+        },
+        {
+          "name": "Formule Visage complet",
+          "duration": "",
+          "price": "25€",
+          "description": "Sourcils + lèvre + menton + joues"
+        },
+        {
+          "name": "Formule Visage + Maillot simple",
+          "duration": "",
+          "price": "31€",
+          "description": "Sourcils + Lèvres + Menton + Maillot simple"
+        },
+        {
+          "name": "Formule Visage + Maillot intégral",
+          "duration": "",
+          "price": "42€",
+          "description": "Sourcils + Lèvres + Menton + Maillot intégral"
+        },
+        {
+          "name": "Formule Demi-Jambes",
+          "duration": "",
+          "price": "45€",
+          "description": "Demi-jambes + maillot normal + aisselles"
+        },
+        {
+          "name": "Formule Demi-Jambes",
+          "duration": "",
+          "price": "59€",
+          "description": "Demi-jambes + maillot intégral + aisselles"
+        },
+        {
+          "name": "Formule Jambes Complètes",
+          "duration": "",
+          "price": "50€",
+          "description": "Jambes complètes + maillot simple + aisselles"
+        },
+        {
+          "name": "Formule Jambes Complètes",
+          "duration": "",
+          "price": "65€",
+          "description": "Jambes complètes + maillot intégral + aisselles"
+        },
+        {
+          "name": "Formule Corps Complet",
+          "duration": "",
+          "price": "75€",
+          "description": "Jambes complètes + maillot intégral + aisselles + avant bras"
+        }
+      ]
     },
     {
-      "name": "Aisselles",
-      "duration": "",
-      "price": "16€",
-      "description": ""
-    },
-    {
-      "name": "Demi – bras",
-      "duration": "",
-      "price": "18€",
-      "description": ""
-    },
-    {
-      "name": "Maillot simple",
-      "duration": "",
-      "price": "16€",
-      "description": ""
-    },
-    {
-      "name": "Maillot échancré",
-      "duration": "",
-      "price": "19€",
-      "description": ""
-    },
-    {
-      "name": "Maillot Intégral",
-      "duration": "",
-      "price": "32€",
-      "description": ""
-    },
-    {
-      "name": "Demi – jambes",
-      "duration": "",
-      "price": "18€",
-      "description": ""
-    },
-    {
-      "name": "Jambes Complètes",
-      "duration": "",
-      "price": "25€",
-      "description": ""
-    }
-  ],
-  "secondPriceTableTitle": "Les tarifs Soleana - Hommes",
-  "secondPrices": [
-    {
-      "name": "Sourcils",
-      "duration": "",
-      "price": "12€",
-      "description": ""
-    },
-    {
-      "name": "Nez",
-      "duration": "",
-      "price": "12€",
-      "description": ""
-    },
-    {
-      "name": "Oreilles",
-      "duration": "",
-      "price": "12€",
-      "description": ""
-    },
-    {
-      "name": "Aisselles",
-      "duration": "",
-      "price": "18€",
-      "description": ""
-    },
-    {
-      "name": "Bras complets",
-      "duration": "",
-      "price": "24€",
-      "description": ""
-    },
-    {
-      "name": "Demi – Bras",
-      "duration": "",
-      "price": "20€",
-      "description": ""
-    },
-    {
-      "name": "Torse",
-      "duration": "",
-      "price": "24€",
-      "description": ""
-    },
-    {
-      "name": "Ventre",
-      "duration": "",
-      "price": "20€",
-      "description": ""
-    },
-    {
-      "name": "Dos",
-      "duration": "",
-      "price": "25€",
-      "description": ""
-    },
-    {
-      "name": "Demi – jambes",
-      "duration": "",
-      "price": "25€",
-      "description": ""
-    },
-    {
-      "name": "Jambes complètes",
-      "duration": "",
-      "price": "35€",
-      "description": ""
-    }
-  ],
-  "thirdPriceTableTitle": "Formules épilation – Femmes",
-  "thirdPrices": [
-    {
-      "name": "Formule Visage",
-      "duration": "",
-      "price": "20€",
-      "description": "Sourcils + Lèvres + Menton"
-    },
-    {
-      "name": "Formule Visage complet",
-      "duration": "",
-      "price": "25€",
-      "description": "Sourcils + lèvre + menton + joues"
-    },
-    {
-      "name": "Formule Visage + Maillot simple",
-      "duration": "",
-      "price": "31€",
-      "description": "Sourcils + Lèvres + Menton + Maillot simple"
-    },
-    {
-      "name": "Formule Visage + Maillot intégral",
-      "duration": "",
-      "price": "42€",
-      "description": "Sourcils + Lèvres + Menton + Maillot intégral"
-    },
-    {
-      "name": "Formule Demi-Jambes",
-      "duration": "",
-      "price": "45€",
-      "description": "Demi-jambes + maillot normal + aisselles"
-    },
-    {
-      "name": "Formule Demi-Jambes",
-      "duration": "",
-      "price": "59€",
-      "description": "Demi-jambes + maillot intégral + aisselles"
-    },
-    {
-      "name": "Formule Jambes Complètes",
-      "duration": "",
-      "price": "50€",
-      "description": "Jambes complètes + maillot simple + aisselles"
-    },
-    {
-      "name": "Formule Jambes Complètes",
-      "duration": "",
-      "price": "65€",
-      "description": "Jambes complètes + maillot intégral + aisselles"
-    },
-    {
-      "name": "Formule Corps Complet",
-      "duration": "",
-      "price": "75€",
-      "description": "Jambes complètes + maillot intégral + aisselles + avant bras"
-    }
-  ],
-  "fourthPriceTableTitle": "Formules épilation – Hommes",
-  "fourthPrices": [
-    {
-      "name": "Formule Torse + Ventre",
-      "duration": "",
-      "price": "45€",
-      "description": ""
-    },
-    {
-      "name": "Formule Dos + Épaules",
-      "duration": "",
-      "price": "45€",
-      "description": ""
-    },
-    {
-      "name": "Formule Dos + Épaules + Torse",
-      "duration": "",
-      "price": "55€",
-      "description": ""
+      "title": "Formules épilation – Hommes",
+      "prices": [
+        {
+          "name": "Formule Torse + Ventre",
+          "duration": "",
+          "price": "45€",
+          "description": ""
+        },
+        {
+          "name": "Formule Dos + Épaules",
+          "duration": "",
+          "price": "45€",
+          "description": ""
+        },
+        {
+          "name": "Formule Dos + Épaules + Torse",
+          "duration": "",
+          "price": "55€",
+          "description": ""
+        }
+      ]
     }
   ]
 }

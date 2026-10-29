@@ -8,13 +8,16 @@ import BoutonPilule from "./ui/BoutonPilule.astro";
   <div class="person-card">
     <Image src={PhotoProfil} alt="Photo de profil" id="profile-photo" />
     <div class="person-card-text">
+      <p class="surtitre">Votre praticienne</p>
       <h2 class="nom">Soledad Barranco</h2>
       <p>
         "Passionnée par la beauté au naturel et le bien-être global, je choisis
         d'aller au-delà du simple soin, pour créer de véritables rituels sur
         mesure."
       </p>
-      <h5>Je vous invite à en découvrir plus sur moi, si vous le souhaitez.</h5>
+      <p class="invitation">
+        Je vous invite à en découvrir plus sur moi, si vous le souhaitez.
+      </p>
       <BoutonPilule texte="Derrière le soin" href="/apropos" clair />
     </div>
   </div>
@@ -22,6 +25,7 @@ import BoutonPilule from "./ui/BoutonPilule.astro";
 
 <style lang="scss">
   @use "@styles/config/variables" as *;
+  @use "@styles/config/mixins" as *;
 
   .person-card-container {
     margin: 4rem auto;
@@ -57,13 +61,22 @@ import BoutonPilule from "./ui/BoutonPilule.astro";
     align-items: center;
     text-align: center;
     h2,
-    h5,
     p {
       color: var(--secondary-color);
     }
   }
 
+  .surtitre {
+    @include surtitre(var(--secondary-color));
+    margin: 0;
+  }
+
+  .invitation {
+    font-weight: 600;
+  }
+
   .nom {
+    margin-top: 0.25rem;
     font-family: var(--font-title);
     font-size: var(--h2);
     font-weight: 900;

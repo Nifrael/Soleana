@@ -23,7 +23,9 @@ import Logo from "../assets/logo.svg";
       title="L'Instant Soleana"
       subtitle="Vous invite"
     >
-      <Image src={Logo} alt="Logo Soleana" id="logo-soleana" />
+      <h1 class="titre-logo">
+        <Image src={Logo} alt="L'Instant Soleana" id="logo-soleana" />
+      </h1>
     </PageHero>
     <NewsSection />
     <PrestationsCards />
@@ -34,6 +36,11 @@ import Logo from "../assets/logo.svg";
 
 <style lang="scss">
   @use "@styles/config/variables" as *;
+
+  .titre-logo {
+    width: 100%;
+    margin: 0;
+  }
 
   :global(#logo-soleana) {
     width: 90%;

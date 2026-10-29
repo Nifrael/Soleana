@@ -2,7 +2,7 @@
 import Icone, { type NomIcone } from "../ui/Icone.astro";
 import BoutonPilule from "../ui/BoutonPilule.astro";
 import { reservation } from "../../data/navigation.js";
-import { telephone, jeannelle } from "../../data/coordonnees";
+import { telephone, jeannelle, zone } from "../../data/coordonnees";
 
 const coordonnees: {
   icone: NomIcone;
@@ -23,8 +23,8 @@ const coordonnees: {
   {
     icone: "lieu",
     etiquette: "Rayon d'intervention",
-    titre: "À domicile ou au Soler",
-    detail: "Le Soler (Pyrénées-Orientales).",
+    titre: zone.titre,
+    detail: zone.detail,
   },
   {
     icone: "boutique",

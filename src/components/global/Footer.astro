@@ -1,164 +1,211 @@
 ---
-import { menuItems, prestations } from "../../data/navigation.js";
+import Icone from "../ui/Icone.astro";
+import BoutonPilule from "../ui/BoutonPilule.astro";
+import { menuItems, prestations, reservation } from "../../data/navigation.js";
+import { telephone, zone } from "../../data/coordonnees";
 
 const annee = new Date().getFullYear();
-const pages = menuItems.filter((item) => item.href);
+const pages = [
+  { href: "/", text: "Accueil" },
+  ...menuItems.filter((item) => item.href),
+];
 ---
 
 <footer class="footer-container">
   <div class="footer-content">
-    <div class="primary-content">
-      <p class="marque">L'Instant Soleana</p>
-      <p class="slogan">S'invite chez vous.</p>
-    </div>
-    <div class="secondary-content">
-      <div class="footer-column">
-        <h3>Prestations</h3>
-        <nav class="footer-links">
-          {prestations.map((lien) => <a href={lien.href}>{lien.text}</a>)}
-        </nav>
-      </div>
-      <div class="footer-column">
-        <h3>Plan du site</h3>
-        <nav class="footer-links">
-          {pages.map((lien) => <a href={lien.href}>{lien.text}</a>)}
-          <a href="/mentions-legales">Mentions légales</a>
-          <a href="/politique-de-confidentialite"
-            >Politique de confidentialité</a
-          >
-        </nav>
-      </div>
-    </div>
+    <p class="marque">L'Instant Soleana</p>
+
+    <nav class="colonne" aria-labelledby="pied-prestations">
+      <h2 id="pied-prestations">Prestations</h2>
+      <ul class="footer-links">
+        {
+          prestations.map((lien) => (
+            <li>
+              <a href={lien.href}>{lien.text}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <nav class="colonne" aria-labelledby="pied-pages">
+      <h2 id="pied-pages">Navigation</h2>
+      <ul class="footer-links">
+        {
+          pages.map((lien) => (
+            <li>
+              <a href={lien.href}>{lien.text}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <section class="colonne contact" aria-labelledby="pied-contact">
+      <h2 id="pied-contact">Contact</h2>
+      <ul class="footer-links">
+        <li>
+          <Icone nom="telephone" />
+          <a href={telephone.lien}>{telephone.affiche}</a>
+        </li>
+        <li>
+          <Icone nom="lieu" />
+          <span>{zone.titre}</span>
+        </li>
+      </ul>
+      <BoutonPilule
+        href={reservation.href}
+        texte={reservation.text}
+        icone="calendrier"
+      />
+    </section>
   </div>
+
   <div class="footer-bottom">
     <p>© {annee} L'Instant Soleana</p>
     <span class="separateur" aria-hidden="true"></span>
-    <p>Site réalisé par Julien Marchand - Nifradev</p>
+    <a href="/mentions-legales">Mentions légales</a>
+    <span class="separateur" aria-hidden="true"></span>
+    <a href="/politique-de-confidentialite">Confidentialité</a>
+    <span class="separateur" aria-hidden="true"></span>
+    <p>
+      Site réalisé par{" "}
+      <a href="https://nifradev.fr" target="_blank" rel="noopener noreferrer">
+        Julien Marchand - Nifradev</a
+      >
+    </p>
   </div>
-
-  <style lang="scss">
-    @use "@styles/config/variables" as *;
-
-    .footer-container {
-      width: 100%;
-      background-blend-mode: overlay;
-      background-image: url("../../assets/footer-background.svg");
-      background-position: top;
-      background-size: cover;
-      color: var(--primary-color);
-      padding: 2rem 0 0;
-    }
-
-    .footer-content {
-      width: 85%;
-      margin: 0 auto;
-      display: grid;
-      grid-template-rows: auto;
-      grid-template-columns: 1fr;
-    }
-
-    .primary-content {
-      display: flex;
-      flex-direction: column;
-      margin-bottom: 2rem;
-    }
-
-    .marque {
-      margin: 0 0 1.5rem 0;
-      font-family: var(--font-title);
-      font-size: var(--h2);
-      font-weight: 900;
-    }
-
-    .slogan {
-      margin: 0.75rem 0;
-      font-size: var(--h5);
-      font-weight: 700;
-    }
-
-    .secondary-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 1.5rem;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      a {
-        text-decoration: none;
-        color: var(--primary-color);
-        transition: color 0.3s ease;
-      }
-    }
-
-    .footer-bottom {
-      width: 85%;
-      margin: 2rem auto 0;
-      padding-block: 1rem;
-      border-top: 1px solid
-        color-mix(in srgb, var(--primary-color) 25%, transparent);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.25rem;
-      text-align: center;
-      p {
-        margin: 0;
-        font-size: 0.75rem;
-        opacity: 0.6;
-      }
-      .separateur {
-        display: none;
-        width: 3px;
-        height: 3px;
-        border-radius: 50%;
-        background-color: currentColor;
-        opacity: 0.4;
-      }
-    }
-
-    @media (width >= $breakpoint-tablet) {
-      .footer-bottom {
-        flex-direction: row;
-        justify-content: center;
-        gap: 0.75rem;
-        .separateur {
-          display: block;
-        }
-      }
-    }
-
-    @media (width >= $breakpoint-desktop) {
-      .footer-container {
-        padding: 2rem 0 0;
-      }
-      .marque {
-        font-size: var(--h1);
-      }
-    }
-
-    @media (hover: hover) and (width >= $breakpoint-desktop) {
-      .footer-links a:hover {
-        color: var(--tertiary-color);
-      }
-    }
-
-    @media (width >= $breakpoint-desktop-xl) {
-      .footer-container {
-        padding: 4rem 0 0;
-      }
-      .footer-content {
-        grid-template-columns: 60% 40%;
-      }
-      .footer-bottom {
-        margin-top: 4rem;
-      }
-      .secondary-content {
-        flex-direction: row;
-      }
-    }
-  </style>
 </footer>
+
+<style lang="scss">
+  @use "@styles/config/variables" as *;
+  @use "@styles/config/mixins" as *;
+
+  .footer-container {
+    width: 100%;
+    padding: 3rem 0 0;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem 1.5rem;
+    width: 90%;
+    max-width: 72rem;
+    margin: 0 auto;
+  }
+
+  .marque {
+    grid-column: 1 / -1;
+    margin: 0;
+    font-family: var(--font-title);
+    font-size: var(--h3);
+    font-weight: 700;
+  }
+
+  .colonne h2 {
+    @include surtitre;
+    margin: 0 0 1rem;
+  }
+
+  .contact {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+
+    h2 {
+      margin: 0;
+    }
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--font-text);
+      font-size: var(--base-size);
+    }
+
+    a {
+      color: var(--primary-color);
+      transition: color 0.3s ease;
+    }
+
+    :global(.icone) {
+      color: var(--accent-color);
+    }
+  }
+
+  .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    width: 90%;
+    max-width: 72rem;
+    margin: 3rem auto 0;
+    padding-block: 1.25rem;
+    border-top: 1px solid
+      color-mix(in srgb, var(--primary-color) 20%, transparent);
+    text-align: center;
+
+    p,
+    a {
+      margin: 0;
+      font-family: var(--font-text);
+      font-size: 0.75rem;
+      color: color-mix(in srgb, var(--primary-color) 70%, transparent);
+    }
+
+    .separateur {
+      display: none;
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background-color: currentColor;
+      opacity: 0.4;
+    }
+  }
+
+  @media (width >= $breakpoint-desktop) {
+    .footer-content {
+      grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    }
+
+    .marque,
+    .contact {
+      grid-column: auto;
+    }
+  }
+
+  @media (width >= $breakpoint-tablet) {
+    .footer-bottom {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.4rem 0.75rem;
+
+      .separateur {
+        display: block;
+      }
+    }
+  }
+
+  @media (hover: hover) and (width >= $breakpoint-desktop) {
+    .footer-links a:hover,
+    .footer-bottom a:hover {
+      color: var(--accent-color);
+    }
+  }
+</style>

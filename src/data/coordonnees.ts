@@ -10,3 +10,8 @@ export const jeannelle = {
   horaires: "Le samedi, sur rendez-vous.",
   site: "https://www.jeannelle.me",
 };
+
+export const zone = {
+  titre: "À domicile ou au Soler",
+  detail: "Le Soler (Pyrénées-Orientales).",
+};

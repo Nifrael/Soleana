@@ -28,7 +28,7 @@ const externe = href?.startsWith("http");
   rel={externe ? "noopener noreferrer" : undefined}
 >
   {texte}
-  {externe && <span class="sr-only">(nouvel onglet)</span>}
+  {externe && <span class="visually-hidden">(nouvel onglet)</span>}
   <Icone nom={icone} />
 </Tag>
 
@@ -75,15 +75,6 @@ const externe = href?.startsWith("http");
         color: var(--secondary-color);
       }
     }
-  }
-
-  .sr-only {
-    position: absolute;
-    inline-size: 1px;
-    block-size: 1px;
-    overflow: hidden;
-    clip-path: inset(50%);
-    white-space: nowrap;
   }
 
   .pleine-largeur {

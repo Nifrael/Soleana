@@ -4,7 +4,7 @@ import Icone from "../ui/Icone.astro";
 import BoutonPilule from "../ui/BoutonPilule.astro";
 import LogoMin from "../../assets/logo-min.svg";
 import MenuMobile from "./MenuMobile.astro";
-import { menuItems, reservation } from "../../data/navigation.js";
+import { menuItems, reservation, bonCadeau } from "../../data/navigation.js";
 ---
 
 <header id="main-header">
@@ -32,6 +32,9 @@ import { menuItems, reservation } from "../../data/navigation.js";
           ),
         )
       }
+      <a href={bonCadeau.href} target="_blank" rel="noopener noreferrer">
+        Offrir<span class="visually-hidden"> (nouvel onglet)</span>
+      </a>
       <div class="reserver">
         <BoutonPilule
           href={reservation.href}

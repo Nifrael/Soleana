@@ -1,8 +1,17 @@
 ---
+import { Image } from "astro:assets";
 import BoutonPilule from "../ui/BoutonPilule.astro";
+import fond from "../../assets/images/Contact.jpg";
 ---
 
 <div class="contact-card">
+  <Image
+    src={fond}
+    alt=""
+    class="fond"
+    widths={[480, 960, 1600, 2400]}
+    sizes="100vw"
+  />
   <BoutonPilule texte="Contactez-moi" href="/contact/" icone="email" clair />
 </div>
 
@@ -10,25 +19,26 @@ import BoutonPilule from "../ui/BoutonPilule.astro";
   @use "@styles/config/variables" as *;
 
   .contact-card {
+    position: relative;
     width: 100%;
     height: 30vh;
-    background-image: url("/src/assets/images/Contact.jpg");
+    overflow: hidden;
     background-color: color-mix(in srgb, var(--shadow-color) 40%, transparent);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
 
-    :global(.bouton) {
-      align-self: center;
+    .fond {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
-  }
 
-  @media (width >= $breakpoint-tablet) {
-    .contact-card {
-      background-attachment: fixed;
+    :global(.bouton) {
+      position: relative;
+      align-self: center;
     }
   }
 

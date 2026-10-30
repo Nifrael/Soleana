@@ -7,6 +7,8 @@ import PageHero from "../../components/global/PageHero.astro";
 import PriceTable from "../../components/prestations/PriceTable.astro";
 import ContactCard from "../../components/global/ContactCard.astro";
 import Villages from "../../components/global/VillagesSansFrais.astro";
+import BoutonPilule from "../../components/ui/BoutonPilule.astro";
+import { bonCadeau, reservation } from "../../data/navigation.js";
 
 export async function getStaticPaths() {
   const prestations = await getCollection("prestations");
@@ -76,6 +78,19 @@ const indications = [
       prestationData.note && <p class="note">{prestationData.note}</p>
     }
 
+    <div class="actions">
+      <BoutonPilule
+        href={reservation.href}
+        texte={reservation.text}
+        icone="calendrier"
+      />
+      <BoutonPilule
+        href={bonCadeau.href}
+        texte={bonCadeau.text}
+        icone="cadeau"
+      />
+    </div>
+
     {prestationData.homeService && <Villages />}
   </div>
   <ContactCard />
@@ -94,6 +109,13 @@ const indications = [
     max-width: 72rem;
     margin: 0 auto;
     padding: 2.5rem 0 2rem;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
   }
 
   .ornement {

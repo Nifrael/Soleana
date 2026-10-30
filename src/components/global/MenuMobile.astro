@@ -1,13 +1,12 @@
 ---
 import Icone from "../ui/Icone.astro";
 import BoutonPilule from "../ui/BoutonPilule.astro";
-import { menuItems, reservation } from "../../data/navigation.js";
+import { menuItems, reservation, bonCadeau } from "../../data/navigation.js";
 import { telephone, adresse, horaires } from "../../data/coordonnees";
 
 const estActif = (href: string) => Astro.url.pathname === href;
 const prestationsActives = Astro.url.pathname.startsWith("/prestations/");
 
-const liens = [{ href: "/", text: "Accueil" }, ...menuItems];
 ---
 
 <div class="menu-mobile">
@@ -29,7 +28,7 @@ const liens = [{ href: "/", text: "Accueil" }, ...menuItems];
 
       <ul class="liens">
         {
-          liens.map((item, index) => (
+          menuItems.map((item, index) => (
             <li style={`--i: ${index + 1}`}>
               {item.subItems ? (
                 <div class:list={["accordeon", { deplie: prestationsActives }]}>
@@ -79,11 +78,18 @@ const liens = [{ href: "/", text: "Accueil" }, ...menuItems];
         }
       </ul>
 
-      <div class="pied" style={`--i: ${liens.length + 1}`}>
+      <div class="pied" style={`--i: ${menuItems.length + 1}`}>
         <BoutonPilule
           href={reservation.href}
           texte="Réserver en ligne"
           icone="calendrier"
+          pleineLargeur
+          clair
+        />
+        <BoutonPilule
+          href={bonCadeau.href}
+          texte={bonCadeau.text}
+          icone="cadeau"
           pleineLargeur
           clair
         />

@@ -6,10 +6,7 @@ import { menuItems, prestations, reservation } from "../../data/navigation.js";
 import { telephone, zone } from "../../data/coordonnees";
 
 const annee = new Date().getFullYear();
-const pages = [
-  { href: "/", text: "Accueil" },
-  ...menuItems.filter((item) => item.href),
-];
+const pages = menuItems.filter((item) => item.href);
 ---
 
 <footer class="footer-container">

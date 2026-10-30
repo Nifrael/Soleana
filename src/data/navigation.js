@@ -7,6 +7,7 @@ export const prestations = [
 ];
 
 export const menuItems = [
+  { href: "/", text: "Accueil" },
   { text: "Prestations", subItems: prestations },
   { href: "/apropos/", text: "Derrière le soin" },
   { href: "/contact/", text: "Contact" },
@@ -15,4 +16,9 @@ export const menuItems = [
 export const reservation = {
   href: "https://www.sumupbookings.com/linstant-soleana",
   text: "Réservez",
+};
+
+export const bonCadeau = {
+  href: "https://giftcards.sumup.com/order/M2YADGTV",
+  text: "Offrir un bon cadeau",
 };

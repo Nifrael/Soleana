@@ -17,9 +17,12 @@ const prestationsActives = Astro.url.pathname.startsWith("/prestations/");
     aria-controls="panneau-menu"
     aria-label="Ouvrir le menu"
   >
-    <span></span>
-    <span></span>
-    <span></span>
+    <span class="barres">
+      <span></span>
+      <span></span>
+      <span></span>
+    </span>
+    <span class="libelle">Menu</span>
   </button>
 
   <div id="panneau-menu" class="panneau" inert>
@@ -121,6 +124,7 @@ const prestationsActives = Astro.url.pathname.startsWith("/prestations/");
 
 <style lang="scss">
   @use "@styles/config/variables" as *;
+  @use "@styles/config/mixins" as *;
 
   .menu-mobile {
     display: contents;
@@ -129,13 +133,22 @@ const prestationsActives = Astro.url.pathname.startsWith("/prestations/");
   .burger {
     position: relative;
     z-index: 20;
-    inline-size: 2.75rem;
-    block-size: 2.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    min-inline-size: 2.75rem;
     margin-inline-end: -0.5rem;
-    padding: 0;
+    padding: 0.25rem;
     border: none;
     background: none;
     cursor: pointer;
+  }
+
+  .barres {
+    position: relative;
+    inline-size: 1.6rem;
+    block-size: 1.1rem;
 
     span {
       position: absolute;
@@ -158,19 +171,28 @@ const prestationsActives = Astro.url.pathname.startsWith("/prestations/");
     span:last-child {
       transform: translate(-50%, calc(-50% + 0.45rem));
     }
+  }
 
-    &[aria-expanded="true"] {
-      span:first-child {
-        transform: translate(-50%, -50%) rotate(45deg);
-      }
+  .libelle {
+    @include surtitre(var(--secondary-color));
+    transition: opacity 0.2s ease;
+  }
 
-      span:nth-child(2) {
-        opacity: 0;
-      }
+  .burger[aria-expanded="true"] {
+    .barres span:first-child {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
 
-      span:last-child {
-        transform: translate(-50%, -50%) rotate(-45deg);
-      }
+    .barres span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .barres span:last-child {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    .libelle {
+      opacity: 0;
     }
   }
 
@@ -398,7 +420,8 @@ const prestationsActives = Astro.url.pathname.startsWith("/prestations/");
     .pied,
     .sous-menu,
     .picto,
-    .burger span {
+    .barres span,
+    .libelle {
       transition: none;
     }
   }

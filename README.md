@@ -66,7 +66,7 @@ Scores **Lighthouse mobile** mesurés sur le site en production (octobre 2026) :
 
 | Page                  | Performance | Accessibilité | Bonnes pratiques | SEO |
 | --------------------- | :---------: | :-----------: | :--------------: | :-: |
-| Accueil               |     94      |      95       |       100        | 100 |
+| Accueil               |     98      |      95       |       100        | 100 |
 | Prestation (massages) |     100     |      95       |       100        | 100 |
 | Derrière le soin      |     100     |      95       |       100        | 100 |
 | Partenaire            |     98      |      95       |       100        | 100 |
